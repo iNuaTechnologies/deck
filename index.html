@@ -1,155 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iNua Technologies - Deck</title>
+    <title>iNua Technologies</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap');
 
         :root {
-            --brand-primary: #D97757;
-            /* Earthy Terra Cotta */
-            --brand-secondary: #2C5282;
-            /* Deep Tech Blue */
-            --brand-accent: #F6AD55;
-            /* Warm Sunlight */
-            --bg-light: #FDFBF7;
-            /* Off-white Paper */
+            --brand-primary: #D97757; /* Terra Cotta */
+            --brand-secondary: #2C5282; /* Deep Tech Blue */
+            --brand-accent: #F6AD55; /* Warm Sunlight */
+            --bg-light: #FDFBF7; /* Off-white Paper */
         }
 
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-light);
             color: #2D3748;
+            margin: 0;
+            padding: 0;
             overflow-x: hidden;
         }
 
-        h1,
-        h2,
-        h3,
-        .stat-number {
+        h1, h2, h3, .font-heading {
             font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        /* Scroll Snap for Slide Effect */
-        .slides-container {
-            height: 100vh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-            outline: none;
-            /* Remove focus outline */
-        }
-
-        section {
-            height: 100vh;
-            width: 100vw;
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 2rem;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        /* --- ANIMATIONS --- */
-
-        /* Base transition for all animated elements */
-        .anim-element {
-            opacity: 0;
-            transition-property: opacity, transform;
-            transition-duration: 0.8s;
-            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        /* 1. Fade In Up (Original) */
-        .fade-in-up {
-            transform: translateY(30px);
-        }
-
-        section.active .fade-in-up {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* 2. Slide In Left (For text on left) */
-        .slide-in-left {
-            transform: translateX(-50px);
-        }
-
-        section.active .slide-in-left {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* 3. Slide In Right (For text on right) */
-        .slide-in-right {
-            transform: translateX(50px);
-        }
-
-        section.active .slide-in-right {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* 4. Pop In (For cards/icons) */
-        .pop-in {
-            transform: scale(0.8);
-        }
-
-        section.active .pop-in {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Staggered Delays */
-        .delay-100 {
-            transition-delay: 0.1s;
-        }
-
-        .delay-200 {
-            transition-delay: 0.2s;
-        }
-
-        .delay-300 {
-            transition-delay: 0.3s;
-        }
-
-        .delay-400 {
-            transition-delay: 0.4s;
-        }
-
-        .delay-500 {
-            transition-delay: 0.5s;
-        }
-
-        .delay-600 {
-            transition-delay: 0.6s;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #CBD5E0;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #A0AEC0;
         }
 
         .gradient-text {
@@ -158,1022 +35,622 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Print Styles */
+        /* Scroll Snap */
+        .slides-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Animations */
+        .anim-element {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        section.active .anim-element {
+            opacity: 1;
+        }
+
+        .fade-up { transform: translateY(30px); }
+        section.active .fade-up { transform: translateY(0); }
+
+        .slide-right { transform: translateX(-50px); }
+        section.active .slide-right { transform: translateX(0); }
+
+        .slide-left { transform: translateX(50px); }
+        section.active .slide-left { transform: translateX(0); }
+
+        .pop-in { transform: scale(0.9); }
+        section.active .pop-in { transform: scale(1); }
+
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+
+        /* Keyword Cycling Animation Class */
+        .cycling-word {
+            display: inline-block;
+            color: var(--brand-primary);
+            font-weight: 800;
+            min-width: 120px; /* Prevent layout shift */
+            text-align: center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+                /* Specific color for slide 3 (original) */
+        #client-word, #user-word {
+            color: var(--brand-primary);
+            font-weight: 800;
+        }
+
+        /* Specific style for slide 7 (white text on dark bg) */
+        #client-word-slide7, #user-word-slide7 {
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            border-bottom: 2px solid var(--brand-accent);
+        }
+        
+        .cycling-word.changing {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        /* Road Animation */
+        .road-dash {
+            stroke-dasharray: 12;
+            animation: dash 40s linear infinite;
+        }
+        
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+
+        /* Chart Animations */
+        .chart-circle {
+            transition: stroke-dasharray 1.5s ease-out;
+            transform-origin: center;
+        }
+        
+        section.active .chart-circle {
+            /* Trigger transition naturally via CSS or use JS. 
+               Here we rely on the section appearing to show the graphic, 
+               but for stroke animation we'd usually use JS. 
+               We'll keep it static-styled for reliability or use simple CSS keyframes if needed.
+            */
+            animation: dash-fill 1.5s ease-out forwards;
+        }
+
+        @keyframes dash-fill {
+            from { stroke-dasharray: 0 100; }
+        }
+
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E0; border-radius: 4px; }
+
+        /* Print Override */
         @media print {
-            @page {
-                size: landscape;
-                margin: 0;
-            }
+            .slides-container { height: auto; overflow: visible; scroll-snap-type: none; }
+            section { height: auto; page-break-after: always; min-height: 100vh; }
+            .fixed-logo, .nav-dots { display: none !important; }
+        }
+        
+        /* Fixed Logo */
+        .fixed-logo {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 50;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--brand-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem; 
+            background: rgba(253, 251, 247, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            backdrop-filter: blur(4px);
+        }
 
-            body {
-                background: white;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                overflow: visible !important;
-            }
+        .fixed-logo img {
+            height: 1.5em; 
+            width: 1.5em;  
+            object-fit: cover; 
+            border-radius: 50%; 
+            display: block;
+        }
 
-            /* Reset scroll container for print to allow normal flow */
-            .slides-container {
-                height: auto !important;
-                overflow: visible !important;
-                scroll-snap-type: none !important;
-                display: block !important;
-            }
-
-            /* Force slides to take up full page and break after */
-            section {
-                height: 100vh !important;
-                width: 100vw !important;
-                page-break-after: always;
-                break-after: page;
-                break-inside: avoid;
-                position: relative !important;
-                display: flex !important;
-                padding: 1.5rem !important;
-                /* Minimized padding to stretch content */
-                /* Ensure background colors/images print */
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            /* Stretch content to sides */
-            .container {
-                max-width: 98vw !important;
-                width: 98vw !important;
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-
-            #slide-5 .container>.grid {
-                display: grid !important;
-                grid-template-columns: 1.4fr 1fr !important;
-                /* Give slightly more space to funnel */
-                gap: 3rem !important;
-                align-items: center !important;
-            }
-
-            /* Reset any specific column spans (like col-span-7) for the main children */
-            #slide-5 .container>.grid>div {
-                grid-column: auto !important;
-                width: 100% !important;
-            }
-
-            /* Ensure the nested grid (Total Pop | Total Offline) stays side-by-side */
-            #slide-5 .container>.grid .grid {
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
-                gap: 1.5rem !important;
-            }
-
-
-            #slide-6 .grid,
-            #slide-7 .grid,
-            #slide-8 .grid,
-            #slide-9 .grid,
-            #slide-10 .grid,
-            #slide-11 .grid {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 2rem !important;
-            }
-
-            /* Hide interactive elements */
-            .fixed,
-            .animate-bounce,
-            button,
-            /* Optional: hide CTA buttons if desired */
-            ::-webkit-scrollbar {
-                display: none !important;
-            }
-
-            /* Ensure all content is visible (reset animations) */
-            .anim-element,
-            .fade-in-up,
-            .slide-in-left,
-            .slide-in-right,
-            .pop-in {
-                opacity: 1 !important;
-                transform: none !important;
-                transition: none !important;
-            }
-
-            /* Adjust text colors for better contrast on print if needed */
-            .text-white {
-                text-shadow: none !important;
-            }
-
+        /* Nav Dots Active State */
+        .nav-dot.active {
+            background-color: var(--brand-primary);
+            transform: scale(1.2);
         }
     </style>
 </head>
-
 <body>
 
+    <!-- Fixed Logo on all pages -->
+    <div class="fixed-logo">
+        <img src="./images/man_circle_only.png" alt="iNua Logo">
+        iNua Technologies
+    </div>
+
     <!-- Navigation Dots -->
-    <div class="fixed right-5 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col gap-3">
-        <a href="#slide-1" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="Intro"></a>
-        <a href="#slide-2" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="Mission"></a>
-        <a href="#slide-3" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="Goal"></a>
-        <a href="#slide-4" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="What We Do"></a>
-        <a href="#slide-5" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="Stats"></a>
-        <a href="#slide-6" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="Problem/Solution"></a>
-        <a href="#slide-7" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="How It Works"></a>
-        <a href="#slide-8" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="Value"></a>
-        <a href="#slide-9" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="Core Principles"></a>
-        <a href="#slide-10" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="Long Term Vision"></a>
-        <a href="#slide-11" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="SDGs"></a>
-        <a href="#slide-12" class="w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-colors"
-            title="Team"></a>
+    <div class="nav-dots fixed right-5 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col gap-3">
+        <a href="#slide-1" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Intro"></a>
+        <a href="#slide-2" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="The Compass"></a>
+        <a href="#slide-3" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="The Map"></a>
+        <a href="#slide-4" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="The Ship"></a>
+        <a href="#slide-5" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Market"></a>
+        <a href="#slide-6" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Problem"></a>
+        <a href="#slide-7" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Solution"></a>
+        <a href="#slide-8" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Description"></a>
+        <a href="#slide-9" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Value"></a>
+        <a href="#slide-10" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="How it Works"></a>
+        <a href="#slide-11" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Impact"></a>
+        <a href="#slide-12" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Alignment"></a>
+        <a href="#slide-13" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Team"></a>
     </div>
 
     <main class="slides-container" id="scroller">
 
         <!-- Slide 1: Title -->
         <section id="slide-1" class="active">
-            <div class="absolute inset-0 z-0 bg-gradient-to-br from-orange-50 to-blue-50"></div>
-            <!-- Decorative wave -->
-            <svg class="absolute bottom-0 left-0 w-full z-0 opacity-20 text-orange-200 fill-current"
-                viewBox="0 0 1440 320">
-                <path fill-opacity="1"
-                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-                </path>
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-50 to-blue-50 z-0"></div>
+            <!-- Decorative Wave -->
+            <svg class="absolute bottom-0 left-0 w-full z-0 opacity-20 text-orange-200 fill-current" viewBox="0 0 1440 320">
+                <path fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
             </svg>
-
-            <div class="z-10 text-center max-w-4xl mx-auto px-6">
-                <p
-                    class="text-xl md:text-2xl text-orange-600 font-semibold tracking-wide mb-4 anim-element slide-in-left">
-                    Hi, we are</p>
-                <h1
-                    class="text-4xl md:text-8xl font-extrabold mb-6 text-gray-900 tracking-tight anim-element pop-in delay-100">
-                    iNua <span class="text-orange-500">Technologies</span>
-                </h1>
-                <div class="h-1 w-24 bg-blue-900 mx-auto rounded-full mt-8 anim-element fade-in-up delay-200"></div>
+            
+            <div class="absolute right-0 top-0 w-full h-full opacity-80 pointer-events-none">
+                <img src="./images/woman_card_no_title_right.jpg" class="w-full h-full object-cover" alt="Abstract Network">
+            </div>
+            
+            <div class="container mx-auto px-6 z-10 relative">
+                <div class="max-w-4xl">
+                    <h1 class="text-6xl md:text-8xl font-extrabold text-blue-900 mb-8 leading-tight anim-element fade-up delay-100">
+                        iNua <br/><span class="gradient-text">Technologies</span>
+                    </h1>
+                    <div class="h-2 w-32 bg-orange-500 rounded-full mb-8 anim-element fade-up delay-200"></div>
+                    <p class="text-3xl md:text-5xl text-gray-600 font-bold anim-element fade-up delay-300 leading-normal tracking-wide">
+                        Lifting bridges
+                    </p>
+                </div>
             </div>
             <div class="absolute bottom-10 animate-bounce text-gray-400">
                 <i class="fas fa-chevron-down text-2xl"></i>
             </div>
         </section>
 
-        <!-- Slide 2: Goal -->
+        <!-- Slide 2: The Compass -->
         <section id="slide-2">
-            <div class="absolute right-0 top-0 w-1/3 h-full bg-orange-50 skew-x-12 transform origin-top-right z-0">
+            <div class="absolute inset-0 bg-white z-0"></div>
+            <!-- Large Compass Decoration -->
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vh] h-[80vh] opacity-5 pointer-events-none">
+                 <i class="far fa-compass w-full h-full text-blue-900 text-[80vh]"></i>
             </div>
-            <div class="z-10 max-w-5xl text-center px-6">
-                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6 anim-element fade-in-up">Our
-                    Goal</h2>
-                <p
-                    class="text-3xl md:text-5xl font-bold leading-loose text-gray-800 anim-element slide-in-right delay-100">
-                    <span class="gradient-text">Elevate communities</span><br /> in developing countries by<br />
-                    using <span class="gradient-text">advanced technologies</span>
+
+            <div class="container mx-auto px-6 z-10 text-center relative">
+                <div class="w-24 h-24 mx-auto bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-8 shadow-lg anim-element fade-up">
+                    <i class="fas fa-compass text-4xl"></i>
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold text-blue-900 mb-12 anim-element fade-up delay-100">The Compass</h2>
+                <p class="text-3xl md:text-5xl text-gray-700 font-light leading-relaxed max-w-5xl mx-auto anim-element fade-up delay-200">
+                    Lifting bridges between <span class="font-bold text-orange-500">offline communities</span> and <span class="font-bold text-blue-900">advanced technologies</span>.
                 </p>
             </div>
         </section>
 
-        <!-- Slide 3: Mission -->
+        <!-- Slide 3: The Map -->
         <section id="slide-3">
-            <div
-                class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-50 via-white to-blue-50 z-0">
+            <!-- Background: Topographic Lines SVG Pattern -->
+            <div class="absolute inset-0 z-0 opacity-10 bg-orange-50" 
+                 style="background-image: url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h100v100H0z\' fill=\'none\'/%3E%3Cpath d=\'M10 10c20 0 20 20 40 20s20-20 40-20v10c-20 0-20 20-40 20s-20-20-40-20V10zm0 40c20 0 20 20 40 20s20-20 40-20v10c-20 0-20 20-40 20s-20-20-40-20V50z\' fill=\'%23D97757\' fill-opacity=\'0.4\'/%3E%3C/svg%3E'); background-size: 200px 200px;">
             </div>
-
-            <div class="z-10 max-w-5xl text-center px-6 relative">
-                <div class="mb-8 anim-element pop-in">
-                    <div
-                        class="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center mx-auto shadow-lg text-white">
-                        <i class="fas fa-bullseye text-3xl"></i>
-                    </div>
-                </div>
-
-                <h2
-                    class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-8 anim-element fade-in-up delay-100">
-                    Our Mission</h2>
-
-                <p
-                    class="text-3xl md:text-5xl font-bold leading-relaxed text-gray-800 anim-element slide-in-left delay-200">
-                    Empowering rural populations by increasing <span class="text-orange-600">connectivity and
-                        accessibility</span>, both to each other and to <span class="text-blue-900">advanced
-                        technological tools</span>.
-                </p>
+            <!-- Decorative Compass Rose Watermark -->
+            <div class="absolute bottom-10 left-10 text-blue-900 opacity-5 z-0 transform -rotate-12 pointer-events-none">
+                <i class="far fa-compass text-[30rem]"></i>
             </div>
-        </section>
+            
+            <div class="container mx-auto px-6 z-10 relative">
+                <h2 class="text-6xl font-bold text-blue-900 mb-8 text-center anim-element fade-up">The Map</h2>
+                
+                <!-- Main Content Area -->
+                <div class="relative w-full max-w-6xl mx-auto h-[70vh] md:h-[60vh] flex flex-col md:flex-row justify-between items-stretch">
+                    
+                    <!-- Twisted Road SVG Connector -->
+                    <svg class="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <!-- Path 1: Forward (Org -> User) - Drawn Left to Right -->
+                        <path class="road-dash" d="M 25,35 C 60,35 40,65 75,65" stroke="#D97757" stroke-width="0.6" fill="none" stroke-dasharray="3 2" opacity="0.6" />
+                        <!-- Path 2: Backward (User -> Org) - Drawn Right to Left -->
+                        <path class="road-dash" d="M 75,70 C 40,70 60,40 25,40" stroke="#2C5282" stroke-width="0.6" fill="none" stroke-dasharray="3 2" opacity="0.6" />
+                    </svg>
 
-        <!-- Slide 4: What We Do (Desktop) -->
-        <section id="slide-4" class="!hidden md:!flex">
-            <div class="absolute left-0 bottom-0 w-1/3 h-full bg-blue-50 -skew-x-12 transform origin-bottom-left z-0">
-            </div>
-
-            <div class="z-10 max-w-5xl text-center px-6">
-                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-8 anim-element fade-in-up">What
-                    We Do</h2>
-
-                <p
-                    class="text-3xl md:text-5xl font-bold leading-loose text-gray-800 mb-12 anim-element slide-in-left delay-100">
-                    Connecting between <span class="text-blue-900">small-medium organizations</span>
-                    in Africa and their target population who live in <span class="text-orange-600">distant
-                        and rural areas</span>.
-                </p>
-
-                <p class="text-xl md:text-5xl leading-loose text-gray-800 mb-12 anim-element slide-in-right delay-300">
-                    Our platform empowers organizations by making organizational information <br />
-                    and communication with their target audience
-                    <span class="font-bold text-orange-600">scalable, and accessible.</span>
-                </p>
-            </div>
-        </section>
-
-        <!-- Slide 4 Mobile: What We Do -->
-        <section id="slide-4-m" class="md:!hidden relative">
-            <div class="absolute left-0 bottom-0 w-1/3 h-full bg-blue-50 -skew-x-12 transform origin-bottom-left z-0">
-            </div>
-            <div class="container mx-auto px-4 z-10 text-center flex flex-col justify-center h-full">
-                <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 anim-element fade-in-up">What
-                    We Do</h2>
-
-                <p class="text-xl font-bold leading-normal text-gray-800 mb-6 anim-element slide-in-left">
-                    Connecting between <span class="text-blue-900">small-medium organizations</span>
-                    in Africa and their target population who live in <span class="text-orange-600">distant
-                        and rural areas</span>.
-                </p>
-
-                <p class="text-base leading-relaxed text-gray-800 mb-6 anim-element slide-in-right">
-                    Our platform empowers organizations by making organizational information
-                    and communication with their target audience
-                    <span class="font-bold text-orange-600">scalable, and accessible.</span>
-                </p>
-            </div>
-        </section>
-
-        <!-- Slide 5: In a Nutshell -->
-        <!-- Slide 5: In a Nutshell (Desktop) -->
-        <section id="slide-5" class="bg-orange-50 text-gray-900 !hidden md:!flex">
-            <div class="container mx-auto px-6 z-10 w-full max-w-7xl">
-                <!-- Header -->
-                <div class="text-center mb-8 anim-element fade-in-up">
-                    <h2 class="text-3xl font-bold text-orange-600">In a Nutshell</h2>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-                    <!-- LEFT COLUMN: THE FUNNEL -->
-                    <div class="lg:col-span-7 flex flex-col items-center space-y-4 w-full anim-element slide-in-left">
-
-                        <!-- Row 1: Totals Side-by-Side -->
-                        <div class="grid grid-cols-2 gap-4 w-full">
-                            <!-- Total Pop -->
-                            <div
-                                class="bg-white border-l-8 border-orange-500 rounded-xl p-5 flex flex-col justify-center items-start shadow-sm relative hover:shadow-md transition-shadow">
-                                <div class="text-4xl font-extrabold text-orange-700 mb-2">1.29B</div>
-                                <div>
-                                    <div class="font-bold text-gray-700 leading-tight">Total Population</div>
-                                    <div class="text-xs text-gray-500 mt-1">World Bank Est. 2024</div>
-                                </div>
+                    <!-- Client Organization (Top Left) -->
+                    <div class="flex flex-col justify-start items-center md:items-start md:w-2/5 anim-element slide-right z-10 pt-4 md:pt-8 md:pl-12">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 bg-white border-4 border-orange-500 rounded-full shadow-xl flex items-center justify-center mb-6 relative z-10 transform hover:scale-110 transition-transform">
+                                <i class="fas fa-store text-4xl text-orange-600"></i>
                             </div>
-
-                            <!-- Total Offline -->
-                            <div
-                                class="bg-blue-50 border-l-8 border-blue-600 rounded-xl p-5 flex flex-col justify-center items-start shadow-sm hover:shadow-md transition-shadow">
-                                <div class="text-4xl font-extrabold text-blue-700 mb-2">62%</div>
-                                <div>
-                                    <div class="font-bold text-gray-700 leading-tight">Total Population Offline</div>
-                                    <div class="text-xs text-blue-800/60 mt-1">Intl. Telecomms Union</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Arrow -->
-                        <i class="fas fa-arrow-down text-orange-200 text-lg"></i>
-
-                        <!-- Level 2: Rural Pop -->
-                        <div
-                            class="w-11/12 bg-white border-l-8 border-orange-400 rounded-xl p-5 flex justify-between items-center shadow-sm hover:shadow-md transition-shadow">
-                            <div>
-                                <div class="text-4xl font-extrabold text-orange-600">55%</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="font-bold text-gray-700">Live in Rural Areas</div>
-                                <div class="text-xs text-gray-500">~833 Million People</div>
-                            </div>
-                        </div>
-
-                        <!-- Arrow -->
-                        <i class="fas fa-arrow-down text-orange-200 text-lg"></i>
-
-                        <!-- Level 3: The Core Issue (Highlighted) -->
-                        <div
-                            class="w-full bg-red-50 border-l-8 border-red-600 border-t border-b border-r border-red-100 rounded-xl p-6 flex justify-between items-center shadow-lg transform scale-105 z-10">
-                            <div class="flex items-center gap-4">
-                                <i class="fas fa-triangle-exclamation text-red-600 text-3xl"></i>
-                                <div class="text-5xl font-extrabold text-red-700">72%</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="font-bold text-red-900 text-lg">Rural Population Offline</div>
-                                <div class="text-sm text-red-600 font-semibold">Primary Barrier: Usage Costs</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- RIGHT COLUMN: THE NARRATIVE -->
-                    <div
-                        class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-xl border-t-4 border-orange-600 anim-element slide-in-right delay-200">
-                        <p class="font-serif text-2xl text-gray-800 leading-relaxed mb-8">
-                            The majority of Africa's population lives in rural zones, yet nearly three-quarters of this
-                            specific demographic remain disconnected.
-                        </p>
-
-                        <div class="flex items-start gap-5 p-6 bg-red-50 rounded-xl border-2 border-red-100 shadow-sm">
-                            <div
-                                class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 flex-shrink-0 mt-1">
-                                <i class="fas fa-ban text-2xl"></i>
-                            </div>
-                            <div>
-                                <strong class="text-red-900 text-xl block mb-3 uppercase tracking-wide">Critical
-                                    Bottleneck</strong>
-                                <p class="text-2xl text-red-800 font-bold leading-snug">
-                                    This disconnect represents a significant limitation regarding information
-                                    accessibility and economic distribution.
+                            <h3 class="text-4xl font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full text-center">Client<br/>Organization</h3>
+                            <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 relative text-center">
+                                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[10px] border-b-white"></div>
+                                <p class="text-2xl text-gray-600 leading-relaxed">
+                                    Creating better <span id="client-word" class="cycling-word">simple</span> communication between offline populations and Small to medium enterprises.
                                 </p>
                             </div>
                         </div>
                     </div>
+
+                    <!-- End Users (Bottom Right) -->
+                    <div class="flex flex-col justify-end items-center md:items-end md:w-1/3 anim-element slide-left z-10 pb-4 md:pb-8 md:pr-12">
+                        <div class="flex flex-col items-center">
+                             <div class="bg-blue-900 text-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-400 relative max-w-md text-center mb-6 order-2 md:order-1">
+                                <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-blue-900 md:hidden"></div>
+                                <p class="text-2xl text-blue-100 leading-relaxed">
+                                    Creating better <span id="user-word" class="cycling-word">simple</span> access to information and services.
+                                </p>
+                            </div>
+                            <h3 class="text-4xl font-bold text-blue-900 mb-4 order-1 md:order-2 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">End Users</h3>
+                            <div class="w-24 h-24 bg-blue-900 border-4 border-white rounded-full shadow-xl flex items-center justify-center order-3 relative z-10 transform hover:scale-110 transition-transform">
+                                <i class="fas fa-users text-4xl text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Slide 5 Mobile 1: Funnel Stats -->
-        <section id="slide-5-m1" class="bg-orange-50 text-gray-900 md:!hidden">
-            <div class="container mx-auto px-4 z-10 w-full">
-                <div class="text-center mb-6 anim-element fade-in-up">
-                    <h2 class="text-3xl font-bold text-orange-600">In a Nutshell</h2>
-                </div>
-                <div class="flex flex-col items-center space-y-4 w-full anim-element slide-in-left">
-                    <!-- Row 1: Totals Stacked -->
-                    <div class="flex flex-col gap-4 w-full">
-                        <!-- Total Pop -->
-                        <div
-                            class="bg-white border-l-8 border-orange-500 rounded-xl p-4 flex flex-col justify-center items-start shadow-sm">
-                            <div class="text-3xl font-extrabold text-orange-700 mb-1">1.29B</div>
-                            <div>
-                                <div class="font-bold text-gray-700 leading-tight">Total Population</div>
-                                <div class="text-xs text-gray-500 mt-1">World Bank Est. 2024</div>
-                            </div>
-                        </div>
-                        <!-- Total Offline -->
-                        <div
-                            class="bg-blue-50 border-l-8 border-blue-600 rounded-xl p-4 flex flex-col justify-center items-start shadow-sm">
-                            <div class="text-3xl font-extrabold text-blue-700 mb-1">62%</div>
-                            <div>
-                                <div class="font-bold text-gray-700 leading-tight">Total Population Offline</div>
-                                <div class="text-xs text-blue-800/60 mt-1">Intl. Telecomms Union</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Arrow -->
-                    <i class="fas fa-arrow-down text-orange-200 text-lg"></i>
-                    <!-- Level 2: Rural Pop -->
-                    <div
-                        class="w-full bg-white border-l-8 border-orange-400 rounded-xl p-4 flex justify-between items-center shadow-sm">
-                        <div>
-                            <div class="text-3xl font-extrabold text-orange-600">55%</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="font-bold text-gray-700">Live in Rural Areas</div>
-                            <div class="text-xs text-gray-500">~833 Million People</div>
-                        </div>
-                    </div>
-                    <!-- Arrow -->
-                    <i class="fas fa-arrow-down text-orange-200 text-lg"></i>
-                    <!-- Level 3: The Core Issue -->
-                    <div
-                        class="w-full bg-red-50 border-l-8 border-red-600 border-t border-b border-r border-red-100 rounded-xl p-4 flex justify-between items-center shadow-lg transform scale-105 z-10">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-triangle-exclamation text-red-600 text-2xl"></i>
-                            <div class="text-4xl font-extrabold text-red-700">72%</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="font-bold text-red-900 text-sm">Rural Pop Offline</div>
-                            <div class="text-xs text-red-600 font-semibold">Primary Barrier: Costs</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Slide 4: The Ship -->
+        <section id="slide-4">
+            <div class="absolute inset-0 bg-gray-50 z-0"></div>
+            <!-- Decorative Skew Left -->
+            <div class="absolute left-0 bottom-0 w-1/3 h-full bg-blue-50 -skew-x-12 transform origin-bottom-left z-0"></div>
 
-        <!-- Slide 5 Mobile 2: Narrative -->
-        <section id="slide-5-m2" class="bg-orange-50 text-gray-900 md:!hidden">
-            <div class="container mx-auto px-4 z-10 w-full">
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-orange-600 anim-element slide-in-right">
-                    <p class="font-serif text-xl text-gray-800 leading-relaxed mb-6">
-                        The majority of Africa's population lives in rural zones, yet nearly three-quarters of this
-                        specific demographic remain disconnected.
-                    </p>
-                    <div
-                        class="flex flex-col items-start gap-4 p-4 bg-red-50 rounded-xl border-2 border-red-100 shadow-sm text-center">
-                        <div>
-                            <strong class="text-red-900 text-lg block mb-2 uppercase tracking-wide">Critical
-                                Bottleneck</strong>
-                            <p class="text-lg text-red-800 font-bold leading-snug">
-                                This disconnect represents a significant limitation regarding information accessibility
-                                and economic distribution.
+            <div class="container mx-auto px-6 z-10 flex flex-col justify-center h-full">
+                <!-- Top Header -->
+                <div class="flex items-center gap-4 mb-12 justify-center anim-element fade-up">
+                    <div class="w-16 h-16 bg-white shadow-md rounded-full flex items-center justify-center text-blue-900">
+                        <i class="fas fa-ship text-3xl"></i>
+                    </div>
+                    <h2 class="text-5xl font-bold text-blue-900">The Ship</h2>
+                </div>
+
+                <!-- Central Headline (Redesigned) -->
+                <div class="text-center mb-16 anim-element pop-in">
+                    <span class="inline-block py-4 px-10 rounded-full bg-white border border-blue-100 shadow-2xl text-3xl md:text-4xl text-gray-700 font-light">
+                        Our <span class="font-bold text-orange-500 drop-shadow-md">AI-powered SMS agent</span>
+                    </span>
+                </div>
+
+                <!-- Cards (Bigger and Stretched) -->
+                <div class="grid md:grid-cols-2 gap-10 items-stretch w-full max-w-7xl mx-auto">
+                    <!-- Client Organizations -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-24 h-24 bg-white border-4 border-orange-500 rounded-full shadow-xl flex items-center justify-center mb-6 relative z-10 transform hover:scale-110 transition-transform">
+                            <i class="fas fa-store text-4xl text-orange-600"></i>
+                        </div>
+                        <h3 class="text-4xl font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">Client Organization</h3>
+                        <div class="bg-white p-14 rounded-3xl shadow-xl flex flex-col justify-center text-center anim-element slide-right delay-100 border-t-8 border-orange-500 hover:shadow-2xl transition-all duration-300">
+                            <p class="text-3xl text-gray-600 font-light leading-relaxed">
+                                Connects <span class="font-semibold text-blue-900">SMEs in Africa</span> to their offline target audience.
                             </p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Slide 6: Problem & Solution, Buisness -->
-        <!-- Slide 6: Problem & Solution, Buisness (Desktop) -->
-        <section id="slide-6" class="!hidden md:!grid md:grid-cols-2 w-full h-full items-stretch">
-            <!-- The Problem -->
-            <div
-                class="bg-gray-100 flex flex-col justify-center items-center p-10 md:p-20 border-r border-gray-200 h-full">
-                <div class="max-w-md anim-element slide-in-left">
-                    <div
-                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 text-red-600 mb-6">
-                        <i class="fas fa-unlink text-3xl"></i>
+                    <!-- End Users -->
+                    <div class="flex flex-col items-center">    
+                        <div class="bg-blue-900 text-white p-6 rounded-2xl shadow-lg border-t-8 border-orange-400 relative text-center mb-6 order-2 md:order-1">
+                                <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-blue-900 md:hidden"></div>
+                                <p class="text-3xl text-blue-100 leading-relaxed">
+                                    Empowers communities by making <span class="font-semibold text-orange-400">organizational information</span> and services accessible.
+                                </p>
+                            </div>
+                        <h3 class="text-4xl font-bold text-blue-900 mb-4 order-1 md:order-2 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">End Users</h3>
+                        <div class="w-24 h-24 bg-blue-900 border-4 border-white rounded-full shadow-xl flex items-center justify-center order-3 relative z-10 transform hover:scale-110 transition-transform">
+                            <i class="fas fa-users text-4xl text-white"></i>
+                        </div>
                     </div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">The Problem</h2>
-                    <h3 class="text-2xl text-red-500 font-semibold mb-6">A Vital Disconnect</h3>
-                    <p class="text-xl text-gray-600 leading-relaxed">
-                        Internet is a revolution in knowledge sharing and scaling solutions.<br>
-                        <span class="font-bold text-blue-700">Connectivity is not a luxury but fundamental for
-                            growth.</span><br>
-                        However, infrastructure and costs create a massive barrier for rural populations.
-                    </p>
-                </div>
-            </div>
-
-            <!-- The Solution -->
-            <div
-                class="bg-blue-900 text-white flex flex-col justify-center items-center p-10 md:p-20 relative overflow-hidden h-full">
-                <div class="absolute inset-0 bg-blue-800 opacity-50 transform -skew-y-6 scale-150 origin-bottom-left">
-                </div>
-                <div class="max-w-md relative z-10 anim-element slide-in-right delay-200">
-                    <div
-                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-700 text-blue-200 mb-6">
-                        <i class="fas fa-link text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold text-white mb-6">The Solution</h2>
-                    <p class="text-2xl font-light leading-relaxed">
-                        Instead of waiting for these barriers to be resolved in order to use technology, <span
-                            class="font-bold text-orange-400">we use technology to allow communication in scale...
-                            despite it.</span>
-                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 6 Mobile 1: The Problem -->
-        <section id="slide-6-m1" class="bg-gray-100 md:!hidden">
-            <div class="container mx-auto px-6 z-10 flex flex-col justify-center items-center text-center">
-                <div
-                    class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 text-red-600 mb-6">
-                    <i class="fas fa-unlink text-3xl"></i>
-                </div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">The Problem</h2>
-                <h3 class="text-xl text-red-500 font-semibold mb-6">A Vital Disconnect</h3>
-                <p class="text-lg text-gray-600 leading-relaxed">
-                    Internet is a revolution in knowledge sharing and scaling solutions.<br>
-                    <span class="font-bold text-blue-700">Connectivity is not a luxury but fundamental for
-                        growth.</span><br>
-                    However, infrastructure and costs create a massive barrier for rural populations.
-                </p>
+        <!-- Slide 5: Background Data - market (Updated Pie Chart) -->
+        <section id="slide-5" class="bg-blue-900 text-white relative overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute right-0 top-0 h-full w-1/2 opacity-10 transform skew-x-12 origin-top-right">
+                <img src="https://images.unsplash.com/photo-1526304640152-d4619684e7dd?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Market Context">
             </div>
-        </section>
 
-        <!-- Slide 6 Mobile 2: The Solution -->
-        <section id="slide-6-m2" class="bg-blue-900 text-white md:!hidden relative overflow-hidden">
-            <div class="absolute inset-0 bg-blue-800 opacity-50 transform -skew-y-6 scale-150 origin-bottom-left"></div>
-            <div class="container mx-auto px-6 z-10 flex flex-col justify-center items-center text-center">
-                <div
-                    class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-700 text-blue-200 mb-6">
-                    <i class="fas fa-link text-3xl"></i>
-                </div>
-                <h2 class="text-3xl font-bold text-white mb-6">The Solution</h2>
-                <p class="text-xl font-light leading-relaxed">
-                    Instead of waiting for these barriers to be resolved, <span class="font-bold text-orange-400">we use
-                        technology to allow communication in scale... despite it.</span>
-                </p>
-            </div>
-        </section>
-
-        <!-- Slide 7: How It Works Diagram (Desktop) -->
-        <section id="slide-7" class="!hidden md:!flex">
-            <div class="container mx-auto px-6 z-10 w-full max-w-6xl">
-                <h2 class="text-3xl font-bold text-center mb-16 anim-element fade-in-up">How It Works</h2>
-                <div
-                    class="bg-yellow-50 p-8 rounded-2xl border-4 border-orange-500 shadow-lg overflow-hidden anim-element pop-in delay-200">
-                    <img src="images/product_diagram.png" alt="Product Diagram" class="object-cover">
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 7 Mobile: How It Works Diagram -->
-        <section id="slide-7-m" class="md:!hidden bg-white" style="padding: 10px !important">
-            <div class="w-full h-full flex flex-col justify-center items-center">
-                <h2 class="text-2xl font-bold text-center mb-4 anim-element fade-in-up">How It Works</h2>
-                <div class="w-full flex justify-center anim-element pop-in">
-                    <img src="images/product_diagram.png" alt="Product Diagram"
-                        class="w-full h-full object-contain rounded-lg border-2 border-orange-500 shadow-md">
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Slide 8: Value (Dual Impact) -->
-        <!-- Slide 8: Value (Dual Impact) (Desktop) -->
-        <section id="slide-8" class="bg-white !hidden md:!flex">
             <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center">
-                <div class="text-center mb-16 anim-element fade-in-up">
-                    <h2 class="text-3xl font-bold mb-4">The Value: A Dual Impact</h2>
-                    <p class="text-2xl text-orange-400">Bridging the inequality gap while fueling economic growth.</p>
-                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 anim-element fade-up border-l-8 border-orange-500 pl-6">Market Context</h2>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Social Impact -->
-                    <div
-                        class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border-b-4 border-green-500 anim-element pop-in delay-100">
-                        <div class="flex items-center mb-6">
-                            <div
-                                class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 mr-4">
-                                <i class="fas fa-heart text-xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800">Social Impact</h3>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed text-lg text-center">
-                            The more technology advances, the wider the inequality gap becomes. We are devoted to using
-                            technology where it's crucially needed, to make new tools accessible for communities for the
-                            benefit of their self-development.
-                        </p>
-                    </div>
-
-                    <!-- Economic Opportunity -->
-                    <div
-                        class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border-b-4 border-blue-500 anim-element pop-in delay-200">
-                        <div class="flex items-center mb-6">
-                            <div
-                                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
-                                <i class="fas fa-chart-line text-xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800">Economic Opportunity</h3>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed text-lg text-center">
-                            The backbone of Africa’s economy is Small-Medium Businesses. We empower these organizations
-                            with accessible, easy-to-use technology that fuels their growth. This strategy unlocks a
-                            largely untapped market, creating a substantial opportunity for scalability.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 8 Mobile 1: Social Impact -->
-        <section id="slide-8-m1" class="bg-white md:!hidden">
-            <div class="container mx-auto px-6 z-10">
-                <div class="text-center mb-8 anim-element fade-in-up">
-                    <h2 class="text-2xl font-bold mb-2">The Value: A Dual Impact</h2>
-                    <p class="text-xl text-orange-400">Bridging the inequality gap.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-2xl shadow-lg border-b-4 border-green-500 anim-element pop-in">
-                    <div class="flex items-center mb-4">
-                        <div
-                            class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 mr-4">
-                            <i class="fas fa-heart text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Social Impact</h3>
-                    </div>
-                    <p class="text-gray-600 leading-relaxed text-base text-center">
-                        We are devoted to using technology where it's crucially needed, to make new tools accessible for
-                        communities for the benefit of their self-development.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 8 Mobile 2: Economic Opportunity -->
-        <section id="slide-8-m2" class="bg-white md:!hidden">
-            <div class="container mx-auto px-6 z-10">
-                <div class="text-center mb-8 anim-element fade-in-up">
-                    <h2 class="text-2xl font-bold mb-2">The Value: A Dual Impact</h2>
-                    <p class="text-xl text-orange-400">Fueling economic growth.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-2xl shadow-lg border-b-4 border-blue-500 anim-element pop-in">
-                    <div class="flex items-center mb-4">
-                        <div
-                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
-                            <i class="fas fa-chart-line text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Economic Opportunity</h3>
-                    </div>
-                    <p class="text-gray-600 leading-relaxed text-base text-center">
-                        We empower Small-Medium Businesses with accessible technology. This strategy unlocks a largely
-                        untapped market, creating a substantial opportunity for scalability.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 9: Core Principles in Action -->
-        <!-- Slide 9: Core Principles in Action (Desktop) -->
-        <section id="slide-9" class="bg-gray-50 !hidden md:!flex">
-            <div class="container mx-auto px-6 z-10 w-full max-w-7xl h-full flex flex-col justify-center">
-                <div class="text-center mb-12 anim-element fade-in-up">
-                    <h2 class="text-3xl font-bold text-blue-900 mb-4">Core Principles in Action</h2>
-                    <p class="text-xl text-gray-600">How our philosophy translates into real-world impact.</p>
-                    <div class="h-1 w-24 bg-orange-500 mx-auto rounded-full mt-6"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                    <!-- Card 1: Immediate Value -> Humanitarian (Orange) -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col anim-element slide-in-left delay-100">
-                        <!-- Principle Header -->
-                        <div class="p-6 flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-orange-100 rounded-full flex-shrink-0 flex items-center justify-center text-orange-600">
-                                <i class="fas fa-bolt text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">Immediate Value</h3>
-                                <p class="text-gray-600 text-sm mt-1">An instant two way communication channel.</p>
-                            </div>
-                        </div>
-                        <!-- Use Case Footer -->
-                        <div
-                            class="bg-orange-50 p-6 border-t border-orange-100 flex-grow flex flex-col justify-center relative">
-                            <div
-                                class="absolute top-0 left-8 -mt-3 bg-white border border-orange-100 text-orange-600 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">
-                                In Action
-                            </div>
-                            <div class="flex items-center mb-2 text-orange-800">
-                                <i class="fas fa-hand-holding-heart mr-2"></i>
-                                <span class="font-bold">Humanitarian Crisis</span>
-                            </div>
-                            <p class="text-gray-700 text-sm leading-relaxed">
-                                Replacing days of slow word-of-mouth with <strong>instant mass SMS updates</strong>,
-                                allowing aid teams to coordinate distribution immediately.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Actionable Data -> SMBs (Blue) -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col anim-element slide-in-right delay-200">
-                        <!-- Principle Header -->
-                        <div class="p-6 flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center text-blue-600">
-                                <i class="fas fa-chart-pie text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">Actionable Data</h3>
-                                <p class="text-gray-600 text-sm mt-1">Organizations gaining insights to improve service
-                                    and retention.
-                                    <br />
-                                    Clients receive better information tailored to their needs.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Use Case Footer -->
-                        <div
-                            class="bg-blue-50 p-6 border-t border-blue-100 flex-grow flex flex-col justify-center relative">
-                            <div
-                                class="absolute top-0 left-8 -mt-3 bg-white border border-blue-100 text-blue-600 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">
-                                In Action
-                            </div>
-                            <div class="flex items-center mb-2 text-blue-800">
-                                <i class="fas fa-store mr-2"></i>
-                                <span class="font-bold">SMBs & Merchants</span>
-                            </div>
-                            <p class="text-gray-700 text-sm leading-relaxed">
-                                Merchants use direct marketing channels to turn "invisible" distant customers into a
-                                <strong>reachable audience</strong> with trackable preferences.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Continuous Feedback -> Clinics (Teal) -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col anim-element slide-in-left delay-300">
-                        <!-- Principle Header -->
-                        <div class="p-6 flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-teal-100 rounded-full flex-shrink-0 flex items-center justify-center text-teal-600">
-                                <i class="fas fa-sync-alt text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">Continuous Feedback</h3>
-                                <p class="text-gray-600 text-sm mt-1">Creating a loop of adaptation and constant care.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Use Case Footer -->
-                        <div
-                            class="bg-teal-50 p-6 border-t border-teal-100 flex-grow flex flex-col justify-center relative">
-                            <div
-                                class="absolute top-0 left-8 -mt-3 bg-white border border-teal-100 text-teal-600 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">
-                                In Action
-                            </div>
-                            <div class="flex items-center mb-2 text-teal-800">
-                                <i class="fas fa-clinic-medical mr-2"></i>
-                                <span class="font-bold">Village Clinics</span>
-                            </div>
-                            <p class="text-gray-700 text-sm leading-relaxed">
-                                Moving from sporadic visits to <strong>automated health reminders</strong>, ensuring
-                                patients adhere to treatments even without stable internet.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Mutual Engagement -> NGOs (Purple) -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col anim-element slide-in-right delay-400">
-                        <!-- Principle Header -->
-                        <div class="p-6 flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-purple-100 rounded-full flex-shrink-0 flex items-center justify-center text-purple-600">
-                                <i class="fas fa-handshake text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">Mutual Engagement</h3>
-                                <p class="text-gray-600 text-sm mt-1">Fostering trust through two-way active
-                                    participation.</p>
-                            </div>
-                        </div>
-                        <!-- Use Case Footer -->
-                        <div
-                            class="bg-purple-50 p-6 border-t border-purple-100 flex-grow flex flex-col justify-center relative">
-                            <div
-                                class="absolute top-0 left-8 -mt-3 bg-white border border-purple-100 text-purple-600 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">
-                                In Action
-                            </div>
-                            <div class="flex items-center mb-2 text-purple-800">
-                                <i class="fas fa-users mr-2"></i>
-                                <span class="font-bold">NGOs and Communities Centers></span>
-                            </div>
-                            <p class="text-gray-700 text-sm leading-relaxed">
-                                Establishing <strong>territory-wide communication</strong> that allows distant
-                                communities to actively voice needs rather than passively receive aid.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 9 Mobile 1: First 2 Principles -->
-        <section id="slide-9-m1" class="bg-gray-50 md:!hidden">
-            <div class="container mx-auto px-6 z-10 w-full">
-                <div class="text-center mb-6 anim-element fade-in-up">
-                    <h2 class="text-2xl font-bold text-blue-900 mb-2">Core Principles</h2>
-                </div>
-                <div class="flex flex-col gap-6">
-                    <!-- Card 1 -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col anim-element slide-in-left">
-                        <div class="p-4 flex items-start gap-4">
-                            <div
-                                class="w-10 h-10 bg-orange-100 rounded-full flex-shrink-0 flex items-center justify-center text-orange-600">
-                                <i class="fas fa-bolt text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-800">Immediate Value</h3>
-                                <p class="text-gray-600 text-xs mt-1">Instant two way communication.</p>
-                            </div>
-                        </div>
-                        <div class="bg-orange-50 p-4 border-t border-orange-100">
-                            <div class="flex items-center mb-1 text-orange-800 text-sm">
-                                <i class="fas fa-hand-holding-heart mr-2"></i>
-                                <span class="font-bold">Humanitarian Crisis</span>
-                            </div>
-                            <p class="text-gray-700 text-xs leading-relaxed">
-                                Replacing slow word-of-mouth with <strong>instant mass SMS updates</strong>.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col anim-element slide-in-right">
-                        <div class="p-4 flex items-start gap-4">
-                            <div
-                                class="w-10 h-10 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center text-blue-600">
-                                <i class="fas fa-chart-pie text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-800">Actionable Data</h3>
-                                <p class="text-gray-600 text-xs mt-1">Insights to improve service.</p>
-                            </div>
-                        </div>
-                        <div class="bg-blue-50 p-4 border-t border-blue-100">
-                            <div class="flex items-center mb-1 text-blue-800 text-sm">
-                                <i class="fas fa-store mr-2"></i>
-                                <span class="font-bold">SMBs & Merchants</span>
-                            </div>
-                            <p class="text-gray-700 text-xs leading-relaxed">
-                                Turn "invisible" customers into a <strong>reachable audience</strong>.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 9 Mobile 2: Next 2 Principles -->
-        <section id="slide-9-m2" class="bg-gray-50 md:!hidden">
-            <div class="container mx-auto px-6 z-10 w-full">
-                <div class="flex flex-col gap-6">
-                    <!-- Card 3 -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col anim-element slide-in-left">
-                        <div class="p-4 flex items-start gap-4">
-                            <div
-                                class="w-10 h-10 bg-teal-100 rounded-full flex-shrink-0 flex items-center justify-center text-teal-600">
-                                <i class="fas fa-sync-alt text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-800">Continuous Feedback</h3>
-                                <p class="text-gray-600 text-xs mt-1">Loop of adaptation.</p>
-                            </div>
-                        </div>
-                        <div class="bg-teal-50 p-4 border-t border-teal-100">
-                            <div class="flex items-center mb-1 text-teal-800 text-sm">
-                                <i class="fas fa-clinic-medical mr-2"></i>
-                                <span class="font-bold">Village Clinics</span>
-                            </div>
-                            <p class="text-gray-700 text-xs leading-relaxed">
-                                <strong>Automated health reminders</strong> ensuring adherence to treatments.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Card 4 -->
-                    <div
-                        class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col anim-element slide-in-right">
-                        <div class="p-4 flex items-start gap-4">
-                            <div
-                                class="w-10 h-10 bg-purple-100 rounded-full flex-shrink-0 flex items-center justify-center text-purple-600">
-                                <i class="fas fa-handshake text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-800">Mutual Engagement</h3>
-                                <p class="text-gray-600 text-xs mt-1">Two-way active participation.</p>
-                            </div>
-                        </div>
-                        <div class="bg-purple-50 p-4 border-t border-purple-100">
-                            <div class="flex items-center mb-1 text-purple-800 text-sm">
-                                <i class="fas fa-users mr-2"></i>
-                                <span class="font-bold">NGOs</span>
-                            </div>
-                            <p class="text-gray-700 text-xs leading-relaxed">
-                                Allow distant communities to <strong>actively voice needs</strong>.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 10: Long Term Vision (NEW) -->
-        <!-- Slide 10: Long Term Vision (Desktop) -->
-        <section id="slide-10" class="bg-indigo-50 text-gray-900 !hidden md:!grid">
-            <div class="container mx-auto px-6 z-10 grid md:grid-cols-2 gap-12 items-center">
-                <div class="anim-element slide-in-left">
-                    <h2 class="text-4xl font-bold mb-6 text-blue-900">Long Term Vision</h2>
-                    <h3 class="text-2xl font-semibold mb-6 text-orange-500">The "SMS Search Engine"</h3>
-                    <p class="text-gray-700 text-lg mb-6 leading-relaxed">
-                        By connecting thousands of organizations, iNua creates a centralized database of vital services.
-                    </p>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                        In the long term, this allows us to offer a <strong class="text-blue-600">reverse-lookup
-                            service</strong>. Users can query needs like "Water aid", "Vaccinations", or "Market
-                        prices", and our system identifies the relevant organization from our network to provide the
-                        answer.
-                    </p>
-                </div>
-
-                <div class="relative anim-element pop-in delay-200">
-                    <!-- Phone Graphic -->
-                    <div
-                        class="w-72 mx-auto bg-gray-800 rounded-3xl border-8 border-gray-700 shadow-2xl p-4 relative z-10">
-                        <!-- Screen -->
-                        <div
-                            class="bg-white rounded-xl h-96 overflow-hidden flex flex-col p-4 text-xs font-sans relative">
-                            <!-- Status Bar -->
-                            <div class="flex justify-between text-gray-400 mb-4 text-[10px]">
-                                <span>09:41</span>
-                                <span><i class="fas fa-signal"></i> <i class="fas fa-battery-full"></i></span>
-                            </div>
-
-                            <!-- Messages -->
-                            <div class="flex flex-col gap-3">
-                                <!-- User Message -->
-                                <div
-                                    class="self-end bg-blue-500 text-white p-2 rounded-tl-xl rounded-tr-xl rounded-bl-xl max-w-[80%] shadow-sm">
-                                    Is there a clinic near Arusha offering malaria meds?
+                <div class="flex flex-col md:flex-row items-center justify-center gap-16">
+                    
+                    <!-- Pie Chart Visual -->
+                    <div class="relative w-64 h-64 md:w-96 md:h-96 flex-shrink-0 anim-element pop-in delay-100">
+                        <!-- 
+                            SVG Pie Construction using stroke-dasharray technique.
+                            Radius = 25. Circumference ~ 157.
+                            To make percentages easy, we use pathLength="100" on circles.
+                            Stroke width = 50 (2*r) to fill the circle and create a pie.
+                        -->
+                        <svg viewBox="0 0 100 100" class="w-full h-full transform -rotate-90 filter drop-shadow-2xl">
+                            <!-- 1. Total (Background) -->
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="#2A4365" stroke-width="50" opacity="0.5" />
+                            
+                            <!-- 2. Rural (55%) -->
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="#F6AD55" stroke-width="50" 
+                                    stroke-dasharray="55 100" pathLength="100" class="chart-circle" />
+                            
+                            <!-- 3. Offline (39.6% which is 72% of 55%) -->
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="#D97757" stroke-width="50" opacity="0.8" border="2" b
+                                    stroke-dasharray="39.6 100" pathLength="100" class="chart-circle delay-300" />
+                            
+                            <!-- Center Label (Floating above) -->
+                            <foreignObject x="0" y="0" width="100" height="100" class="pointer-events-none">
+                                <div class="w-full h-full flex items-center justify-center transform rotate-90">
+                                    <div class="bg-blue-900/80 backdrop-blur-sm p-2 rounded-full border border-white/10 text-center shadow-lg">
+                                        <div class="text-[8px] md:text-[10px] font-bold leading-tight">1.515B<br/><span class="text-[5px] font-light opacity-80">Africa's Population</span></div>
+                                    </div>
                                 </div>
-
-                                <!-- System Processing (simulated) -->
-                                <div class="text-center text-gray-400 text-[10px] my-1">
-                                    <i class="fas fa-search animate-pulse"></i> Searching Database...
-                                </div>
-
-                                <!-- iNua Response -->
-                                <div
-                                    class="self-start bg-gray-200 text-gray-800 p-2 rounded-tr-xl rounded-br-xl rounded-bl-xl max-w-[90%] shadow-sm">
-                                    <strong>iNua Bot:</strong> Found 2 clinics:<br>
-                                    1. <strong>HealthPlus</strong> (2km away)<br>
-                                    2. <strong>Community Care</strong> (5km away)<br>
-                                    <br>
-                                    Would like to chat with one of them?
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Connection Graphic (Abstract - Static) -->
-                    <div
-                        class="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px]">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500 rounded-full opacity-60"></div>
-                        <div class="absolute bottom-10 left-10 w-40 h-40 bg-blue-500 rounded-full opacity-60"></div>
-                        <div class="absolute top-20 left-0 w-24 h-24 bg-green-500 rounded-full opacity-60"></div>
-                        <!-- Connecting Lines (SVG) -->
-                        <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 400">
-                            <line x1="200" y1="200" x2="330" y2="50" stroke="#CBD5E0" stroke-width="2" />
-                            <line x1="200" y1="200" x2="70" y2="330" stroke="#CBD5E0" stroke-width="2" />
-                            <line x1="200" y1="200" x2="50" y2="70" stroke="#CBD5E0" stroke-width="2" />
+                            </foreignObject>
                         </svg>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Slide 10 Mobile 1: Text -->
-        <section id="slide-10-m1" class="bg-indigo-50 text-gray-900 md:!hidden">
-            <div class="container mx-auto px-6 z-10">
-                <div class="anim-element slide-in-left">
-                    <h2 class="text-3xl font-bold mb-4 text-blue-900">Long Term Vision</h2>
-                    <h3 class="text-xl font-semibold mb-4 text-orange-500">The "SMS Search Engine"</h3>
-                    <p class="text-gray-700 text-base mb-4 leading-relaxed">
-                        By connecting thousands of organizations, iNua creates a centralized database of vital services.
-                    </p>
-                    <p class="text-gray-700 text-base leading-relaxed">
-                        In the long term, this allows us to offer a <strong class="text-blue-600">reverse-lookup
-                            service</strong>. Users can query needs like "Water aid" or "Vaccinations", and our system
-                        identifies the relevant organization.
-                    </p>
-                </div>
-            </div>
-        </section>
+                    <!-- Legend / Data Narrative -->
+                    <div class="flex flex-col gap-10 max-w-lg">
+                        
+                        <!-- Rural Legend -->
+                        <div class="anim-element slide-left delay-200 relative pl-6 border-l-2 border-dashed border-[#F6AD55]/30">
+                             <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#F6AD55] border-2 border-blue-900"></div>
+                            <h3 class="text-3xl font-bold text-[#F6AD55] mb-1">55% <span class="text-xl text-white font-normal">Live in Rural Areas</span></h3>
+                            <p class="text-blue-200 text-lg">~833 Million People</p>
+                        </div>
 
-        <!-- Slide 10 Mobile 2: Phone -->
-        <section id="slide-10-m2" class="bg-indigo-50 text-gray-900 md:!hidden">
-            <div class="container mx-auto px-6 z-10 flex justify-center items-center">
-                <div class="relative anim-element pop-in">
-                    <!-- Phone Graphic -->
-                    <div
-                        class="w-64 mx-auto bg-gray-800 rounded-3xl border-8 border-gray-700 shadow-2xl p-3 relative z-10">
-                        <!-- Screen -->
-                        <div
-                            class="bg-white rounded-xl h-80 overflow-hidden flex flex-col p-3 text-xs font-sans relative">
-                            <!-- Status Bar -->
-                            <div class="flex justify-between text-gray-400 mb-3 text-[10px]">
-                                <span>09:41</span>
-                                <span><i class="fas fa-signal"></i> <i class="fas fa-battery-full"></i></span>
+                        <!-- Offline Legend -->
+                        <div class="anim-element slide-left delay-300 relative pl-6 border-l-2 border-dashed border-[#D97757]/30">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#D97757] border-2 border-blue-900"></div>
+                            <div class="mb-2">
+                                <h3 class="text-3xl font-bold text-[#D97757] inline-block mr-2">72%</h3>
+                                <span class="text-lg text-white font-normal">of the rural population is <strong>Offline</strong></span>
                             </div>
+                            <div class="bg-white/10 p-4 rounded-lg border-l-4 border-[#D97757]">
+                                <p class="text-gray-200">Primary Barrier: <span class="font-bold text-white">Usage Costs</span></p>
+                            </div>
+                        </div>
 
-                            <!-- Messages -->
-                            <div class="flex flex-col gap-2">
-                                <!-- User Message -->
-                                <div
-                                    class="self-end bg-blue-500 text-white p-2 rounded-tl-xl rounded-tr-xl rounded-bl-xl max-w-[80%] shadow-sm text-[10px]">
-                                    Is there a clinic near Arusha offering malaria meds?
-                                </div>
+                        <!-- Total Context -->
+                         <div class="mt-2 pt-6 border-t border-white/10 anim-element fade-up delay-400">
+                            <div class="flex items-center gap-3 opacity-70 mb-2">
+                                <i class="fas fa-globe-africa"></i>
+                                <span class="text-sm tracking-widest uppercase">Total Africa Population (World Bank 2024)</span>
+                            </div>
+                        </div>
+                    </div>
 
-                                <!-- System Processing (simulated) -->
-                                <div class="text-center text-gray-400 text-[8px] my-1">
-                                    <i class="fas fa-search animate-pulse"></i> Searching Database...
-                                </div>
+                </div>
+            </div>
+        </section>
 
-                                <!-- iNua Response -->
-                                <div
-                                    class="self-start bg-gray-200 text-gray-800 p-2 rounded-tr-xl rounded-br-xl rounded-bl-xl max-w-[90%] shadow-sm text-[10px]">
-                                    <strong>iNua Bot:</strong> Found 2 clinics:<br>
-                                    1. <strong>HealthPlus</strong> (2km away)<br>
-                                    2. <strong>Community Care</strong> (5km away)<br>
-                                    <br>
-                                    Would like to chat with one of them?
-                                </div>
+        <!-- Slide 6: Problem -->
+        <section id="slide-6" class="bg-gray-50">
+            <div class="container mx-auto px-6 z-10 max-w-6xl">
+                <div class="text-center mb-16 anim-element fade-up">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-100 text-red-600 mb-6">
+                        <i class="fas fa-unlink text-3xl"></i>
+                    </div>
+                    <h2 class="text-5xl font-bold text-gray-900 mb-2">The Problem</h2>
+                    <span class="text-orange-500 font-bold tracking-widest uppercase text-sm bg-orange-100 px-3 py-1 rounded-full">Main Challenge</span>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-100 hover:shadow-xl transition-shadow">
+                        <div class="text-red-500 mb-4"><i class="fas fa-exclamation-circle text-4xl"></i></div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Reach & Scale</h3>
+                        <p class="text-lg text-gray-600">SMEs in Africa struggle to reach customers in rural or low-connectivity areas and scale their businesses effectively.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-200 hover:shadow-xl transition-shadow">
+                        <div class="text-red-500 mb-4"><i class="fas fa-wifi text-4xl"></i></div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">The Digital Gap</h3>
+                        <p class="text-lg text-gray-600">Most digital tools require internet, excluding populations relying on basic phones/SMS or lacking data access.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-300 hover:shadow-xl transition-shadow">
+                        <div class="text-red-500 mb-4"><i class="fas fa-hourglass-half text-4xl"></i></div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-800">Resource Limits</h3>
+                        <p class="text-lg text-gray-600">SMEs lack the time, modern tools, and sufficient funds to manage high volumes of potential customers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Solution - The treasure -->
+        <section id="slide-7">
+            <div class="absolute inset-0 bg-blue-900 z-0 overflow-hidden">
+                <!-- Abstract Skewed Overlay -->
+                <div class="absolute inset-0 bg-blue-800 opacity-50 transform -skew-y-6 scale-150 origin-bottom-left pointer-events-none"></div>
+                <!-- Decorative circle -->
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-orange-500 rounded-full opacity-20 blur-3xl"></div>
+            </div>
+
+            <div class="container mx-auto px-6 z-10 text-white relative">
+                <div class="text-center max-w-5xl mx-auto mb-5">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-700 text-blue-200 mb-6 shadow-lg border border-blue-500">
+                        <i class="fas fa-link text-3xl"></i>
+                    </div>
+                    <h2 class="text-5xl font-bold mb-6 anim-element fade-up flex items-center justify-center gap-4">
+                        Solution - The Treasure <i class="fas fa-gem text-yellow-400 animate-pulse text-4xl"></i>
+                    </h2>
+                    <p class="text-3xl font-medium mb-5 text-white anim-element fade-up delay-100">
+                        Instead of waiting for these barriers to be resolved we bridge over it.<br>Meet:
+                    </p>
+                    
+                    <!-- Banner Placeholder -->
+                    <div class="w-full max-w-lg mx-auto shadow-lg h-40 backdrop-blur-md border-2 rounded-2xl flex flex-col items-center justify-center mb-6 anim-element pop-in delay-200 overflow-hidden relative group border-orange-400 transition-colors">
+                        <!-- Simulated Banner Content -->
+                        <img src="./images/banner woman copy.png" class="absolute inset-0 w-full h-full object-cover" alt="Company Banner">
+                    </div>
+
+                    <!-- Subtext -->
+                    <h3 class="text-3xl font-bold text-orange-400 drop-shadow-2xl anim-element fade-up delay-300 ">
+                        an AI-powered SMS agent
+                    </h3>
+                </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <!-- Client Organization Box -->
+                    <div class="max-w-lg bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg anim-element slide-right delay-300 backdrop-blur-sm">
+                        <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">Client Organizations</h4>
+                        <p class="text-xl leading-relaxed text-white">
+                            Creating better <span id="client-word-slide7" class="cycling-word">simple</span> communication between offline populations and you.
+                        </p>
+                    </div>
+                    <!-- End Users Box -->
+                    <div class="max-w-lg from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg anim-element slide-left delay-400 backdrop-blur-sm">
+                        <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">End Users</h4>
+                        <p class="text-xl leading-relaxed text-white">
+                            Creating better <span id="user-word-slide7" class="cycling-word">simple</span> information and services.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Description -->
+        <section id="slide-8">
+            <div class="container mx-auto px-6 z-10">
+                <h2 class="text-5xl font-bold text-blue-900 mb-16 text-center anim-element fade-up">Description</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-100 border-l-4 border-orange-500 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 text-orange-600"><i class="fas fa-exchange-alt text-xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-2xl mb-1">Dual Sided</h4>
+                            <p class="text-gray-600 text-xl">The product includes two sides: the End User and our Client (the organization)</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-200 border-l-4 border-blue-500 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600"><i class="fas fa-search text-xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-2xl mb-1">Search & Connect</h4>
+                            <p class="text-gray-600 text-xl">A platform for searching services and direct, automated, immediate communication.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-300 border-l-4 border-orange-500 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 text-orange-600"><i class="fas fa-bullhorn text-xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-2xl mb-1">Marketing Space</h4>
+                            <p class="text-gray-600 text-xl">An advertising space where organizations can effectively reach their target audience.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-400 border-l-4 border-blue-500 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600"><i class="fas fa-folder-open text-xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-2xl mb-1">Knowledge Management</h4>
+                            <p class="text-gray-600 text-xl">A comprehensive organizational knowledge management system.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start md:col-span-2 anim-element fade-up delay-500 border-l-4 border-purple-500 hover:shadow-lg transition-all">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 text-purple-600"><i class="fas fa-chart-pie text-xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-2xl mb-1">Control & Monitoring</h4>
+                            <p class="text-gray-600 text-xl">Full control and monitoring of all communication channels with customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Value -->
+        <section id="slide-9">
+            <div class="absolute inset-0 grid md:grid-cols-2">
+                <div class="bg-orange-50 h-full relative overflow-hidden">
+                     <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full opacity-40 blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                </div>
+                <div class="bg-blue-900 h-full relative overflow-hidden">
+                    <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-700 rounded-full opacity-40 blur-3xl translate-x-1/2 translate-y-1/2"></div>
+                </div>
+            </div>
+            
+            <div class="container mx-auto px-6 z-10 grid md:grid-cols-2 gap-12 h-full items-center">
+                <!-- Left: Client -->
+                <div class="p-8 anim-element slide-right">
+                    <h2 class="text-4xl font-bold text-blue-900 mb-8 font-heading">What you will get:</h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
+                            <i class="fas fa-robot text-orange-500 text-2xl mt-1"></i>
+                            <span class="text-xl text-gray-800"><strong>An AI Agent</strong> expert in your organizational knowledge</span>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
+                            <i class="fas fa-magic text-orange-500 text-2xl mt-1"></i>
+                            <span class="text-xl text-gray-800"><strong>Automation</strong> - Easy to use tool with no tech knowledgeable need</span>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
+                            <i class="fas fa-comments text-orange-500 text-2xl mt-1"></i>
+                            <span class="text-xl text-gray-800"><strong>Direct communication</strong> platform with your client</span>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
+                            <i class="fas fa-chart-bar text-orange-500 text-2xl mt-1"></i>
+                            <span class="text-xl text-gray-800"><strong>Scalability</strong> - Access potential clients, retain existing ones.</span>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
+                            <i class="fas fa-lightbulb text-orange-500 text-2xl mt-1"></i>
+                            <span class="text-xl text-gray-800"><strong>Actionable Data:</strong> Insights into needs, continuous feedback, direct improvement.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right: End User -->
+                <div class="p-8 text-white anim-element slide-left">
+                    <h2 class="text-4xl font-bold text-orange-400 mb-8 font-heading">Customer Experience <br/><span class="text-xl font-normal opacity-80 font-sans tracking-normal">What your end user gets</span></h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm hover:bg-blue-800/50 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-2xl text-orange-100">Direct Line</h4>
+                                <p class="text-blue-100 text-xl">Direct communication line with your organization.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm hover:bg-blue-800/50 transition-colors">
+                             <div class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-2xl text-orange-100">Reliability</h4>
+                                <p class="text-blue-100 text-xl">24/7 reliable customer service.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm hover:bg-blue-800/50 transition-colors">
+                             <div class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-2xl text-orange-100">Connection</h4>
+                                <p class="text-blue-100 text-xl">Two-way dialogue that strengthens connection and trust.</p>
                             </div>
                         </div>
                     </div>
@@ -1181,195 +658,150 @@
             </div>
         </section>
 
-        <!-- Slide 11: SDGs (Desktop) -->
-        <section id="slide-11" class="!hidden md:!flex">
-            <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-transparent z-10"></div>
-            <div class="container mx-auto px-6 z-0 text-center">
-                <h2 class="text-3xl font-bold mb-4 anim-element fade-in-up">Alignment with UN Sustainable Development
-                    Goals</h2>
+        <!-- Slide 10: How it works -->
+        <section id="slide-10">
+            <div class="container mx-auto px-6 z-10 text-center items-center justify-center flex flex-col">
+                <h2 class="text-5xl font-bold text-blue-900 mb-12 anim-element fade-up">How it Works - Technology</h2>
 
+                <div class=" w-[990px] h-[550px] rounded-3xl overflow-hidden shadow-2xl anim-element pop-in delay-100 flex items-center justify-center group">
+                   <img src="./images/product_diagram.png" class="absolute inset-0 h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Technology Abstract">
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Product Impact -->
+        <section id="slide-11">
+            <div class="container mx-auto px-6 z-10">
+                <div class="text-center mb-16 anim-element fade-up">
+                    <h2 class="text-5xl font-bold text-blue-900 mb-4">Product Impact</h2>
+                    <p class="text-2xl text-orange-600 font-light">Bridging the inequality gap while fueling economic growth.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <!-- Social -->
+                    <div class="bg-white p-10 rounded-3xl shadow-lg border-t-8 border-green-500 anim-element slide-right delay-100 hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="p-4 bg-green-100 rounded-full text-green-600"><i class="fas fa-heart text-2xl"></i></div>
+                            <h3 class="text-3xl font-bold text-gray-800">Social Impact</h3>
+                        </div>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            The more technological advances, the wider the inequality gap becomes. These technologies are not luxuries but fundamental tools for commerce, communication, and economic growth.
+                        </p>
+                        <p class="text-lg text-gray-800 font-semibold leading-relaxed border-l-4 border-green-500 pl-4 bg-green-50 p-2 rounded-r-lg">
+                            We at iNua are devoted to using advanced technologies where it's crucially needed, to lift bridges to these tools for the benefit of communities' self-development.
+                        </p>
+                    </div>
+
+                    <!-- Economic -->
+                    <div class="bg-white p-10 rounded-3xl shadow-lg border-t-8 border-blue-500 anim-element slide-left delay-200 hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="p-4 bg-blue-100 rounded-full text-blue-600"><i class="fas fa-chart-line text-2xl"></i></div>
+                            <h3 class="text-3xl font-bold text-gray-800">Economic Opportunity</h3>
+                        </div>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            The backbone of Africa’s economy is SMEs. We empower these organizations with accessible, easy-to-use technology that fuels their growth.
+                        </p>
+                        <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                            <i class="fas fa-rocket text-blue-500 mr-2"></i> <span class="text-blue-900 font-medium">Unlock Growth Potential</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: EU alignment -->
+        <section id="slide-12" class="bg-white relative">
+            <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-gray-50 to-transparent z-0"></div>
+            
+            <div class="container mx-auto px-6 z-10 text-center">
+                <h2 class="text-5xl font-bold text-blue-900 mb-6 anim-element fade-up">EU Alignment</h2>
+                <p class="text-2xl text-gray-500 mb-12 anim-element fade-up delay-100">Alignment with UN Sustainable Development Goals</p>
+                
                 <div class="flex flex-wrap justify-center gap-6 anim-element pop-in delay-200">
                     <!-- SDG Icons (Styled Text Blocks) -->
-                    <div
-                        class="w-32 h-32 bg-red-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="w-32 h-32 bg-red-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
                         <span class="text-xl font-black opacity-50">1</span>
                         <span class="font-bold text-left text-sm leading-tight uppercase">No<br>Poverty</span>
                     </div>
-                    <div
-                        class="w-32 h-32 bg-yellow-500 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="w-32 h-32 bg-yellow-500 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
                         <span class="text-xl font-black opacity-50">2</span>
                         <span class="font-bold text-left text-sm leading-tight uppercase">Zero<br>Hunger</span>
                     </div>
-                    <div
-                        class="w-32 h-32 bg-green-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="w-32 h-32 bg-green-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
                         <span class="text-xl font-black opacity-50">3</span>
                         <span class="font-bold text-left text-sm leading-tight uppercase">Good Health</span>
                     </div>
-                    <div
-                        class="w-32 h-32 bg-red-700 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="w-32 h-32 bg-red-700 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
                         <span class="text-xl font-black opacity-50">4</span>
                         <span class="font-bold text-left text-sm leading-tight uppercase">Quality Education</span>
                     </div>
-                    <div
-                        class="w-32 h-32 bg-red-800 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="w-32 h-32 bg-red-800 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
                         <span class="text-xl font-black opacity-50">8</span>
                         <span class="font-bold text-left text-sm leading-tight uppercase">Decent Work</span>
                     </div>
-                    <div
-                        class="w-32 h-32 bg-pink-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="w-32 h-32 bg-pink-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
                         <span class="text-xl font-black opacity-50">10</span>
                         <span class="font-bold text-left text-sm leading-tight uppercase">Reduced Inequalities</span>
                     </div>
-                    <div
-                        class="w-32 h-32 bg-blue-700 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                     <div class="w-32 h-32 bg-blue-700 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
                         <span class="text-xl font-black opacity-50">16</span>
                         <span class="font-bold text-left text-sm leading-tight uppercase">Peace & Justice</span>
                     </div>
-                    <div
-                        class="w-32 h-32 bg-blue-900 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                     <div class="w-32 h-32 bg-blue-900 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
                         <span class="text-xl font-black opacity-50">17</span>
                         <span class="font-bold text-left text-sm leading-tight uppercase">Partnerships</span>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- Slide 11 Mobile: SDGs -->
-        <section id="slide-11-m" class="md:!hidden relative">
-            <div class="container mx-auto px-4 z-10 text-center flex flex-col justify-center h-full">
-                <h2 class="text-xl font-bold mb-6 anim-element fade-in-up">UN Sustainable Development Goals</h2>
-
-                <div class="grid grid-cols-3 gap-3 anim-element pop-in">
-                    <!-- SDG Icons (Mobile Optimized) -->
-                    <div
-                        class="aspect-square bg-red-600 text-white p-1.5 flex flex-col justify-between items-start rounded shadow-sm">
-                        <span class="text-lg font-black opacity-50">1</span>
-                        <span class="font-bold text-left text-[10px] leading-tight uppercase">No<br>Poverty</span>
-                    </div>
-                    <div
-                        class="aspect-square bg-yellow-500 text-white p-1.5 flex flex-col justify-between items-start rounded shadow-sm">
-                        <span class="text-lg font-black opacity-50">2</span>
-                        <span class="font-bold text-left text-[10px] leading-tight uppercase">Zero<br>Hunger</span>
-                    </div>
-                    <div
-                        class="aspect-square bg-green-600 text-white p-1.5 flex flex-col justify-between items-start rounded shadow-sm">
-                        <span class="text-lg font-black opacity-50">3</span>
-                        <span class="font-bold text-left text-[10px] leading-tight uppercase">Good Health</span>
-                    </div>
-                    <div
-                        class="aspect-square bg-red-700 text-white p-1.5 flex flex-col justify-between items-start rounded shadow-sm">
-                        <span class="text-lg font-black opacity-50">4</span>
-                        <span class="font-bold text-left text-[10px] leading-tight uppercase">Quality Education</span>
-                    </div>
-                    <div
-                        class="aspect-square bg-red-800 text-white p-1.5 flex flex-col justify-between items-start rounded shadow-sm">
-                        <span class="text-lg font-black opacity-50">8</span>
-                        <span class="font-bold text-left text-[10px] leading-tight uppercase">Decent Work</span>
-                    </div>
-                    <div
-                        class="aspect-square bg-pink-600 text-white p-1.5 flex flex-col justify-between items-start rounded shadow-sm">
-                        <span class="text-lg font-black opacity-50">10</span>
-                        <span class="font-bold text-left text-[10px] leading-tight uppercase">Reduced
-                            Inequalities</span>
-                    </div>
-                    <div
-                        class="aspect-square bg-blue-700 text-white p-1.5 flex flex-col justify-between items-start rounded shadow-sm">
-                        <span class="text-lg font-black opacity-50">16</span>
-                        <span class="font-bold text-left text-[10px] leading-tight uppercase">Peace & Justice</span>
-                    </div>
-                    <div
-                        class="aspect-square bg-blue-900 text-white p-1.5 flex flex-col justify-between items-start rounded shadow-sm">
-                        <span class="text-lg font-black opacity-50">17</span>
-                        <span class="font-bold text-left text-[10px] leading-tight uppercase">Partnerships</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 12: Team & Close (Desktop) -->
-        <section id="slide-12" class="bg-white text-gray-900 relative !hidden md:!flex">
-            <div class="absolute inset-0 overflow-hidden">
+        <!-- Slide 13: Team -->
+        <section id="slide-13" class="relative overflow-hidden bg-white">
+            <!-- Decorative Blurred Blobs -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
                 <div class="absolute -top-24 -right-24 w-96 h-96 bg-orange-100 rounded-full blur-3xl opacity-60"></div>
                 <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
             </div>
-
-            <div class="container mx-auto px-6 z-10 text-center">
-                <h2 class="text-3xl font-bold mb-16 anim-element fade-in-up text-gray-800">The Team</h2>
-                <div class="flex flex-wrap justify-center gap-12 mb-20 anim-element pop-in delay-100">
-                    <div class="text-center">
-                        <div
-                            class="w-48 h-64 bg-gray-100 rounded-md mx-auto mb-4 border-4 border-orange-500 flex items-center justify-center overflow-hidden shadow-md">
-                            <img src="images/michal.jpeg" alt="Michal Avidar" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900">Michal Avidar</h3>
-                        <p class="text-orange-600 text-sm">Co-Founder</p>
-                        <!-- Contact Info -->
-                        <div class="flex flex-col items-center space-y-2 text-sm text-gray-600">
-                            <a href="tel:+972587884472" class="hover:text-blue-500 transition-colors"><i
-                                    class="fas fa-phone mr-2"></i>+972 58-7884472</a>
-                            <a href="mailto:michal@inua-technologies.com" class="hover:text-blue-500 transition-colors"><i
-                                    class="fas fa-envelope mr-2"></i>michal@inua-technologies.com</a>
-                            <a href="https://www.linkedin.com/in/michal-avidar/"
-                                class="hover:text-blue-500 transition-colors"><i
-                                    class="fab fa-linkedin mr-2"></i>LinkedIn michal-avidar</a>
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <div
-                            class="w-48 h-64 bg-gray-100 rounded-md mx-auto mb-4 border-4 border-blue-500 flex items-center justify-center overflow-hidden shadow-md">
-                            <img src="images/adi.jpeg" alt="Adi Livnat" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900">Adi Livnat</h3>
-                        <p class="text-blue-600 text-sm">Co-Founder</p>
-                        <!-- Contact Info -->
-                        <div class="flex flex-col items-center space-y-2 text-sm text-gray-600">
-                            <a href="tel:+972507676347" class="hover:text-blue-500 transition-colors"><i
-                                    class="fas fa-phone mr-2"></i>+972 50-767-6347</a>
-                            <a href="mailto:adi@inua-technologies.com" class="hover:text-blue-500 transition-colors"><i
-                                    class="fas fa-envelope mr-2"></i>adi@inua-technologies.com</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="anim-element fade-in-up delay-400">
-                    <h1 class="text-5xl md:text-6xl font-extrabold mb-8 text-gray-900">Thank You.</h1>
-                </div>
+            <!-- Background Images -->
+            <div class="absolute right-0 top-0 w-full h-full opacity-80 pointer-events-none">
+                <img src="./images/woman_card_no_title_right.jpg" class="w-full h-full object-cover" alt="Abstract Network">
             </div>
-        </section>
 
-        <!-- Slide 12 Mobile: Team & Close -->
-        <section id="slide-12-m" class="bg-white text-gray-900 relative md:!hidden">
-            <div class="container mx-auto px-4 z-10 text-center flex flex-col justify-center h-full">
-                <h2 class="text-2xl font-bold mb-6 anim-element fade-in-up text-gray-800">The Team</h2>
-                <div class="flex flex-row justify-center gap-4 mb-8 anim-element pop-in">
-                    <div class="text-center w-1/2">
-                        <div
-                            class="w-24 h-32 bg-gray-100 rounded-md mx-auto mb-2 border-2 border-orange-500 flex items-center justify-center overflow-hidden shadow-md">
-                            <img src="images/michal.jpeg" alt="Michal Avidar" class="w-full h-full object-cover">
+            <div class="container mx-auto px-6 z-10 text-center relative">
+                <h2 class="text-5xl font-bold text-blue-900 mb-5 anim-element fade-up">Team</h2>
+
+                <div class="flex flex-wrap justify-center gap-12 mb-5">
+                    <!-- Member 1 -->
+                    <div class="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-xl w-80 anim-element fade-up delay-100 border border-gray-100 hover:shadow-2xl transition-shadow">
+                        <div class="w-40 h-60 bg-gray-200 mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-orange-500">
+                            <img src="./images/michal.jpeg" alt="Michal Avidar" class="w-full h-full object-cover">
                         </div>
-                        <h3 class="text-sm font-bold text-gray-900">Michal Avidar</h3>
-                        <p class="text-orange-600 text-xs">Co-Founder</p>
-                        <div class="flex flex-col items-center space-y-1 text-[10px] text-gray-600 mt-1">
-                            <a href="tel:+972587884472">+972 58-7884472</a>
-                            <a href="mailto:michal@inua-technologies.com">michal<br/>@inua-technologies.com</a>
-                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Michal Avidar</h3>
+                        <p class="text-orange-500 font-semibold mb-4 text-sm tracking-widest uppercase">Co-Founder</p>
+                        <a href="mailto:michal@inua-technologies.com" class="block text-gray-600 hover:text-blue-600 mb-2 transition-colors"><i class="far fa-envelope mr-2"></i>Email</a>
+                        <a href="https://www.linkedin.com/in/michal-avidar/" class="block text-blue-700 font-bold hover:text-orange-500 transition-colors"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
                     </div>
 
-                    <div class="text-center w-1/2">
-                        <div
-                            class="w-24 h-32 bg-gray-100 rounded-md mx-auto mb-2 border-2 border-blue-500 flex items-center justify-center overflow-hidden shadow-md">
-                            <img src="images/adi.jpeg" alt="Adi Livnat" class="w-full h-full object-cover">
+                    <!-- Member 2 -->
+                    <div class="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-xl w-80 anim-element fade-up delay-200 border border-gray-100 hover:shadow-2xl transition-shadow">
+                        <div class="w-40 h-60 bg-gray-200 mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-blue-500">
+                             <img src="./images/adi.jpeg" alt="Adi Livnat" class="w-full h-full object-cover">
                         </div>
-                        <h3 class="text-sm font-bold text-gray-900">Adi Livnat</h3>
-                        <p class="text-blue-600 text-xs">Co-Founder</p>
-                        <div class="flex flex-col items-center space-y-1 text-[10px] text-gray-600 mt-1">
-                            <a href="tel:+972507676347">+972 50-767-6347</a>
-                            <a href="mailto:adi@inua-technologies.com">adi<br/>@inua-technologies.com</a>    
-                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Adi Livnat</h3>
+                        <p class="text-blue-600 font-semibold mb-4 text-sm tracking-widest uppercase">Co-Founder</p>
+                         <a href="mailto:adi@inua-technologies.com" class="block text-gray-600 hover:text-blue-600 mb-2 transition-colors"><i class="far fa-envelope mr-2"></i>Email</a>
+                        <a href="https://www.linkedin.com/in/adi-livnat-300974123/" class="block text-blue-700 font-bold hover:text-orange-500 transition-colors"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
                     </div>
                 </div>
-                <div class="anim-element fade-in-up">
-                    <h1 class="text-4xl font-extrabold text-gray-900">Thank You.</h1>
+
+                <div class="anim-element fade-up delay-300 p-8 bg-gray-50 rounded-2xl inline-block shadow-inner">
+                    <p class="text-xl text-gray-600 mb-4 font-bold">iNua Social</p>
+                    <div class="flex justify-center gap-8 text-3xl text-blue-900">
+                        <a href="https://www.linkedin.com/company/inua-technologies"><i class="fab fa-linkedin hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61584431531752"><i class="fab fa-facebook hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
+                        <a href="https://www.instagram.com/inua_technologies/"><i class="fab fa-instagram hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1379,76 +811,72 @@
     <script>
         const scroller = document.getElementById('scroller');
         const sections = document.querySelectorAll('section');
-        let currentSlideIndex = 0;
-
-        // Intersection Observer for Animations & Tracking Current Slide
-        const observerOptions = {
-            root: scroller,
-            threshold: 0.5 // Trigger when 50% of the slide is visible
-        };
+        const navDots = document.querySelectorAll('.nav-dot');
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-
-                    // Update current index based on visible slide
-                    const id = entry.target.getAttribute('id');
-                    const index = Array.from(sections).findIndex(section => section.id === id);
-                    if (index !== -1) {
-                        currentSlideIndex = index;
-                    }
-
+                    
                     // Update Nav Dots
-                    document.querySelectorAll('a[href^="#"]').forEach(dot => {
-                        dot.classList.remove('bg-orange-500');
+                    const id = entry.target.getAttribute('id');
+                    navDots.forEach(dot => {
+                        dot.classList.remove('active', 'bg-orange-500', 'scale-125');
                         dot.classList.add('bg-gray-300');
                         if (dot.getAttribute('href') === `#${id}`) {
                             dot.classList.remove('bg-gray-300');
-                            dot.classList.add('bg-orange-500');
+                            dot.classList.add('active', 'bg-orange-500', 'scale-125');
                         }
                     });
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.5 });
 
         sections.forEach(section => {
             observer.observe(section);
         });
 
-        // --- Navigation Logic (Space/Click/Arrows) ---
+        // Keyword Cycling Script for Slide 3
+        document.addEventListener('DOMContentLoaded', () => {
+            const clientWords = ["simple", "instant", "scalable", "reliable", "automated"];
+            const userWords = ["simple", "instant", "reliable"];
+            
+            const clientSpan = document.getElementById('client-word');
+            const userSpan = document.getElementById('user-word');
 
-        function scrollToSlide(index) {
-            if (index >= 0 && index < sections.length) {
-                sections[index].scrollIntoView({ behavior: 'smooth' });
-                currentSlideIndex = index;
-            }
-        }
+            const clientWordsS7 = ["simple", "instant", "scalable", "reliable", "automated"];
+            const userWordsS7 = ["simple", "instant", "reliable", "access to"];
 
-        // Keyboard Navigation
-        document.addEventListener('keydown', (e) => {
-            // Space, Right Arrow, Down Arrow, PageDown -> Next Slide
-            if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'ArrowDown' || e.code === 'PageDown') {
-                e.preventDefault(); // Prevent default scroll for Space
-                scrollToSlide(currentSlideIndex + 1);
+            const clientSpanS7 = document.getElementById('client-word-slide7');
+            const userSpanS7 = document.getElementById('user-word-slide7');
+
+            function cycleWords(spanElement, wordsArray) {
+                let index = 0;
+                setInterval(() => {
+                    // Add fade out class
+                    spanElement.classList.add('changing');
+                    
+                    setTimeout(() => {
+                        // Change word
+                        index = (index + 1) % wordsArray.length;
+                        spanElement.textContent = wordsArray[index];
+                        // Remove fade out class to fade in
+                        spanElement.classList.remove('changing');
+                    }, 300); // Wait for fade out
+                }, 2000); // Change every 2 seconds
             }
-            // Left Arrow, Up Arrow, PageUp -> Previous Slide
-            else if (e.code === 'ArrowLeft' || e.code === 'ArrowUp' || e.code === 'PageUp') {
-                e.preventDefault();
-                scrollToSlide(currentSlideIndex - 1);
+
+            if (clientSpan && userSpan) {
+                cycleWords(clientSpan, clientWords);
+                cycleWords(userSpan, userWords);
+            }
+
+            // Init Slide 7
+            if (clientSpanS7 && userSpanS7) {
+                cycleWords(clientSpanS7, clientWordsS7);
+                cycleWords(userSpanS7, userWordsS7);
             }
         });
-
-        // Click Navigation (Click anywhere to go next)
-        document.addEventListener('click', (e) => {
-            // Ignore clicks on buttons or links to allow them to function
-            if (e.target.closest('button') || e.target.closest('a')) return;
-
-            // Go to next slide
-            scrollToSlide(currentSlideIndex + 1);
-        });
-
     </script>
 </body>
-
 </html>

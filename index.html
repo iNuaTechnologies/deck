@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,14 @@
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap');
 
         :root {
-            --brand-primary: #D97757; /* Terra Cotta */
-            --brand-secondary: #2C5282; /* Deep Tech Blue */
-            --brand-accent: #F6AD55; /* Warm Sunlight */
-            --bg-light: #FDFBF7; /* Off-white Paper */
+            --brand-primary: #D97757;
+            /* Terra Cotta */
+            --brand-secondary: #2C5282;
+            /* Deep Tech Blue */
+            --brand-accent: #F6AD55;
+            /* Warm Sunlight */
+            --bg-light: #FDFBF7;
+            /* Off-white Paper */
         }
 
         body {
@@ -25,7 +30,10 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .font-heading {
+        h1,
+        h2,
+        h3,
+        .font-heading {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
@@ -59,53 +67,90 @@
             opacity: 0;
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        
+
         section.active .anim-element {
             opacity: 1;
         }
 
-        .fade-up { transform: translateY(30px); }
-        section.active .fade-up { transform: translateY(0); }
+        .fade-up {
+            transform: translateY(30px);
+        }
 
-        .slide-right { transform: translateX(-50px); }
-        section.active .slide-right { transform: translateX(0); }
+        section.active .fade-up {
+            transform: translateY(0);
+        }
 
-        .slide-left { transform: translateX(50px); }
-        section.active .slide-left { transform: translateX(0); }
+        .slide-right {
+            transform: translateX(-50px);
+        }
 
-        .pop-in { transform: scale(0.9); }
-        section.active .pop-in { transform: scale(1); }
+        section.active .slide-right {
+            transform: translateX(0);
+        }
 
-        .delay-100 { transition-delay: 0.1s; }
-        .delay-200 { transition-delay: 0.2s; }
-        .delay-300 { transition-delay: 0.3s; }
-        .delay-400 { transition-delay: 0.4s; }
-        .delay-500 { transition-delay: 0.5s; }
+        .slide-left {
+            transform: translateX(50px);
+        }
+
+        section.active .slide-left {
+            transform: translateX(0);
+        }
+
+        .pop-in {
+            transform: scale(0.9);
+        }
+
+        section.active .pop-in {
+            transform: scale(1);
+        }
+
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-400 {
+            transition-delay: 0.4s;
+        }
+
+        .delay-500 {
+            transition-delay: 0.5s;
+        }
 
         /* Keyword Cycling Animation Class */
         .cycling-word {
             display: inline-block;
             color: var(--brand-primary);
             font-weight: 800;
-            min-width: 120px; /* Prevent layout shift */
+            min-width: 120px;
+            /* Prevent layout shift */
             text-align: center;
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-                /* Specific color for slide 3 (original) */
-        #client-word, #user-word {
+        /* Specific color for slide 3 (original) */
+        #client-word,
+        #user-word {
             color: var(--brand-primary);
             font-weight: 800;
         }
 
         /* Specific style for slide 7 (white text on dark bg) */
-        #client-word-slide7, #user-word-slide7 {
+        #client-word-slide7,
+        #user-word-slide7 {
             color: #fff;
             font-weight: 700;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
             border-bottom: 2px solid var(--brand-accent);
         }
-        
+
         .cycling-word.changing {
             opacity: 0;
             transform: translateY(10px);
@@ -116,9 +161,11 @@
             stroke-dasharray: 12;
             animation: dash 40s linear infinite;
         }
-        
+
         @keyframes dash {
-            to { stroke-dashoffset: -1000; }
+            to {
+                stroke-dashoffset: -1000;
+            }
         }
 
         /* Chart Animations */
@@ -126,7 +173,7 @@
             transition: stroke-dasharray 1.5s ease-out;
             transform-origin: center;
         }
-        
+
         section.active .chart-circle {
             /* Trigger transition naturally via CSS or use JS. 
                Here we rely on the section appearing to show the graphic, 
@@ -137,22 +184,46 @@
         }
 
         @keyframes dash-fill {
-            from { stroke-dasharray: 0 100; }
+            from {
+                stroke-dasharray: 0 100;
+            }
         }
 
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #CBD5E0; border-radius: 4px; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E0;
+            border-radius: 4px;
+        }
 
         /* Print Override */
         @media print {
-            .slides-container { height: auto; overflow: visible; scroll-snap-type: none; }
-            section { height: auto; page-break-after: always; min-height: 100vh; }
-            .fixed-logo, .nav-dots { display: none !important; }
+            .slides-container {
+                height: auto;
+                overflow: visible;
+                scroll-snap-type: none;
+            }
+
+            section {
+                height: auto;
+                page-break-after: always;
+                min-height: 100vh;
+            }
+
+            .fixed-logo,
+            .nav-dots {
+                display: none !important;
+            }
         }
-        
+
         /* Fixed Logo */
         .fixed-logo {
             position: fixed;
@@ -165,7 +236,7 @@
             color: var(--brand-secondary);
             display: flex;
             align-items: center;
-            gap: 0.75rem; 
+            gap: 0.75rem;
             background: rgba(253, 251, 247, 0.8);
             padding: 0.5rem 1rem;
             border-radius: 999px;
@@ -173,10 +244,10 @@
         }
 
         .fixed-logo img {
-            height: 1.5em; 
-            width: 1.5em;  
-            object-fit: cover; 
-            border-radius: 50%; 
+            height: 1.5em;
+            width: 1.5em;
+            object-fit: cover;
+            border-radius: 50%;
             display: block;
         }
 
@@ -185,8 +256,59 @@
             background-color: var(--brand-primary);
             transform: scale(1.2);
         }
+
+        /* Responsive Utilities */
+        .mobile-only {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none !important;
+            }
+
+            .mobile-only {
+                display: flex !important;
+            }
+
+            h1 {
+                font-size: 2.5rem !important;
+            }
+
+            h2 {
+                font-size: 2rem !important;
+            }
+
+            .text-5xl {
+                font-size: 2rem !important;
+            }
+
+            .text-6xl {
+                font-size: 2.5rem !important;
+            }
+
+            /* Disable scroll snap on mobile to allow free scrolling of tall sections */
+            .slides-container {
+                height: auto;
+                scroll-snap-type: none;
+                overflow-y: visible;
+            }
+
+            section {
+                padding: 1rem;
+                padding-bottom: 4rem;
+                /* Add bottom padding to prevent cutoff */
+                height: auto !important;
+                /* Allow section to grow beyond 100vh if needed */
+                min-height: 100vh;
+                overflow-y: visible !important;
+                /* Allow content to overflow/scroll */
+                overflow-x: hidden;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Fixed Logo on all pages -->
@@ -197,19 +319,45 @@
 
     <!-- Navigation Dots -->
     <div class="nav-dots fixed right-5 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col gap-3">
-        <a href="#slide-1" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Intro"></a>
-        <a href="#slide-2" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="The Compass"></a>
-        <a href="#slide-3" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="The Map"></a>
-        <a href="#slide-4" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="The Ship"></a>
-        <a href="#slide-5" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Market"></a>
-        <a href="#slide-6" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Problem"></a>
-        <a href="#slide-7" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Solution"></a>
-        <a href="#slide-8" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Description"></a>
-        <a href="#slide-9" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Value"></a>
-        <a href="#slide-10" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="How it Works"></a>
-        <a href="#slide-11" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Impact"></a>
-        <a href="#slide-12" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Alignment"></a>
-        <a href="#slide-13" class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300" title="Team"></a>
+        <a href="#slide-1"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="Intro"></a>
+        <a href="#slide-2"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="The Compass"></a>
+        <a href="#slide-3"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="The Map"></a>
+        <a href="#slide-4"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="The Ship"></a>
+        <a href="#slide-5"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="Market"></a>
+        <a href="#slide-6"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="Problem"></a>
+        <a href="#slide-7"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="Solution"></a>
+        <a href="#slide-8"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="Description"></a>
+        <a href="#slide-9"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="Value"></a>
+        <a href="#slide-10"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="How it Works"></a>
+        <a href="#slide-11"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="Impact"></a>
+        <a href="#slide-12"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="Alignment"></a>
+        <a href="#slide-13"
+            class="nav-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-orange-500 transition-all duration-300"
+            title="Team"></a>
     </div>
 
     <main class="slides-container" id="scroller">
@@ -218,21 +366,27 @@
         <section id="slide-1" class="active">
             <div class="absolute inset-0 bg-gradient-to-br from-orange-50 to-blue-50 z-0"></div>
             <!-- Decorative Wave -->
-            <svg class="absolute bottom-0 left-0 w-full z-0 opacity-20 text-orange-200 fill-current" viewBox="0 0 1440 320">
-                <path fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            <svg class="absolute bottom-0 left-0 w-full z-0 opacity-20 text-orange-200 fill-current"
+                viewBox="0 0 1440 320">
+                <path fill-opacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
             </svg>
-            
+
             <div class="absolute right-0 top-0 w-full h-full opacity-80 pointer-events-none">
-                <img src="./images/woman_card_no_title_right.jpg" class="w-full h-full object-cover" alt="Abstract Network">
+                <img src="./images/woman_card_no_title_right.jpg" class="w-full h-full object-cover"
+                    alt="Abstract Network">
             </div>
-            
+
             <div class="container mx-auto px-6 z-10 relative">
                 <div class="max-w-4xl">
-                    <h1 class="text-6xl md:text-8xl font-extrabold text-blue-900 mb-8 leading-tight anim-element fade-up delay-100">
-                        iNua <br/><span class="gradient-text">Technologies</span>
+                    <h1
+                        class="text-6xl md:text-8xl font-extrabold text-blue-900 mb-8 leading-tight anim-element fade-up delay-100">
+                        iNua <br /><span class="gradient-text">Technologies</span>
                     </h1>
                     <div class="h-2 w-32 bg-orange-500 rounded-full mb-8 anim-element fade-up delay-200"></div>
-                    <p class="text-3xl md:text-5xl text-gray-600 font-bold anim-element fade-up delay-300 leading-normal tracking-wide">
+                    <p
+                        class="text-3xl md:text-5xl text-gray-600 font-bold anim-element fade-up delay-300 leading-normal tracking-wide">
                         Lifting Bridges
                     </p>
                 </div>
@@ -246,73 +400,100 @@
         <section id="slide-2">
             <div class="absolute inset-0 bg-white z-0"></div>
             <!-- Large Compass Decoration -->
-            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vh] h-[80vh] opacity-5 pointer-events-none">
-                 <i class="far fa-compass w-full h-full text-blue-900 text-[80vh]"></i>
+            <div
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vh] h-[80vh] opacity-5 pointer-events-none">
+                <i class="far fa-compass w-full h-full text-blue-900 text-[80vh]"></i>
             </div>
 
             <div class="container mx-auto px-6 z-10 text-center relative">
-                <div class="w-24 h-24 mx-auto bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-8 shadow-lg anim-element fade-up">
+                <div
+                    class="w-24 h-24 mx-auto bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-8 shadow-lg anim-element fade-up">
                     <i class="fas fa-compass text-4xl"></i>
                 </div>
-                <h2 class="text-5xl md:text-6xl font-bold text-blue-900 mb-12 anim-element fade-up delay-100">The Compass</h2>
-                <p class="text-3xl md:text-5xl text-gray-700 font-light leading-relaxed max-w-5xl mx-auto anim-element fade-up delay-200">
-                    Lifting bridges between <span class="font-bold text-orange-500">offline communities</span> and <span class="font-bold text-blue-900">advanced technologies</span>.
+                <h2 class="text-5xl md:text-6xl font-bold text-blue-900 mb-12 anim-element fade-up delay-100">The
+                    Compass</h2>
+                <p
+                    class="text-3xl md:text-5xl text-gray-700 font-light leading-relaxed max-w-5xl mx-auto anim-element fade-up delay-200">
+                    Lifting bridges between <span class="font-bold text-orange-500">offline communities</span> and <span
+                        class="font-bold text-blue-900">advanced technologies</span>.
                 </p>
             </div>
         </section>
 
         <!-- Slide 3: The Map -->
-        <section id="slide-3">
+        <!-- Slide 3: The Map (Desktop) -->
+        <section id="slide-3" class="desktop-only">
             <!-- Background: Topographic Lines SVG Pattern -->
-            <div class="absolute inset-0 z-0 opacity-10 bg-orange-50" 
-                 style="background-image: url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h100v100H0z\' fill=\'none\'/%3E%3Cpath d=\'M10 10c20 0 20 20 40 20s20-20 40-20v10c-20 0-20 20-40 20s-20-20-40-20V10zm0 40c20 0 20 20 40 20s20-20 40-20v10c-20 0-20 20-40 20s-20-20-40-20V50z\' fill=\'%23D97757\' fill-opacity=\'0.4\'/%3E%3C/svg%3E'); background-size: 200px 200px;">
+            <div class="absolute inset-0 z-0 opacity-10 bg-orange-50"
+                style="background-image: url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h100v100H0z\' fill=\'none\'/%3E%3Cpath d=\'M10 10c20 0 20 20 40 20s20-20 40-20v10c-20 0-20 20-40 20s-20-20-40-20V10zm0 40c20 0 20 20 40 20s20-20 40-20v10c-20 0-20 20-40 20s-20-20-40-20V50z\' fill=\'%23D97757\' fill-opacity=\'0.4\'/%3E%3C/svg%3E'); background-size: 200px 200px;">
             </div>
             <!-- Decorative Compass Rose Watermark -->
-            <div class="absolute bottom-10 left-10 text-blue-900 opacity-5 z-0 transform -rotate-12 pointer-events-none">
+            <div
+                class="absolute bottom-10 left-10 text-blue-900 opacity-5 z-0 transform -rotate-12 pointer-events-none">
                 <i class="far fa-compass text-[30rem]"></i>
             </div>
-            
+
             <div class="container mx-auto px-6 z-10 relative">
                 <h2 class="text-6xl font-bold text-blue-900 mb-8 text-center anim-element fade-up">The Map</h2>
-                
+
                 <!-- Main Content Area -->
-                <div class="relative w-full max-w-6xl mx-auto h-[70vh] md:h-[60vh] flex flex-col md:flex-row justify-between items-stretch">
-                    
+                <div
+                    class="relative w-full max-w-6xl mx-auto h-[70vh] md:h-[60vh] flex flex-col md:flex-row justify-between items-stretch">
+
                     <!-- Twisted Road SVG Connector -->
-                    <svg class="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <svg class="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block"
+                        viewBox="0 0 100 100" preserveAspectRatio="none">
                         <!-- Path 1: Forward (Org -> User) - Drawn Left to Right -->
-                        <path class="road-dash" d="M 25,35 C 60,35 40,65 75,65" stroke="#D97757" stroke-width="0.6" fill="none" stroke-dasharray="3 2" opacity="0.6" />
+                        <path class="road-dash" d="M 25,35 C 60,35 40,65 75,65" stroke="#D97757" stroke-width="0.6"
+                            fill="none" stroke-dasharray="3 2" opacity="0.6" />
                         <!-- Path 2: Backward (User -> Org) - Drawn Right to Left -->
-                        <path class="road-dash" d="M 75,70 C 40,70 60,40 25,40" stroke="#2C5282" stroke-width="0.6" fill="none" stroke-dasharray="3 2" opacity="0.6" />
+                        <path class="road-dash" d="M 75,70 C 40,70 60,40 25,40" stroke="#2C5282" stroke-width="0.6"
+                            fill="none" stroke-dasharray="3 2" opacity="0.6" />
                     </svg>
 
                     <!-- Client Organization (Top Left) -->
-                    <div class="flex flex-col justify-start items-center md:items-start md:w-2/5 anim-element slide-right z-10 pt-4 md:pt-8 md:pl-12">
+                    <div
+                        class="flex flex-col justify-start items-center md:items-start md:w-2/5 anim-element slide-right z-10 pt-4 md:pt-8 md:pl-12">
                         <div class="flex flex-col items-center">
-                            <div class="w-24 h-24 bg-white border-4 border-orange-500 rounded-full shadow-xl flex items-center justify-center mb-6 relative z-10 transform hover:scale-110 transition-transform">
+                            <div
+                                class="w-24 h-24 bg-white border-4 border-orange-500 rounded-full shadow-xl flex items-center justify-center mb-6 relative z-10 transform hover:scale-110 transition-transform">
                                 <i class="fas fa-store text-4xl text-orange-600"></i>
                             </div>
-                            <h3 class="text-4xl font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full text-center">Client<br/>Organization</h3>
-                            <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 relative text-center">
-                                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[10px] border-b-white"></div>
+                            <h3
+                                class="text-4xl font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full text-center">
+                                Client<br />Organization</h3>
+                            <div
+                                class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 relative text-center">
+                                <div
+                                    class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[10px] border-b-white">
+                                </div>
                                 <p class="text-2xl text-gray-600 leading-relaxed">
-                                    Creating <span id="client-word" class="cycling-word">simple</span> communication between offline populations and Small to medium enterprises.
+                                    Creating better <span id="client-word" class="cycling-word">simple</span>
+                                    communication between offline populations and Small to medium enterprises.
                                 </p>
                             </div>
                         </div>
                     </div>
 
                     <!-- End Users (Bottom Right) -->
-                    <div class="flex flex-col justify-end items-center md:items-end md:w-1/3 anim-element slide-left z-10 pb-4 md:pb-8 md:pr-12">
+                    <div
+                        class="flex flex-col justify-end items-center md:items-end md:w-1/3 anim-element slide-left z-10 pb-4 md:pb-8 md:pr-12">
                         <div class="flex flex-col items-center">
-                             <div class="bg-blue-900 text-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-400 relative max-w-md text-center mb-6 order-2 md:order-1">
-                                <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-blue-900 md:hidden"></div>
+                            <div
+                                class="bg-blue-900 text-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-400 relative max-w-md text-center mb-6 order-2 md:order-1">
+                                <div
+                                    class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-blue-900 md:hidden">
+                                </div>
                                 <p class="text-2xl text-blue-100 leading-relaxed">
-                                    Creating <span id="user-word" class="cycling-word">simple</span> access to information and services.
+                                    Creating better <span id="user-word" class="cycling-word">simple</span> access to
+                                    information and services.
                                 </p>
                             </div>
-                            <h3 class="text-4xl font-bold text-blue-900 mb-4 order-1 md:order-2 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">End Users</h3>
-                            <div class="w-24 h-24 bg-blue-900 border-4 border-white rounded-full shadow-xl flex items-center justify-center order-3 relative z-10 transform hover:scale-110 transition-transform">
+                            <h3
+                                class="text-4xl font-bold text-blue-900 mb-4 order-1 md:order-2 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">
+                                End Users</h3>
+                            <div
+                                class="w-24 h-24 bg-blue-900 border-4 border-white rounded-full shadow-xl flex items-center justify-center order-3 relative z-10 transform hover:scale-110 transition-transform">
                                 <i class="fas fa-users text-4xl text-white"></i>
                             </div>
                         </div>
@@ -323,15 +504,65 @@
         </section>
 
         <!-- Slide 4: The Ship -->
-        <section id="slide-4">
+        <!-- Slide 3A: The Map - Client (Mobile) -->
+        <section id="slide-3a" class="mobile-only">
+            <div class="container mx-auto px-6 z-10 relative flex flex-col items-center justify-center h-full">
+                <h2 class="text-4xl font-bold text-blue-900 mb-8 text-center anim-element fade-up">The Map</h2>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-20 h-20 bg-white border-4 border-orange-500 rounded-full shadow-xl flex items-center justify-center mb-4 relative z-10 anim-element pop-in delay-100">
+                        <i class="fas fa-store text-3xl text-orange-600"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-blue-900 mb-2 bg-white/80 px-4 py-1 rounded-full text-center anim-element fade-up delay-200">
+                        Client Organization</h3>
+                    <div
+                        class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-500 relative text-center anim-element fade-up delay-300">
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Creating better <span id="client-word-mobile" class="cycling-word">simple</span>
+                            communication between
+                            offline populations and Small to medium enterprises.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3B: The Map - End User (Mobile) -->
+        <section id="slide-3b" class="mobile-only">
+            <div class="container mx-auto px-6 z-10 relative flex flex-col items-center justify-center h-full">
+                <div class="flex flex-col items-center">
+                    <div
+                        class="bg-blue-900 text-white p-6 rounded-2xl shadow-lg border-l-4 border-orange-400 relative max-w-md text-center mb-6 anim-element fade-up">
+                        <p class="text-xl text-blue-100 leading-relaxed">
+                            Creating better <span id="user-word-mobile" class="cycling-word">simple</span> access to
+                            information
+                            and services.
+                        </p>
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm anim-element fade-up delay-100">
+                        End Users</h3>
+                    <div
+                        class="w-20 h-20 bg-blue-900 border-4 border-white rounded-full shadow-xl flex items-center justify-center relative z-10 anim-element pop-in delay-200">
+                        <i class="fas fa-users text-3xl text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: The Ship (Desktop) -->
+        <section id="slide-4" class="desktop-only">
             <div class="absolute inset-0 bg-gray-50 z-0"></div>
             <!-- Decorative Skew Left -->
-            <div class="absolute left-0 bottom-0 w-1/3 h-full bg-blue-50 -skew-x-12 transform origin-bottom-left z-0"></div>
+            <div class="absolute left-0 bottom-0 w-1/3 h-full bg-blue-50 -skew-x-12 transform origin-bottom-left z-0">
+            </div>
 
             <div class="container mx-auto px-6 z-10 flex flex-col justify-center h-full">
                 <!-- Top Header -->
                 <div class="flex items-center gap-4 mb-12 justify-center anim-element fade-up">
-                    <div class="w-16 h-16 bg-white shadow-md rounded-full flex items-center justify-center text-blue-900">
+                    <div
+                        class="w-16 h-16 bg-white shadow-md rounded-full flex items-center justify-center text-blue-900">
                         <i class="fas fa-ship text-3xl"></i>
                     </div>
                     <h2 class="text-5xl font-bold text-blue-900">The Ship</h2>
@@ -339,8 +570,9 @@
 
                 <!-- Central Headline (Redesigned) -->
                 <div class="text-center mb-16 anim-element pop-in">
-                    <span class="inline-block py-4 px-10 rounded-full bg-white border border-blue-100 shadow-2xl text-3xl md:text-4xl text-gray-700 font-light">
-                        Our <span class="font-bold text-orange-500 drop-shadow-md">AI-powered SMS agent</span>
+                    <span
+                        class="inline-block py-4 px-10 rounded-full bg-white border border-blue-100 shadow-2xl text-3xl md:text-4xl text-gray-700 font-light">
+                        Our <span class="font-bold text-orange-500 drop-shadow-md">SMS-powered AI agent</span>
                     </span>
                 </div>
 
@@ -348,27 +580,40 @@
                 <div class="grid md:grid-cols-2 gap-10 items-stretch w-full max-w-7xl mx-auto">
                     <!-- Client Organizations -->
                     <div class="flex flex-col items-center">
-                        <div class="w-24 h-24 bg-white border-4 border-orange-500 rounded-full shadow-xl flex items-center justify-center mb-6 relative z-10 transform hover:scale-110 transition-transform">
+                        <div
+                            class="w-24 h-24 bg-white border-4 border-orange-500 rounded-full shadow-xl flex items-center justify-center mb-6 relative z-10 transform hover:scale-110 transition-transform">
                             <i class="fas fa-store text-4xl text-orange-600"></i>
                         </div>
-                        <h3 class="text-4xl font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">Client Organization</h3>
-                        <div class="bg-white p-14 rounded-3xl shadow-xl flex flex-col justify-center text-center anim-element slide-right delay-100 border-t-8 border-orange-500 hover:shadow-2xl transition-all duration-300">
+                        <h3
+                            class="text-4xl font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">
+                            Client Organization</h3>
+                        <div
+                            class="bg-white p-14 rounded-3xl shadow-xl flex flex-col justify-center text-center anim-element slide-right delay-100 border-t-8 border-orange-500 hover:shadow-2xl transition-all duration-300">
                             <p class="text-3xl text-gray-600 font-light leading-relaxed">
-                                Connects <span class="font-semibold text-blue-900">SMEs in Africa</span> to their offline target audience.
+                                Connects <span class="font-semibold text-blue-900">SMEs in Africa</span> to their
+                                offline target audience.
                             </p>
                         </div>
                     </div>
 
                     <!-- End Users -->
-                    <div class="flex flex-col items-center">    
-                        <div class="bg-blue-900 text-white p-6 rounded-2xl shadow-lg border-t-8 border-orange-400 relative text-center mb-6 order-2 md:order-1">
-                                <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-blue-900 md:hidden"></div>
-                                <p class="text-3xl text-blue-100 leading-relaxed">
-                                    Empowers communities by making <span class="font-semibold text-orange-400">organizational information</span> and services accessible.
-                                </p>
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="bg-blue-900 text-white p-6 rounded-2xl shadow-lg border-t-8 border-orange-400 relative text-center mb-6 order-2 md:order-1">
+                            <div
+                                class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-blue-900 md:hidden">
                             </div>
-                        <h3 class="text-4xl font-bold text-blue-900 mb-4 order-1 md:order-2 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">End Users</h3>
-                        <div class="w-24 h-24 bg-blue-900 border-4 border-white rounded-full shadow-xl flex items-center justify-center order-3 relative z-10 transform hover:scale-110 transition-transform">
+                            <p class="text-3xl text-blue-100 leading-relaxed">
+                                Empowers communities by making <span
+                                    class="font-semibold text-orange-400">organizational information</span> and services
+                                accessible.
+                            </p>
+                        </div>
+                        <h3
+                            class="text-4xl font-bold text-blue-900 mb-4 order-1 md:order-2 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">
+                            End Users</h3>
+                        <div
+                            class="w-24 h-24 bg-blue-900 border-4 border-white rounded-full shadow-xl flex items-center justify-center order-3 relative z-10 transform hover:scale-110 transition-transform">
                             <i class="fas fa-users text-4xl text-white"></i>
                         </div>
                     </div>
@@ -377,17 +622,81 @@
         </section>
 
         <!-- Slide 5: Background Data - market (Updated Pie Chart) -->
-        <section id="slide-5" class="bg-blue-900 text-white relative overflow-hidden">
+        <!-- Slide 4A: The Ship - Client (Mobile) -->
+        <section id="slide-4a" class="mobile-only">
+            <div class="container mx-auto px-6 z-10 flex flex-col justify-center h-full">
+                <!-- Top Header -->
+                <div class="flex items-center gap-4 mb-6 justify-center anim-element fade-up">
+                    <div
+                        class="w-12 h-12 bg-white shadow-md rounded-full flex items-center justify-center text-blue-900">
+                        <i class="fas fa-ship text-2xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-blue-900">The Ship</h2>
+                </div>
+
+                <div class="text-center mb-8 anim-element pop-in delay-100">
+                    <span
+                        class="inline-block py-2 px-6 rounded-full bg-white border border-blue-100 shadow-xl text-xl text-gray-700 font-light">
+                        Our <span class="font-bold text-orange-500">SMS-powered AI agent</span>
+                    </span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-20 h-20 bg-white border-4 border-orange-500 rounded-full shadow-xl flex items-center justify-center mb-4 relative z-10 anim-element pop-in delay-200">
+                        <i class="fas fa-store text-3xl text-orange-600"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-blue-900 mb-2 bg-white/80 px-4 py-1 rounded-full anim-element fade-up delay-300">
+                        Client
+                        Organization</h3>
+                    <div
+                        class="bg-white p-6 rounded-2xl shadow-xl flex flex-col justify-center text-center border-t-4 border-orange-500 anim-element fade-up delay-400">
+                        <p class="text-xl text-gray-600 font-light leading-relaxed">
+                            Connects <span class="font-semibold text-blue-900">SMEs in Africa</span> to their offline
+                            target audience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4B: The Ship - End User (Mobile) -->
+        <section id="slide-4b" class="mobile-only">
+            <div class="container mx-auto px-6 z-10 flex flex-col justify-center h-full">
+                <div class="flex flex-col items-center">
+                    <div
+                        class="bg-blue-900 text-white p-6 rounded-2xl shadow-lg border-t-4 border-orange-400 relative text-center mb-6 anim-element fade-up">
+                        <p class="text-xl text-blue-100 leading-relaxed">
+                            Empowers communities by making <span class="font-semibold text-orange-400">organizational
+                                information</span> and services accessible.
+                        </p>
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full anim-element fade-up delay-100">
+                        End Users</h3>
+                    <div
+                        class="w-20 h-20 bg-blue-900 border-4 border-white rounded-full shadow-xl flex items-center justify-center relative z-10 anim-element pop-in delay-200">
+                        <i class="fas fa-users text-3xl text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Background Data - market (Desktop) -->
+        <section id="slide-5" class="desktop-only bg-blue-900 text-white relative overflow-hidden">
             <!-- Background Image -->
             <div class="absolute right-0 top-0 h-full w-1/2 opacity-10 transform skew-x-12 origin-top-right">
-                <img src="https://images.unsplash.com/photo-1526304640152-d4619684e7dd?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Market Context">
+                <img src="https://images.unsplash.com/photo-1526304640152-d4619684e7dd?q=80&w=2070&auto=format&fit=crop"
+                    class="w-full h-full object-cover grayscale" alt="Market Context">
             </div>
 
             <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-12 anim-element fade-up border-l-8 border-orange-500 pl-6">Market Context</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 anim-element fade-up border-l-8 border-orange-500 pl-6">
+                    Market Context</h2>
 
                 <div class="flex flex-col md:flex-row items-center justify-center gap-16">
-                    
+
                     <!-- Pie Chart Visual -->
                     <div class="relative w-64 h-64 md:w-96 md:h-96 flex-shrink-0 anim-element pop-in delay-100">
                         <!-- 
@@ -398,21 +707,26 @@
                         -->
                         <svg viewBox="0 0 100 100" class="w-full h-full transform -rotate-90 filter drop-shadow-2xl">
                             <!-- 1. Total (Background) -->
-                            <circle cx="50" cy="50" r="25" fill="none" stroke="#2A4365" stroke-width="50" opacity="0.5" />
-                            
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="#2A4365" stroke-width="50"
+                                opacity="0.5" />
+
                             <!-- 2. Rural (55%) -->
-                            <circle cx="50" cy="50" r="25" fill="none" stroke="#F6AD55" stroke-width="50" 
-                                    stroke-dasharray="55 100" pathLength="100" class="chart-circle" />
-                            
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="#F6AD55" stroke-width="50"
+                                stroke-dasharray="55 100" pathLength="100" class="chart-circle" />
+
                             <!-- 3. Offline (39.6% which is 72% of 55%) -->
-                            <circle cx="50" cy="50" r="25" fill="none" stroke="#D97757" stroke-width="50" opacity="0.8" border="2" b
-                                    stroke-dasharray="39.6 100" pathLength="100" class="chart-circle delay-300" />
-                            
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="#D97757" stroke-width="50" opacity="0.8"
+                                border="2" b stroke-dasharray="39.6 100" pathLength="100"
+                                class="chart-circle delay-300" />
+
                             <!-- Center Label (Floating above) -->
                             <foreignObject x="0" y="0" width="100" height="100" class="pointer-events-none">
                                 <div class="w-full h-full flex items-center justify-center transform rotate-90">
-                                    <div class="bg-blue-900/80 backdrop-blur-sm p-2 rounded-full border border-white/10 text-center shadow-lg">
-                                        <div class="text-[8px] md:text-[10px] font-bold leading-tight">1.515B<br/><span class="text-[5px] font-light opacity-80">Africa's Population</span></div>
+                                    <div
+                                        class="bg-blue-900/80 backdrop-blur-sm p-2 rounded-full border border-white/10 text-center shadow-lg">
+                                        <div class="text-[8px] md:text-[10px] font-bold leading-tight">1.515B<br /><span
+                                                class="text-[5px] font-light opacity-80">Africa's Population</span>
+                                        </div>
                                     </div>
                                 </div>
                             </foreignObject>
@@ -421,31 +735,41 @@
 
                     <!-- Legend / Data Narrative -->
                     <div class="flex flex-col gap-10 max-w-lg">
-                        
+
                         <!-- Rural Legend -->
-                        <div class="anim-element slide-left delay-200 relative pl-6 border-l-2 border-dashed border-[#F6AD55]/30">
-                             <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#F6AD55] border-2 border-blue-900"></div>
-                            <h3 class="text-3xl font-bold text-[#F6AD55] mb-1">55% <span class="text-xl text-white font-normal">Live in Rural Areas</span></h3>
+                        <div
+                            class="anim-element slide-left delay-200 relative pl-6 border-l-2 border-dashed border-[#F6AD55]/30">
+                            <div
+                                class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#F6AD55] border-2 border-blue-900">
+                            </div>
+                            <h3 class="text-3xl font-bold text-[#F6AD55] mb-1">55% <span
+                                    class="text-xl text-white font-normal">Live in Rural Areas</span></h3>
                             <p class="text-blue-200 text-lg">~833 Million People</p>
                         </div>
 
                         <!-- Offline Legend -->
-                        <div class="anim-element slide-left delay-300 relative pl-6 border-l-2 border-dashed border-[#D97757]/30">
-                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#D97757] border-2 border-blue-900"></div>
+                        <div
+                            class="anim-element slide-left delay-300 relative pl-6 border-l-2 border-dashed border-[#D97757]/30">
+                            <div
+                                class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#D97757] border-2 border-blue-900">
+                            </div>
                             <div class="mb-2">
                                 <h3 class="text-3xl font-bold text-[#D97757] inline-block mr-2">72%</h3>
-                                <span class="text-lg text-white font-normal">of the rural population is <strong>Offline</strong></span>
+                                <span class="text-lg text-white font-normal">of the rural population is
+                                    <strong>Offline</strong></span>
                             </div>
                             <div class="bg-white/10 p-4 rounded-lg border-l-4 border-[#D97757]">
-                                <p class="text-gray-200">Primary Barrier: <span class="font-bold text-white">Usage Costs</span></p>
+                                <p class="text-gray-200">Primary Barrier: <span class="font-bold text-white">Usage
+                                        Costs</span></p>
                             </div>
                         </div>
 
                         <!-- Total Context -->
-                         <div class="mt-2 pt-6 border-t border-white/10 anim-element fade-up delay-400">
+                        <div class="mt-2 pt-6 border-t border-white/10 anim-element fade-up delay-400">
                             <div class="flex items-center gap-3 opacity-70 mb-2">
                                 <i class="fas fa-globe-africa"></i>
-                                <span class="text-sm tracking-widest uppercase">Total Africa Population (World Bank 2024)</span>
+                                <span class="text-sm tracking-widest uppercase">Total Africa Population (World Bank
+                                    2024)</span>
                             </div>
                         </div>
                     </div>
@@ -454,51 +778,247 @@
             </div>
         </section>
 
-        <!-- Slide 6: Problem -->
-        <section id="slide-6" class="bg-gray-50">
+        <!-- Slide 5A: Market - Chart (Mobile) -->
+        <section id="slide-5a" class="mobile-only bg-blue-900 text-white relative overflow-hidden">
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center items-center">
+                <h2 class="text-3xl font-bold mb-6 border-l-4 border-orange-500 pl-4 w-full anim-element fade-up">Market
+                    Context</h2>
+
+                <!-- Pie Chart Visual (Scaled down) -->
+                <div class="relative w-64 h-64 flex-shrink-0 mb-6 anim-element pop-in delay-100">
+                    <svg viewBox="0 0 100 100" class="w-full h-full transform -rotate-90 filter drop-shadow-2xl">
+                        <circle cx="50" cy="50" r="25" fill="none" stroke="#2A4365" stroke-width="50" opacity="0.5" />
+                        <circle cx="50" cy="50" r="25" fill="none" stroke="#F6AD55" stroke-width="50"
+                            stroke-dasharray="55 100" pathLength="100" class="chart-circle" />
+                        <circle cx="50" cy="50" r="25" fill="none" stroke="#D97757" stroke-width="50" opacity="0.8"
+                            stroke-dasharray="39.6 100" pathLength="100" class="chart-circle delay-300" />
+                        <foreignObject x="0" y="0" width="100" height="100" class="pointer-events-none">
+                            <div class="w-full h-full flex items-center justify-center transform rotate-90">
+                                <div
+                                    class="bg-blue-900/80 backdrop-blur-sm p-2 rounded-full border border-white/10 text-center shadow-lg">
+                                    <div class="text-[10px] font-bold leading-tight">1.515B<br /><span
+                                            class="text-[6px] font-light opacity-80">Africa's Population</span></div>
+                                </div>
+                            </div>
+                        </foreignObject>
+                    </svg>
+                </div>
+
+                <!-- Rural Legend (Key Stat 1) -->
+                <div
+                    class="relative pl-6 border-l-2 border-dashed border-[#F6AD55]/30 w-full max-w-xs anim-element fade-up delay-200">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#F6AD55] border-2 border-blue-900">
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#F6AD55] mb-1">55% <span
+                            class="text-lg text-white font-normal block">Live in Rural Areas</span></h3>
+                    <p class="text-blue-200 text-sm">~833 Million People</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5B: Market - Stats (Mobile) -->
+        <section id="slide-5b" class="mobile-only bg-blue-900 text-white relative overflow-hidden">
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center items-center">
+                <!-- Offline Legend (Key Stat 2) -->
+                <div
+                    class="relative pl-6 border-l-2 border-dashed border-[#D97757]/30 w-full max-w-xs mb-8 anim-element fade-up">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#D97757] border-2 border-blue-900">
+                    </div>
+                    <div class="mb-2">
+                        <h3 class="text-2xl font-bold text-[#D97757] inline-block mr-2">72%</h3>
+                        <span class="text-lg text-white font-normal block">of the rural population is
+                            <strong>Offline</strong></span>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg border-l-4 border-[#D97757]">
+                        <p class="text-gray-200 text-sm">Primary Barrier: <span class="font-bold text-white">Usage
+                                Costs</span></p>
+                    </div>
+                </div>
+
+                <!-- Total Context -->
+                <div class="w-full max-w-xs border-t border-white/10 pt-4 anim-element fade-up delay-100">
+                    <div class="flex items-center gap-3 opacity-70 mb-2">
+                        <i class="fas fa-globe-africa"></i>
+                        <span class="text-xs tracking-widest uppercase">Total Africa Population (World Bank 2024)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6A: Problem - Reach (Mobile) -->
+        <section id="slide-6a" class="mobile-only bg-gray-50">
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center">
+                <div class="text-center mb-8">
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 text-red-600 mb-4 anim-element pop-in">
+                        <i class="fas fa-unlink text-2xl"></i>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-2 anim-element fade-up delay-100">The Problem</h2>
+                    <span
+                        class="text-orange-500 font-bold tracking-widest uppercase text-xs bg-orange-100 px-3 py-1 rounded-full anim-element fade-up delay-200">Main
+                        Challenge</span>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-red-500 anim-element fade-up delay-300">
+                    <div class="text-red-500 mb-3"><i class="fas fa-exclamation-circle text-3xl"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Reach & Scale</h3>
+                    <p class="text-gray-600">SMEs in Africa struggle to reach customers in rural or low-connectivity
+                        areas and scale their businesses effectively.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6B: Problem - Gap & Resources (Mobile) -->
+        <section id="slide-6b" class="mobile-only bg-gray-50">
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-red-500 anim-element fade-up">
+                    <div class="text-red-500 mb-3"><i class="fas fa-wifi text-3xl"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">The Digital Gap</h3>
+                    <p class="text-gray-600">Most digital tools require internet, excluding populations relying on basic
+                        phones/SMS or lacking data access.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-red-500 anim-element fade-up delay-100">
+                    <div class="text-red-500 mb-3"><i class="fas fa-hourglass-half text-3xl"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Resource Limits</h3>
+                    <p class="text-gray-600">SMEs lack the time, modern tools, and sufficient funds to manage high
+                        volumes of potential customers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Problem (Desktop) -->
+        <section id="slide-6" class="desktop-only bg-gray-50">
             <div class="container mx-auto px-6 z-10 max-w-6xl">
                 <div class="text-center mb-16 anim-element fade-up">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-100 text-red-600 mb-6">
+                    <div
+                        class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-100 text-red-600 mb-6">
                         <i class="fas fa-unlink text-3xl"></i>
                     </div>
                     <h2 class="text-5xl font-bold text-gray-900 mb-2">The Problem</h2>
-                    <span class="text-orange-500 font-bold tracking-widest uppercase text-sm bg-orange-100 px-3 py-1 rounded-full">Main Challenge</span>
+                    <span
+                        class="text-orange-500 font-bold tracking-widest uppercase text-sm bg-orange-100 px-3 py-1 rounded-full">Main
+                        Challenge</span>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-100 hover:shadow-xl transition-shadow">
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-100 hover:shadow-xl transition-shadow">
                         <div class="text-red-500 mb-4"><i class="fas fa-exclamation-circle text-4xl"></i></div>
                         <h3 class="text-xl font-bold mb-3 text-gray-800">Reach & Scale</h3>
-                        <p class="text-lg text-gray-600">SMEs in Africa struggle to reach customers in rural or low-connectivity areas and scale their businesses effectively.</p>
+                        <p class="text-lg text-gray-600">SMEs in Africa struggle to reach customers in rural or
+                            low-connectivity areas and scale their businesses effectively.</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-200 hover:shadow-xl transition-shadow">
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-200 hover:shadow-xl transition-shadow">
                         <div class="text-red-500 mb-4"><i class="fas fa-wifi text-4xl"></i></div>
                         <h3 class="text-xl font-bold mb-3 text-gray-800">The Digital Gap</h3>
-                        <p class="text-lg text-gray-600">Most digital tools require internet, excluding populations relying on basic phones/SMS or lacking data access.</p>
+                        <p class="text-lg text-gray-600">Most digital tools require internet, excluding populations
+                            relying on basic phones/SMS or lacking data access.</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-300 hover:shadow-xl transition-shadow">
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-300 hover:shadow-xl transition-shadow">
                         <div class="text-red-500 mb-4"><i class="fas fa-hourglass-half text-4xl"></i></div>
                         <h3 class="text-xl font-bold mb-3 text-gray-800">Resource Limits</h3>
-                        <p class="text-lg text-gray-600">SMEs lack the time, modern tools, and sufficient funds to manage high volumes of potential customers.</p>
+                        <p class="text-lg text-gray-600">SMEs lack the time, modern tools, and sufficient funds to
+                            manage high volumes of potential customers.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Slide 7: Solution - The treasure -->
-        <section id="slide-7">
+        <!-- Slide 7A: Solution - Banner (Mobile) -->
+        <section id="slide-7a" class="mobile-only">
+            <div class="absolute inset-0 bg-blue-900 z-0 overflow-hidden">
+                <div
+                    class="absolute inset-0 bg-blue-800 opacity-50 transform -skew-y-6 scale-150 origin-bottom-left pointer-events-none">
+                </div>
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-orange-500 rounded-full opacity-20 blur-3xl">
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 z-10 text-white relative h-full flex flex-col justify-center">
+                <div class="text-center w-full">
+                    <div
+                        class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-700 text-blue-200 mb-6 shadow-lg border border-blue-500 anim-element pop-in">
+                        <i class="fas fa-link text-3xl"></i>
+                    </div>
+                    <h2
+                        class="text-4xl font-bold mb-6 flex items-center justify-center gap-4 anim-element fade-up delay-100">
+                        Solution <i class="fas fa-gem text-yellow-400 animate-pulse text-3xl"></i>
+                    </h2>
+                    <p class="text-2xl font-medium mb-5 text-white anim-element fade-up delay-200">
+                        Instead of waiting for these barriers to be resolved we bridge over it.
+                    </p>
+
+                    <!-- Banner Placeholder -->
+                    <div
+                        class="w-full max-w-sm mx-auto shadow-lg h-32 backdrop-blur-md border-2 rounded-2xl flex flex-col items-center justify-center mb-6 overflow-hidden relative group border-orange-400 anim-element pop-in delay-300">
+                        <img src="./images/banner woman copy.png" class="absolute inset-0 w-full h-full object-cover"
+                            alt="Company Banner">
+                    </div>
+
+                    <!-- Subtext -->
+                    <h3 class="text-2xl font-bold text-orange-400 drop-shadow-2xl anim-element fade-up delay-400">
+                        an AI-powered SMS agent
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7B: Solution - Client (Mobile) -->
+        <section id="slide-7b" class="mobile-only">
+            <div class="absolute inset-0 bg-blue-900 z-0 overflow-hidden"></div>
+            <div class="container mx-auto px-6 z-10 text-white relative h-full flex flex-col justify-center">
+                <div
+                    class="w-full bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg backdrop-blur-sm anim-element fade-up">
+                    <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">Client Organizations
+                    </h4>
+                    <p class="text-xl leading-relaxed text-white">
+                        Creating <span id="client-word-slide7-mobile" class="cycling-word">simple</span>
+                        communication between
+                        offline populations and you.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7C: Solution - User (Mobile) -->
+        <section id="slide-7c" class="mobile-only">
+            <div class="absolute inset-0 bg-blue-900 z-0 overflow-hidden"></div>
+            <div class="container mx-auto px-6 z-10 text-white relative h-full flex flex-col justify-center">
+                <div
+                    class="w-full bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg backdrop-blur-sm anim-element fade-up">
+                    <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">End Users</h4>
+                    <p class="text-xl leading-relaxed text-white">
+                        Creating <span id="user-word-slide7-mobile" class="cycling-word">simple</span>
+                        access to information and services.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Solution - The treasure (Desktop) -->
+        <section id="slide-7" class="desktop-only">
             <div class="absolute inset-0 bg-blue-900 z-0 overflow-hidden">
                 <!-- Abstract Skewed Overlay -->
-                <div class="absolute inset-0 bg-blue-800 opacity-50 transform -skew-y-6 scale-150 origin-bottom-left pointer-events-none"></div>
+                <div
+                    class="absolute inset-0 bg-blue-800 opacity-50 transform -skew-y-6 scale-150 origin-bottom-left pointer-events-none">
+                </div>
                 <!-- Decorative circle -->
-                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-orange-500 rounded-full opacity-20 blur-3xl"></div>
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-orange-500 rounded-full opacity-20 blur-3xl">
+                </div>
             </div>
 
             <div class="container mx-auto px-6 z-10 text-white relative">
                 <div class="text-center max-w-5xl mx-auto mb-5">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-700 text-blue-200 mb-6 shadow-lg border border-blue-500">
+                    <div
+                        class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-700 text-blue-200 mb-6 shadow-lg border border-blue-500">
                         <i class="fas fa-link text-3xl"></i>
                     </div>
                     <h2 class="text-5xl font-bold mb-6 anim-element fade-up flex items-center justify-center gap-4">
@@ -507,11 +1027,13 @@
                     <p class="text-3xl font-medium mb-5 text-white anim-element fade-up delay-100">
                         Instead of waiting for these barriers to be resolved we bridge over it.<br>Meet:
                     </p>
-                    
+
                     <!-- Banner Placeholder -->
-                    <div class="w-full max-w-lg mx-auto shadow-lg h-40 backdrop-blur-md border-2 rounded-2xl flex flex-col items-center justify-center mb-6 anim-element pop-in delay-200 overflow-hidden relative group border-orange-400 transition-colors">
+                    <div
+                        class="w-full max-w-lg mx-auto shadow-lg h-40 backdrop-blur-md border-2 rounded-2xl flex flex-col items-center justify-center mb-6 anim-element pop-in delay-200 overflow-hidden relative group border-orange-400 transition-colors">
                         <!-- Simulated Banner Content -->
-                        <img src="./images/banner woman copy.png" class="absolute inset-0 w-full h-full object-cover" alt="Company Banner">
+                        <img src="./images/banner woman copy.png" class="absolute inset-0 w-full h-full object-cover"
+                            alt="Company Banner">
                     </div>
 
                     <!-- Subtext -->
@@ -519,70 +1041,177 @@
                         an AI-powered SMS agent
                     </h3>
                 </div>
-                </div>
+            </div>
 
-                <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    <!-- Client Organization Box -->
-                    <div class="max-w-lg bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg anim-element slide-right delay-300 backdrop-blur-sm">
-                        <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">Client Organizations</h4>
-                        <p class="text-xl leading-relaxed text-white">
-                            Creating <span id="client-word-slide7" class="cycling-word">simple</span> communication between offline populations and you.
-                        </p>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Client Organization Box -->
+                <div
+                    class="max-w-lg bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg anim-element slide-right delay-300 backdrop-blur-sm">
+                    <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">Client Organizations
+                    </h4>
+                    <p class="text-xl leading-relaxed text-white">
+                        Creating <span id="client-word-slide7" class="cycling-word">simple</span> communication
+                        between offline populations and you.
+                    </p>
+                </div>
+                <!-- End Users Box -->
+                <div
+                    class="max-w-lg from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg anim-element slide-left delay-400 backdrop-blur-sm">
+                    <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">End Users</h4>
+                    <p class="text-xl leading-relaxed text-white">
+                        Creating <span id="user-word-slide7" class="cycling-word">simple</span> access to information
+                        and
+                        services.
+                    </p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Description -->
+        <!-- Slide 8A: Description - Part 1 (Mobile) -->
+        <section id="slide-8a" class="mobile-only">
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center">
+                <h2 class="text-4xl font-bold text-blue-900 mb-8 text-center anim-element fade-up">Description</h2>
+                <div class="flex flex-col gap-6">
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md flex gap-4 items-start border-l-4 border-orange-500 anim-element slide-right delay-100">
+                        <div
+                            class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 text-orange-600">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-xl mb-1">Dual Sided</h4>
+                            <p class="text-gray-600">The product includes two sides: the End User and our Client.</p>
+                        </div>
                     </div>
-                    <!-- End Users Box -->
-                    <div class="max-w-lg from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg anim-element slide-left delay-400 backdrop-blur-sm">
-                        <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">End Users</h4>
-                        <p class="text-xl leading-relaxed text-white">
-                            Creating <span id="user-word-slide7" class="cycling-word">simple</span> access to information and services.
-                        </p>
+
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md flex gap-4 items-start border-l-4 border-blue-500 anim-element slide-right delay-200">
+                        <div
+                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-xl mb-1">Search & Connect</h4>
+                            <p class="text-gray-600">A platform for searching services and direct, automated, immediate
+                                communication.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 8: Description -->
-        <section id="slide-8">
+        <!-- Slide 8B: Description - Part 2 (Mobile) -->
+        <section id="slide-8b" class="mobile-only">
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center">
+                <div class="flex flex-col gap-6">
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md flex gap-4 items-start border-l-4 border-orange-500 anim-element slide-right">
+                        <div
+                            class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 text-orange-600">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-xl mb-1">Marketing Space</h4>
+                            <p class="text-gray-600">Advertising space to effectively reach target audience.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md flex gap-4 items-start border-l-4 border-blue-500 anim-element slide-right delay-100">
+                        <div
+                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-xl mb-1">Knowledge Mgt</h4>
+                            <p class="text-gray-600">Comprehensive organizational knowledge management system.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md flex gap-4 items-start border-l-4 border-purple-500 anim-element slide-right delay-200">
+                        <div
+                            class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 text-purple-600">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-xl mb-1">Control & Monitoring</h4>
+                            <p class="text-gray-600">Full control and monitoring of communication channels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Description (Desktop) -->
+        <section id="slide-8" class="desktop-only">
             <div class="container mx-auto px-6 z-10">
                 <h2 class="text-5xl font-bold text-blue-900 mb-16 text-center anim-element fade-up">Description</h2>
-                
+
                 <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-100 border-l-4 border-orange-500 hover:shadow-lg transition-all">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 text-orange-600"><i class="fas fa-exchange-alt text-xl"></i></div>
+                    <div
+                        class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-100 border-l-4 border-orange-500 hover:shadow-lg transition-all">
+                        <div
+                            class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 text-orange-600">
+                            <i class="fas fa-exchange-alt text-xl"></i>
+                        </div>
                         <div>
                             <h4 class="font-bold text-gray-800 text-2xl mb-1">Dual Sided</h4>
-                            <p class="text-gray-600 text-xl">The product includes two sides: the End User and our Client (the organization)</p>
+                            <p class="text-gray-600 text-xl">The product includes two sides: the End User and our Client
+                                (the organization)</p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-200 border-l-4 border-blue-500 hover:shadow-lg transition-all">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600"><i class="fas fa-search text-xl"></i></div>
+                    <div
+                        class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-200 border-l-4 border-blue-500 hover:shadow-lg transition-all">
+                        <div
+                            class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">
+                            <i class="fas fa-search text-xl"></i>
+                        </div>
                         <div>
                             <h4 class="font-bold text-gray-800 text-2xl mb-1">Search & Connect</h4>
-                            <p class="text-gray-600 text-xl">A platform for searching services and direct, automated, immediate communication.</p>
+                            <p class="text-gray-600 text-xl">A platform for searching services and direct, automated,
+                                immediate communication.</p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-300 border-l-4 border-orange-500 hover:shadow-lg transition-all">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 text-orange-600"><i class="fas fa-bullhorn text-xl"></i></div>
+                    <div
+                        class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-300 border-l-4 border-orange-500 hover:shadow-lg transition-all">
+                        <div
+                            class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 text-orange-600">
+                            <i class="fas fa-bullhorn text-xl"></i>
+                        </div>
                         <div>
                             <h4 class="font-bold text-gray-800 text-2xl mb-1">Marketing Space</h4>
-                            <p class="text-gray-600 text-xl">An advertising space where organizations can effectively reach their target audience.</p>
+                            <p class="text-gray-600 text-xl">An advertising space where organizations can effectively
+                                reach their target audience.</p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-400 border-l-4 border-blue-500 hover:shadow-lg transition-all">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600"><i class="fas fa-folder-open text-xl"></i></div>
+                    <div
+                        class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start anim-element fade-up delay-400 border-l-4 border-blue-500 hover:shadow-lg transition-all">
+                        <div
+                            class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">
+                            <i class="fas fa-folder-open text-xl"></i>
+                        </div>
                         <div>
                             <h4 class="font-bold text-gray-800 text-2xl mb-1">Knowledge Management</h4>
-                            <p class="text-gray-600 text-xl">A comprehensive organizational knowledge management system.</p>
+                            <p class="text-gray-600 text-xl">A comprehensive organizational knowledge management system.
+                            </p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start md:col-span-2 anim-element fade-up delay-500 border-l-4 border-purple-500 hover:shadow-lg transition-all">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 text-purple-600"><i class="fas fa-chart-pie text-xl"></i></div>
+                    <div
+                        class="bg-white p-8 rounded-xl shadow-md flex gap-5 items-start md:col-span-2 anim-element fade-up delay-500 border-l-4 border-purple-500 hover:shadow-lg transition-all">
+                        <div
+                            class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 text-purple-600">
+                            <i class="fas fa-chart-pie text-xl"></i>
+                        </div>
                         <div>
                             <h4 class="font-bold text-gray-800 text-2xl mb-1">Control & Monitoring</h4>
-                            <p class="text-gray-600 text-xl">Full control and monitoring of all communication channels with customers.</p>
+                            <p class="text-gray-600 text-xl">Full control and monitoring of all communication channels
+                                with customers.</p>
                         </div>
                     </div>
                 </div>
@@ -590,16 +1219,94 @@
         </section>
 
         <!-- Slide 9: Value -->
-        <section id="slide-9">
-            <div class="absolute inset-0 grid md:grid-cols-2">
-                <div class="bg-orange-50 h-full relative overflow-hidden">
-                     <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full opacity-40 blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-                </div>
-                <div class="bg-blue-900 h-full relative overflow-hidden">
-                    <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-700 rounded-full opacity-40 blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        <!-- Slide 9A: Value - Client (Mobile) -->
+        <section id="slide-9a" class="mobile-only bg-orange-50">
+            <div
+                class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full opacity-40 blur-3xl -translate-x-1/2 -translate-y-1/2">
+            </div>
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center">
+                <h2 class="text-3xl font-bold text-blue-900 mb-6 font-heading anim-element fade-up">What you will get:
+                </h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-4 p-3 rounded-lg bg-white/50 anim-element slide-right delay-100">
+                        <i class="fas fa-robot text-orange-500 text-xl mt-1"></i>
+                        <span class="text-lg text-gray-800"><strong>AI Agent</strong> expert in your knowledge</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-lg bg-white/50 anim-element slide-right delay-200">
+                        <i class="fas fa-magic text-orange-500 text-xl mt-1"></i>
+                        <span class="text-lg text-gray-800"><strong>Automation</strong> - Easy to use, no tech skills
+                            needed</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-lg bg-white/50 anim-element slide-right delay-300">
+                        <i class="fas fa-comments text-orange-500 text-xl mt-1"></i>
+                        <span class="text-lg text-gray-800"><strong>Direct communication</strong> platform</span>
+                    </li>
+                    <li class="flex items-start gap-4 p-3 rounded-lg bg-white/50 anim-element slide-right delay-400">
+                        <i class="fas fa-chart-bar text-orange-500 text-xl mt-1"></i>
+                        <span class="text-lg text-gray-800"><strong>Scalability</strong> & Actionable Data</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 9B: Value - User (Mobile) -->
+        <section id="slide-9b" class="mobile-only bg-blue-900">
+            <div
+                class="absolute bottom-0 right-0 w-64 h-64 bg-blue-700 rounded-full opacity-40 blur-3xl translate-x-1/2 translate-y-1/2">
+            </div>
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center text-white">
+                <h2 class="text-3xl font-bold text-orange-400 mb-6 font-heading anim-element fade-up">Customer
+                    Experience</h2>
+                <div class="space-y-4">
+                    <div
+                        class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm anim-element slide-right delay-100">
+                        <div
+                            class="w-8 h-8 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0 text-sm">
+                            1</div>
+                        <div>
+                            <h4 class="font-bold text-xl text-orange-100">Direct Line</h4>
+                            <p class="text-blue-100">Direct communication with organization.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm anim-element slide-right delay-200">
+                        <div
+                            class="w-8 h-8 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0 text-sm">
+                            2</div>
+                        <div>
+                            <h4 class="font-bold text-xl text-orange-100">Reliability</h4>
+                            <p class="text-blue-100">24/7 reliable customer service.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm anim-element slide-right delay-300">
+                        <div
+                            class="w-8 h-8 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0 text-sm">
+                            3</div>
+                        <div>
+                            <h4 class="font-bold text-xl text-orange-100">Connection</h4>
+                            <p class="text-blue-100">Two-way dialogue building trust.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+        </section>
+
+        <!-- Slide 9: Value (Desktop) -->
+        <section id="slide-9" class="desktop-only">
+            <div class="absolute inset-0 grid md:grid-cols-2">
+                <div class="bg-orange-50 h-full relative overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full opacity-40 blur-3xl -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                </div>
+                <div class="bg-blue-900 h-full relative overflow-hidden">
+                    <div
+                        class="absolute bottom-0 right-0 w-64 h-64 bg-blue-700 rounded-full opacity-40 blur-3xl translate-x-1/2 translate-y-1/2">
+                    </div>
+                </div>
+            </div>
+
             <div class="container mx-auto px-6 z-10 grid md:grid-cols-2 gap-12 h-full items-center">
                 <!-- Left: Client -->
                 <div class="p-8 anim-element slide-right">
@@ -607,50 +1314,67 @@
                     <ul class="space-y-6">
                         <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
                             <i class="fas fa-robot text-orange-500 text-2xl mt-1"></i>
-                            <span class="text-xl text-gray-800"><strong>An AI Agent</strong> expert in your organizational knowledge</span>
+                            <span class="text-xl text-gray-800"><strong>An AI Agent</strong> expert in your
+                                organizational knowledge</span>
                         </li>
                         <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
                             <i class="fas fa-magic text-orange-500 text-2xl mt-1"></i>
-                            <span class="text-xl text-gray-800"><strong>Automation</strong> - Easy to use tool with no tech knowledgeable need</span>
+                            <span class="text-xl text-gray-800"><strong>Automation</strong> - Easy to use tool with no
+                                tech knowledgeable need</span>
                         </li>
                         <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
                             <i class="fas fa-comments text-orange-500 text-2xl mt-1"></i>
-                            <span class="text-xl text-gray-800"><strong>Direct communication</strong> platform with your client</span>
+                            <span class="text-xl text-gray-800"><strong>Direct communication</strong> platform with your
+                                client</span>
                         </li>
                         <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
                             <i class="fas fa-chart-bar text-orange-500 text-2xl mt-1"></i>
-                            <span class="text-xl text-gray-800"><strong>Scalability</strong> - Access potential clients, retain existing ones.</span>
+                            <span class="text-xl text-gray-800"><strong>Scalability</strong> - Access potential clients,
+                                retain existing ones.</span>
                         </li>
                         <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
                             <i class="fas fa-lightbulb text-orange-500 text-2xl mt-1"></i>
-                            <span class="text-xl text-gray-800"><strong>Actionable Data:</strong> Insights into needs, continuous feedback, direct improvement.</span>
+                            <span class="text-xl text-gray-800"><strong>Actionable Data:</strong> Insights into needs,
+                                continuous feedback, direct improvement.</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Right: End User -->
                 <div class="p-8 text-white anim-element slide-left">
-                    <h2 class="text-4xl font-bold text-orange-400 mb-8 font-heading">Customer Experience <br/><span class="text-xl font-normal opacity-80 font-sans tracking-normal">What your end user gets</span></h2>
+                    <h2 class="text-4xl font-bold text-orange-400 mb-8 font-heading">Customer Experience <br /><span
+                            class="text-xl font-normal opacity-80 font-sans tracking-normal">What your end user
+                            gets</span></h2>
                     <div class="space-y-6">
-                        <div class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm hover:bg-blue-800/50 transition-colors">
-                            <div class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+                        <div
+                            class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm hover:bg-blue-800/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0">
+                                1</div>
                             <div>
                                 <h4 class="font-bold text-2xl text-orange-100">Direct Line</h4>
                                 <p class="text-blue-100 text-xl">Direct communication line with your organization.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm hover:bg-blue-800/50 transition-colors">
-                             <div class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                        <div
+                            class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm hover:bg-blue-800/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0">
+                                2</div>
                             <div>
                                 <h4 class="font-bold text-2xl text-orange-100">Reliability</h4>
                                 <p class="text-blue-100 text-xl">24/7 reliable customer service.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm hover:bg-blue-800/50 transition-colors">
-                             <div class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+                        <div
+                            class="flex items-start gap-4 p-4 border border-blue-700/50 rounded-xl bg-blue-800/30 backdrop-blur-sm hover:bg-blue-800/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-full bg-orange-400 flex items-center justify-center text-white font-bold flex-shrink-0">
+                                3</div>
                             <div>
                                 <h4 class="font-bold text-2xl text-orange-100">Connection</h4>
-                                <p class="text-blue-100 text-xl">Two-way dialogue that strengthens connection and trust.</p>
+                                <p class="text-blue-100 text-xl">Two-way dialogue that strengthens connection and trust.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -658,51 +1382,126 @@
             </div>
         </section>
 
-        <!-- Slide 10: How it works -->
-        <section id="slide-10">
-            <div class="container mx-auto px-6 z-10 text-center items-center justify-center flex flex-col">
-                <h2 class="text-5xl font-bold text-blue-900 mb-12 anim-element fade-up">How it Works - Technology</h2>
+        <!-- Slide 10: How it works (Mobile) -->
+        <section id="slide-10-mobile" class="mobile-only">
+            <div class="container mx-auto px-6 z-10 text-center items-center justify-center flex flex-col h-full">
+                <h2 class="text-3xl font-bold text-blue-900 mb-8 anim-element fade-up">How it Works - Technology</h2>
 
-                <div class=" w-[990px] h-[550px] rounded-3xl overflow-hidden shadow-2xl anim-element pop-in delay-100 flex items-center justify-center group">
-                   <img src="./images/product_diagram.png" class="absolute inset-0 h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Technology Abstract">
+                <div
+                    class="w-full h-auto aspect-video rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center group relative anim-element pop-in delay-100">
+                    <img src="./images/product_diagram.png" class="absolute inset-0 w-full h-full object-cover"
+                        alt="Technology Abstract">
                 </div>
             </div>
         </section>
 
-        <!-- Slide 11: Product Impact -->
-        <section id="slide-11">
+        <!-- Slide 10: How it works (Desktop) -->
+        <section id="slide-10" class="desktop-only">
+            <div class="container mx-auto px-6 z-10 text-center items-center justify-center flex flex-col">
+                <h2 class="text-5xl font-bold text-blue-900 mb-12 anim-element fade-up">How it Works - Technology</h2>
+
+                <div
+                    class=" w-[990px] h-[550px] rounded-3xl overflow-hidden shadow-2xl anim-element pop-in delay-100 flex items-center justify-center group">
+                    <img src="./images/product_diagram.png"
+                        class="absolute inset-0 h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        alt="Technology Abstract">
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11A: Product Impact - Social (Mobile) -->
+        <section id="slide-11a" class="mobile-only">
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold text-blue-900 mb-2 anim-element fade-up">Product Impact</h2>
+                    <p class="text-xl text-orange-600 font-light anim-element fade-up delay-100">Bridging the inequality
+                        gap.</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-3xl shadow-lg border-t-8 border-green-500 anim-element slide-right delay-200">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-green-100 rounded-full text-green-600"><i class="fas fa-heart text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Social Impact</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        The more technological advances, the wider the inequality gap becomes. These technologies are
+                        not luxuries but fundamental tools.
+                    </p>
+                    <p
+                        class="text-gray-800 font-semibold leading-relaxed border-l-4 border-green-500 pl-4 bg-green-50 p-2 rounded-r-lg text-sm">
+                        We at iNua are devoted to using advanced technologies where it's crucially needed.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11B: Product Impact - Economic (Mobile) -->
+        <section id="slide-11b" class="mobile-only">
+            <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center">
+                <div class="bg-white p-6 rounded-3xl shadow-lg border-t-8 border-blue-500 anim-element slide-left">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-blue-100 rounded-full text-blue-600"><i
+                                class="fas fa-chart-line text-xl"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-800">Economic Opportunity</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        The backbone of Africa’s economy is SMEs. We empower these organizations with accessible,
+                        easy-to-use technology that fuels their growth.
+                    </p>
+                    <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                        <i class="fas fa-rocket text-blue-500 mr-2"></i> <span class="text-blue-900 font-medium">Unlock
+                            Growth Potential</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Product Impact (Desktop) -->
+        <section id="slide-11" class="desktop-only">
             <div class="container mx-auto px-6 z-10">
                 <div class="text-center mb-16 anim-element fade-up">
                     <h2 class="text-5xl font-bold text-blue-900 mb-4">Product Impact</h2>
-                    <p class="text-2xl text-orange-600 font-light">Bridging the inequality gap while fueling economic growth.</p>
+                    <p class="text-2xl text-orange-600 font-light">Bridging the inequality gap while fueling economic
+                        growth.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     <!-- Social -->
-                    <div class="bg-white p-10 rounded-3xl shadow-lg border-t-8 border-green-500 anim-element slide-right delay-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="bg-white p-10 rounded-3xl shadow-lg border-t-8 border-green-500 anim-element slide-right delay-100 hover:-translate-y-2 transition-transform duration-300">
                         <div class="flex items-center gap-4 mb-6">
-                            <div class="p-4 bg-green-100 rounded-full text-green-600"><i class="fas fa-heart text-2xl"></i></div>
+                            <div class="p-4 bg-green-100 rounded-full text-green-600"><i
+                                    class="fas fa-heart text-2xl"></i></div>
                             <h3 class="text-3xl font-bold text-gray-800">Social Impact</h3>
                         </div>
                         <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                            The more technological advances, the wider the inequality gap becomes. These technologies are not luxuries but fundamental tools for commerce, communication, and economic growth.
+                            The more technological advances, the wider the inequality gap becomes. These technologies
+                            are not luxuries but fundamental tools for commerce, communication, and economic growth.
                         </p>
-                        <p class="text-lg text-gray-800 font-semibold leading-relaxed border-l-4 border-green-500 pl-4 bg-green-50 p-2 rounded-r-lg">
-                            We at iNua are devoted to using advanced technologies where it's crucially needed, to lift bridges to these tools for the benefit of communities' self-development.
+                        <p
+                            class="text-lg text-gray-800 font-semibold leading-relaxed border-l-4 border-green-500 pl-4 bg-green-50 p-2 rounded-r-lg">
+                            We at iNua are devoted to using advanced technologies where it's crucially needed, to lift
+                            bridges to these tools for the benefit of communities' self-development.
                         </p>
                     </div>
 
                     <!-- Economic -->
-                    <div class="bg-white p-10 rounded-3xl shadow-lg border-t-8 border-blue-500 anim-element slide-left delay-200 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="bg-white p-10 rounded-3xl shadow-lg border-t-8 border-blue-500 anim-element slide-left delay-200 hover:-translate-y-2 transition-transform duration-300">
                         <div class="flex items-center gap-4 mb-6">
-                            <div class="p-4 bg-blue-100 rounded-full text-blue-600"><i class="fas fa-chart-line text-2xl"></i></div>
+                            <div class="p-4 bg-blue-100 rounded-full text-blue-600"><i
+                                    class="fas fa-chart-line text-2xl"></i></div>
                             <h3 class="text-3xl font-bold text-gray-800">Economic Opportunity</h3>
                         </div>
                         <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                            The backbone of Africa’s economy is SMEs. We empower these organizations with accessible, easy-to-use technology that fuels their growth.
+                            The backbone of Africa’s economy is SMEs. We empower these organizations with accessible,
+                            easy-to-use technology that fuels their growth.
                         </p>
                         <div class="mt-4 p-4 bg-blue-50 rounded-lg">
-                            <i class="fas fa-rocket text-blue-500 mr-2"></i> <span class="text-blue-900 font-medium">Unlock Growth Potential</span>
+                            <i class="fas fa-rocket text-blue-500 mr-2"></i> <span
+                                class="text-blue-900 font-medium">Unlock Growth Potential</span>
                         </div>
                     </div>
                 </div>
@@ -712,44 +1511,61 @@
         <!-- Slide 12: EU alignment -->
         <section id="slide-12" class="bg-white relative">
             <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-gray-50 to-transparent z-0"></div>
-            
+
             <div class="container mx-auto px-6 z-10 text-center">
                 <h2 class="text-5xl font-bold text-blue-900 mb-6 anim-element fade-up">EU Alignment</h2>
-                <p class="text-2xl text-gray-500 mb-12 anim-element fade-up delay-100">Alignment with UN Sustainable Development Goals</p>
-                
-                <div class="flex flex-wrap justify-center gap-6 anim-element pop-in delay-200">
+                <p class="text-2xl text-gray-500 mb-12 anim-element fade-up delay-100">Alignment with UN Sustainable
+                    Development Goals</p>
+
+                <div class="flex flex-wrap justify-center gap-3 md:gap-6 anim-element pop-in delay-200">
                     <!-- SDG Icons (Styled Text Blocks) -->
-                    <div class="w-32 h-32 bg-red-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
-                        <span class="text-xl font-black opacity-50">1</span>
-                        <span class="font-bold text-left text-sm leading-tight uppercase">No<br>Poverty</span>
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 bg-red-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                        <span class="text-lg md:text-xl font-black opacity-50">1</span>
+                        <span
+                            class="font-bold text-left text-[10px] md:text-sm leading-tight uppercase">No<br>Poverty</span>
                     </div>
-                    <div class="w-32 h-32 bg-yellow-500 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
-                        <span class="text-xl font-black opacity-50">2</span>
-                        <span class="font-bold text-left text-sm leading-tight uppercase">Zero<br>Hunger</span>
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 bg-yellow-500 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                        <span class="text-lg md:text-xl font-black opacity-50">2</span>
+                        <span
+                            class="font-bold text-left text-[10px] md:text-sm leading-tight uppercase">Zero<br>Hunger</span>
                     </div>
-                    <div class="w-32 h-32 bg-green-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
-                        <span class="text-xl font-black opacity-50">3</span>
-                        <span class="font-bold text-left text-sm leading-tight uppercase">Good Health</span>
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 bg-green-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                        <span class="text-lg md:text-xl font-black opacity-50">3</span>
+                        <span class="font-bold text-left text-[10px] md:text-sm leading-tight uppercase">Good
+                            Health</span>
                     </div>
-                    <div class="w-32 h-32 bg-red-700 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
-                        <span class="text-xl font-black opacity-50">4</span>
-                        <span class="font-bold text-left text-sm leading-tight uppercase">Quality Education</span>
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 bg-red-700 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                        <span class="text-lg md:text-xl font-black opacity-50">4</span>
+                        <span class="font-bold text-left text-[10px] md:text-sm leading-tight uppercase">Quality
+                            Education</span>
                     </div>
-                    <div class="w-32 h-32 bg-red-800 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
-                        <span class="text-xl font-black opacity-50">8</span>
-                        <span class="font-bold text-left text-sm leading-tight uppercase">Decent Work</span>
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 bg-red-800 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                        <span class="text-lg md:text-xl font-black opacity-50">8</span>
+                        <span class="font-bold text-left text-[10px] md:text-sm leading-tight uppercase">Decent
+                            Work</span>
                     </div>
-                    <div class="w-32 h-32 bg-pink-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
-                        <span class="text-xl font-black opacity-50">10</span>
-                        <span class="font-bold text-left text-sm leading-tight uppercase">Reduced Inequalities</span>
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 bg-pink-600 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                        <span class="text-lg md:text-xl font-black opacity-50">10</span>
+                        <span class="font-bold text-left text-[10px] md:text-sm leading-tight uppercase">Reduced
+                            Inequalities</span>
                     </div>
-                     <div class="w-32 h-32 bg-blue-700 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
-                        <span class="text-xl font-black opacity-50">16</span>
-                        <span class="font-bold text-left text-sm leading-tight uppercase">Peace & Justice</span>
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 bg-blue-700 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                        <span class="text-lg md:text-xl font-black opacity-50">16</span>
+                        <span class="font-bold text-left text-[10px] md:text-sm leading-tight uppercase">Peace &
+                            Justice</span>
                     </div>
-                     <div class="w-32 h-32 bg-blue-900 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
-                        <span class="text-xl font-black opacity-50">17</span>
-                        <span class="font-bold text-left text-sm leading-tight uppercase">Partnerships</span>
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 bg-blue-900 text-white p-2 flex flex-col justify-between items-start rounded shadow-lg transform hover:scale-105 transition-transform">
+                        <span class="text-lg md:text-xl font-black opacity-50">17</span>
+                        <span
+                            class="font-bold text-left text-[10px] md:text-sm leading-tight uppercase">Partnerships</span>
                     </div>
                 </div>
 
@@ -757,7 +1573,9 @@
         </section>
 
         <!-- Slide 13: Team -->
-        <section id="slide-13" class="relative overflow-hidden bg-white">
+
+        <!-- Slide 13A: Team - Michal (Mobile) -->
+        <section id="slide-13a" class="mobile-only relative bg-white">
             <!-- Decorative Blurred Blobs -->
             <div class="absolute inset-0 overflow-hidden pointer-events-none">
                 <div class="absolute -top-24 -right-24 w-96 h-96 bg-orange-100 rounded-full blur-3xl opacity-60"></div>
@@ -765,7 +1583,93 @@
             </div>
             <!-- Background Images -->
             <div class="absolute right-0 top-0 w-full h-full opacity-80 pointer-events-none">
-                <img src="./images/woman_card_no_title_right.jpg" class="w-full h-full object-cover" alt="Abstract Network">
+                <img src="./images/woman_card_no_title_right.jpg" class="w-full h-full object-cover"
+                    alt="Abstract Network">
+            </div>
+
+            <div class="container mx-auto px-6 z-10 text-center relative h-full flex flex-col justify-center">
+                <h2 class="text-4xl font-bold text-blue-900 mb-6 anim-element fade-up">Team</h2>
+
+                <div class="flex justify-center mb-5">
+                    <!-- Member 1: Michal -->
+                    <div
+                        class="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-xl w-full max-w-xs anim-element fade-up delay-100 border border-gray-100 hover:shadow-2xl transition-shadow">
+                        <div
+                            class="w-32 h-48 bg-gray-200 mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-orange-500">
+                            <img src="./images/michal.jpeg" alt="Michal Avidar" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Michal Avidar</h3>
+                        <p class="text-orange-500 font-semibold mb-4 text-sm tracking-widest uppercase">Co-Founder</p>
+                        <a href="mailto:michal@inua-technologies.com"
+                            class="block text-gray-600 hover:text-blue-600 mb-2 transition-colors"><i
+                                class="far fa-envelope mr-2"></i>Email</a>
+                        <a href="https://www.linkedin.com/in/michal-avidar/"
+                            class="block text-blue-700 font-bold hover:text-orange-500 transition-colors"><i
+                                class="fab fa-linkedin mr-2"></i>LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 13B: Team - Adi & Social (Mobile) -->
+        <section id="slide-13b" class="mobile-only relative bg-white">
+            <!-- Decorative Blurred Blobs -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-orange-100 rounded-full blur-3xl opacity-60"></div>
+                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
+            </div>
+            <!-- Background Images -->
+            <div class="absolute right-0 top-0 w-full h-full opacity-80 pointer-events-none">
+                <img src="./images/woman_card_no_title_right.jpg" class="w-full h-full object-cover"
+                    alt="Abstract Network">
+            </div>
+
+            <div class="container mx-auto px-6 z-10 text-center relative h-full flex flex-col justify-center">
+                <div class="flex justify-center mb-8">
+                    <!-- Member 2: Adi -->
+                    <div
+                        class="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-xl w-full max-w-xs anim-element fade-up delay-100 border border-gray-100 hover:shadow-2xl transition-shadow">
+                        <div
+                            class="w-32 h-48 bg-gray-200 mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-blue-500">
+                            <img src="./images/adi.jpeg" alt="Adi Livnat" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Adi Livnat</h3>
+                        <p class="text-blue-600 font-semibold mb-4 text-sm tracking-widest uppercase">Co-Founder</p>
+                        <a href="mailto:adi@inua-technologies.com"
+                            class="block text-gray-600 hover:text-blue-600 mb-2 transition-colors"><i
+                                class="far fa-envelope mr-2"></i>Email</a>
+                        <a href="https://www.linkedin.com/in/adi-livnat-300974123/"
+                            class="block text-blue-700 font-bold hover:text-orange-500 transition-colors"><i
+                                class="fab fa-linkedin mr-2"></i>LinkedIn</a>
+                    </div>
+                </div>
+
+                <div
+                    class="anim-element fade-up delay-200 p-6 bg-gray-50 rounded-2xl inline-block shadow-inner w-full max-w-xs mx-auto">
+                    <p class="text-xl text-gray-600 mb-4 font-bold">iNua Social</p>
+                    <div class="flex justify-center gap-8 text-3xl text-blue-900">
+                        <a href="https://www.linkedin.com/company/inua-technologies"><i
+                                class="fab fa-linkedin hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61584431531752"><i
+                                class="fab fa-facebook hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
+                        <a href="https://www.instagram.com/inua_technologies/"><i
+                                class="fab fa-instagram hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 13: Team (Desktop) -->
+        <section id="slide-13" class="desktop-only relative bg-white">
+            <!-- Decorative Blurred Blobs -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-orange-100 rounded-full blur-3xl opacity-60"></div>
+                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
+            </div>
+            <!-- Background Images -->
+            <div class="absolute right-0 top-0 w-full h-full opacity-80 pointer-events-none">
+                <img src="./images/woman_card_no_title_right.jpg" class="w-full h-full object-cover"
+                    alt="Abstract Network">
             </div>
 
             <div class="container mx-auto px-6 z-10 text-center relative">
@@ -773,34 +1677,49 @@
 
                 <div class="flex flex-wrap justify-center gap-12 mb-5">
                     <!-- Member 1 -->
-                    <div class="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-xl w-80 anim-element fade-up delay-100 border border-gray-100 hover:shadow-2xl transition-shadow">
-                        <div class="w-40 h-60 bg-gray-200 mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-orange-500">
+                    <div
+                        class="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-xl w-80 anim-element fade-up delay-100 border border-gray-100 hover:shadow-2xl transition-shadow">
+                        <div
+                            class="w-40 h-60 bg-gray-200 mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-orange-500">
                             <img src="./images/michal.jpeg" alt="Michal Avidar" class="w-full h-full object-cover">
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800">Michal Avidar</h3>
                         <p class="text-orange-500 font-semibold mb-4 text-sm tracking-widest uppercase">Co-Founder</p>
-                        <a href="mailto:michal@inua-technologies.com" class="block text-gray-600 hover:text-blue-600 mb-2 transition-colors"><i class="far fa-envelope mr-2"></i>Email</a>
-                        <a href="https://www.linkedin.com/in/michal-avidar/" class="block text-blue-700 font-bold hover:text-orange-500 transition-colors"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
+                        <a href="mailto:michal@inua-technologies.com"
+                            class="block text-gray-600 hover:text-blue-600 mb-2 transition-colors"><i
+                                class="far fa-envelope mr-2"></i>Email</a>
+                        <a href="https://www.linkedin.com/in/michal-avidar/"
+                            class="block text-blue-700 font-bold hover:text-orange-500 transition-colors"><i
+                                class="fab fa-linkedin mr-2"></i>LinkedIn</a>
                     </div>
 
                     <!-- Member 2 -->
-                    <div class="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-xl w-80 anim-element fade-up delay-200 border border-gray-100 hover:shadow-2xl transition-shadow">
-                        <div class="w-40 h-60 bg-gray-200 mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-blue-500">
-                             <img src="./images/adi.jpeg" alt="Adi Livnat" class="w-full h-full object-cover">
+                    <div
+                        class="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-xl w-80 anim-element fade-up delay-200 border border-gray-100 hover:shadow-2xl transition-shadow">
+                        <div
+                            class="w-40 h-60 bg-gray-200 mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-blue-500">
+                            <img src="./images/adi.jpeg" alt="Adi Livnat" class="w-full h-full object-cover">
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800">Adi Livnat</h3>
                         <p class="text-blue-600 font-semibold mb-4 text-sm tracking-widest uppercase">Co-Founder</p>
-                         <a href="mailto:adi@inua-technologies.com" class="block text-gray-600 hover:text-blue-600 mb-2 transition-colors"><i class="far fa-envelope mr-2"></i>Email</a>
-                        <a href="https://www.linkedin.com/in/adi-livnat-300974123/" class="block text-blue-700 font-bold hover:text-orange-500 transition-colors"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
+                        <a href="mailto:adi@inua-technologies.com"
+                            class="block text-gray-600 hover:text-blue-600 mb-2 transition-colors"><i
+                                class="far fa-envelope mr-2"></i>Email</a>
+                        <a href="https://www.linkedin.com/in/adi-livnat-300974123/"
+                            class="block text-blue-700 font-bold hover:text-orange-500 transition-colors"><i
+                                class="fab fa-linkedin mr-2"></i>LinkedIn</a>
                     </div>
                 </div>
 
                 <div class="anim-element fade-up delay-300 p-8 bg-gray-50 rounded-2xl inline-block shadow-inner">
                     <p class="text-xl text-gray-600 mb-4 font-bold">iNua Social</p>
                     <div class="flex justify-center gap-8 text-3xl text-blue-900">
-                        <a href="https://www.linkedin.com/company/inua-technologies"><i class="fab fa-linkedin hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61584431531752"><i class="fab fa-facebook hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
-                        <a href="https://www.instagram.com/inua_technologies/"><i class="fab fa-instagram hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
+                        <a href="https://www.linkedin.com/company/inua-technologies"><i
+                                class="fab fa-linkedin hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61584431531752"><i
+                                class="fab fa-facebook hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
+                        <a href="https://www.instagram.com/inua_technologies/"><i
+                                class="fab fa-instagram hover:text-orange-500 transition-colors cursor-pointer transform hover:scale-110 duration-200"></i></a>
                     </div>
                 </div>
             </div>
@@ -817,8 +1736,8 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    
-                    // Update Nav Dots
+
+                    // Update Nav Dots (Desktop only really, but functional logic)
                     const id = entry.target.getAttribute('id');
                     navDots.forEach(dot => {
                         dot.classList.remove('active', 'bg-orange-500', 'scale-125');
@@ -828,34 +1747,79 @@
                             dot.classList.add('active', 'bg-orange-500', 'scale-125');
                         }
                     });
+                } else {
+                    // Remove active class when leaving viewport to allow animation to replay
+                    entry.target.classList.remove('active');
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.1 });
 
         sections.forEach(section => {
             observer.observe(section);
+        });
+
+        // Click/Tap to Next Slide Logic
+        document.addEventListener('click', (e) => {
+            // Ignore clicks on interactive elements
+            if (e.target.closest('a, button, .nav-dot, .interactive')) return;
+
+            // Find current visible section based on viewport center
+            const center = window.innerHeight / 2;
+            let currentSection = null;
+            let minDistance = Infinity;
+
+            const visibleSections = Array.from(sections).filter(section => {
+                const style = window.getComputedStyle(section);
+                return style.display !== 'none' && section.offsetHeight > 0;
+            });
+
+            // Find the section closest to the center of the viewport
+            visibleSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const distance = Math.abs((rect.top + rect.height / 2) - center);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    currentSection = section;
+                }
+            });
+
+            if (currentSection) {
+                // Find next visible slide
+                const currentIndex = visibleSections.indexOf(currentSection);
+                if (currentIndex !== -1 && currentIndex < visibleSections.length - 1) {
+                    const nextSection = visibleSections[currentIndex + 1];
+                    nextSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         });
 
         // Keyword Cycling Script for Slide 3
         document.addEventListener('DOMContentLoaded', () => {
             const clientWords = ["simple", "instant", "scalable", "reliable", "automated", "better"];
             const userWords = ["simple", "instant", "reliable", "better"];
-            
+
             const clientSpan = document.getElementById('client-word');
             const userSpan = document.getElementById('user-word');
 
             const clientWordsS7 = ["simple", "instant", "scalable", "reliable", "automated", "better"];
-            const userWordsS7 = ["simple", "instant", "reliable", "better"];
+            const userWordsS7 = ["simple", "instant", "reliable", "access to", "better"];
 
             const clientSpanS7 = document.getElementById('client-word-slide7');
             const userSpanS7 = document.getElementById('user-word-slide7');
 
+            const clientSpanMobile = document.getElementById('client-word-mobile');
+            const userSpanMobile = document.getElementById('user-word-mobile');
+            const clientSpanS7Mobile = document.getElementById('client-word-slide7-mobile');
+            const userSpanS7Mobile = document.getElementById('user-word-slide7-mobile');
+
             function cycleWords(spanElement, wordsArray) {
+                if (!spanElement) return; // Guard clause
+
                 let index = 0;
                 setInterval(() => {
                     // Add fade out class
                     spanElement.classList.add('changing');
-                    
+
                     setTimeout(() => {
                         // Change word
                         index = (index + 1) % wordsArray.length;
@@ -876,7 +1840,20 @@
                 cycleWords(clientSpanS7, clientWordsS7);
                 cycleWords(userSpanS7, userWordsS7);
             }
+
+            // Init Mobile Slides
+            if (clientSpanMobile && userSpanMobile) {
+                cycleWords(clientSpanMobile, clientWords);
+                cycleWords(userSpanMobile, userWords);
+            }
+
+            // Init Mobile Slide 7
+            if (clientSpanS7Mobile && userSpanS7Mobile) {
+                cycleWords(clientSpanS7Mobile, clientWordsS7);
+                cycleWords(userSpanS7Mobile, userWordsS7);
+            }
         });
     </script>
 </body>
+
 </html>

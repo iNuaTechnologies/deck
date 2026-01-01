@@ -266,6 +266,7 @@
             .desktop-only {
                 display: none !important;
             }
+
             .mobile-only {
                 display: flex !important;
             }
@@ -433,7 +434,8 @@
             </div>
 
             <div class="container mx-auto px-6 z-10 relative">
-                <h2 class="text-6xl font-bold text-blue-900 mb-8 text-center anim-element fade-up">The Map</h2>
+                <h2 class="text-6xl font-bold text-blue-900 mb-8 text-center anim-element fade-up"><i
+                        class="fas fa-map mr-4 text-orange-500"></i>The Map</h2>
 
                 <!-- Main Content Area -->
                 <div
@@ -468,7 +470,7 @@
                                 </div>
                                 <p class="text-2xl text-gray-600 leading-relaxed">
                                     Creating <span id="client-word" class="cycling-word">simple</span>
-                                    communication between offline populations and Small to medium enterprises.
+                                    communication between offline populations and Small to Medium Enterprises.
                                 </p>
                             </div>
                         </div>
@@ -502,11 +504,11 @@
             </div>
         </section>
 
-        <!-- Slide 4: The Ship -->
         <!-- Slide 3A: The Map - Client (Mobile) -->
         <section id="slide-3a" class="mobile-only">
             <div class="container mx-auto px-6 z-10 relative flex flex-col items-center justify-center h-full">
-                <h2 class="text-4xl font-bold text-blue-900 mb-8 text-center anim-element fade-up">The Map</h2>
+                <h2 class="text-4xl font-bold text-blue-900 mb-8 text-center anim-element fade-up"><i
+                        class="fas fa-map mr-3 text-orange-500"></i>The Map</h2>
                 <div class="flex flex-col items-center">
                     <div
                         class="w-20 h-20 bg-white border-4 border-orange-500 rounded-full shadow-xl flex items-center justify-center mb-4 relative z-10 anim-element pop-in delay-100">
@@ -520,7 +522,7 @@
                         <p class="text-xl text-gray-600 leading-relaxed">
                             Creating <span id="client-word-mobile" class="cycling-word">simple</span>
                             communication between
-                            offline populations and Small to medium enterprises.
+                            offline populations and Small to Medium Enterprises.
                         </p>
                     </div>
                 </div>
@@ -570,7 +572,7 @@
                 <!-- Central Headline (Redesigned) -->
                 <div class="text-center mb-16 anim-element pop-in">
                     <span
-                        class="inline-block py-4 px-10 rounded-full bg-white border border-blue-100 shadow-2xl text-3xl md:text-4xl text-gray-700 font-light">
+                        class="inline-block py-4 px-10 rounded-full text-center bg-white border border-blue-100 shadow-2xl text-3xl md:text-4xl text-gray-700 font-light">
                         Our <span class="font-bold text-orange-500 drop-shadow-md">SMS-powered AI agent</span>
                     </span>
                 </div>
@@ -584,7 +586,7 @@
                             <i class="fas fa-store text-4xl text-orange-600"></i>
                         </div>
                         <h3
-                            class="text-4xl font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">
+                            class="text-4xl text-center font-bold text-blue-900 mb-4 bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">
                             Client Organization</h3>
                         <div
                             class="bg-white p-14 rounded-3xl shadow-xl flex flex-col justify-center text-center anim-element slide-right delay-100 border-t-8 border-orange-500 hover:shadow-2xl transition-all duration-300">
@@ -620,7 +622,6 @@
             </div>
         </section>
 
-        <!-- Slide 5: Background Data - market (Updated Pie Chart) -->
         <!-- Slide 4A: The Ship - Client (Mobile) -->
         <section id="slide-4a" class="mobile-only">
             <div class="container mx-auto px-6 z-10 flex flex-col justify-center h-full">
@@ -714,8 +715,10 @@
                                 stroke-dasharray="55 100" pathLength="100" class="chart-circle" />
 
                             <!-- 3. Offline (39.6% which is 72% of 55%) -->
+                            <!-- To make red end at 55, and it has length 39.6, it must start at 15.4 (55-39.6).
+                                 stroke-dashoffset="-15.4" shifts the start. -->
                             <circle cx="50" cy="50" r="25" fill="none" stroke="#D97757" stroke-width="50" opacity="0.8"
-                                border="2" b stroke-dasharray="39.6 100" pathLength="100"
+                                border="2" b stroke-dasharray="39.6 100" stroke-dashoffset="-15.4" pathLength="100"
                                 class="chart-circle delay-300" />
 
                             <!-- Center Label (Floating above) -->
@@ -789,8 +792,10 @@
                         <circle cx="50" cy="50" r="25" fill="none" stroke="#2A4365" stroke-width="50" opacity="0.5" />
                         <circle cx="50" cy="50" r="25" fill="none" stroke="#F6AD55" stroke-width="50"
                             stroke-dasharray="55 100" pathLength="100" class="chart-circle" />
+                        <!-- Shifted Red segment -->
                         <circle cx="50" cy="50" r="25" fill="none" stroke="#D97757" stroke-width="50" opacity="0.8"
-                            stroke-dasharray="39.6 100" pathLength="100" class="chart-circle delay-300" />
+                            stroke-dasharray="39.6 100" stroke-dashoffset="-15.4" pathLength="100"
+                            class="chart-circle delay-300" />
                         <foreignObject x="0" y="0" width="100" height="100" class="pointer-events-none">
                             <div class="w-full h-full flex items-center justify-center transform rotate-90">
                                 <div
@@ -844,46 +849,73 @@
             </div>
         </section>
 
-        <!-- Slide 6A: Problem - Reach (Mobile) -->
+        <!-- Slide 6A: Problem - Client Org (Mobile) -->
         <section id="slide-6a" class="mobile-only bg-gray-50">
             <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center">
                 <div class="text-center mb-8">
-                    <div
-                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 text-red-600 mb-4 anim-element pop-in">
-                        <i class="fas fa-unlink text-2xl"></i>
-                    </div>
-                    <h2 class="text-4xl font-bold text-gray-900 mb-2 anim-element fade-up delay-100">The Problem</h2>
-                    <span
-                        class="text-orange-500 font-bold tracking-widest uppercase text-xs bg-orange-100 px-3 py-1 rounded-full anim-element fade-up delay-200">Main
-                        Challenge</span>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-2 anim-element fade-up">The Problem</h2>
                 </div>
 
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-red-500 anim-element fade-up delay-300">
-                    <div class="text-red-500 mb-3"><i class="fas fa-exclamation-circle text-3xl"></i></div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Reach & Scale</h3>
-                    <p class="text-gray-600">SMEs in Africa struggle to reach customers in rural or low-connectivity
-                        areas and scale their businesses effectively.</p>
+                <!-- Client Org Header -->
+                <div class="flex flex-col items-center mb-6">
+                    <div
+                        class="w-16 h-16 bg-white border-4 border-orange-500 rounded-full shadow-lg flex items-center justify-center mb-2 anim-element pop-in">
+                        <i class="fas fa-store text-2xl text-orange-600"></i>
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-blue-900 bg-white/80 px-4 py-1 rounded-full text-center anim-element fade-up delay-100">
+                        Client Organization</h3>
+                </div>
+
+                <div class="flex flex-col gap-6">
+                    <div
+                        class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-red-500 anim-element fade-up delay-200">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="fas fa-exclamation-circle text-4xl text-red-500"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Reach & Scale</h3>
+                        </div>
+                        <p class="text-gray-600">SMEs in Africa struggle to reach customers in rural or low-connectivity
+                            areas and scale their businesses effectively.</p>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-red-500 anim-element fade-up delay-300">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="fas fa-hourglass-half text-4xl text-red-500"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Resource Limits</h3>
+                        </div>
+                        <p class="text-gray-600">SMEs lack the time, modern tools, and sufficient funds to manage high
+                            volumes of potential customers.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 6B: Problem - Gap & Resources (Mobile) -->
+        <!-- Slide 6B: Problem - End User (Mobile) -->
         <section id="slide-6b" class="mobile-only bg-gray-50">
             <div class="container mx-auto px-6 z-10 h-full flex flex-col justify-center gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-red-500 anim-element fade-up">
-                    <div class="text-red-500 mb-3"><i class="fas fa-wifi text-3xl"></i></div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">The Digital Gap</h3>
-                    <p class="text-gray-600">Most digital tools require internet, excluding populations relying on basic
-                        phones/SMS or lacking data access.</p>
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-2 anim-element fade-up">The Problem</h2>
                 </div>
 
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-red-500 anim-element fade-up delay-100">
-                    <div class="text-red-500 mb-3"><i class="fas fa-hourglass-half text-3xl"></i></div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Resource Limits</h3>
-                    <p class="text-gray-600">SMEs lack the time, modern tools, and sufficient funds to manage high
-                        volumes of potential customers.</p>
+                <!-- End User Header -->
+                <div class="flex flex-col items-center mb-6">
+                    <div
+                        class="w-16 h-16 bg-blue-900 border-4 border-white rounded-full shadow-lg flex items-center justify-center mb-2 anim-element pop-in">
+                        <i class="fas fa-users text-2xl text-white"></i>
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-blue-900 bg-white/80 px-4 py-1 rounded-full text-center anim-element fade-up delay-100">
+                        End Users</h3>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-red-500 anim-element fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fas fa-wifi text-4xl text-red-500"></i>
+                        <h3 class="text-xl font-bold text-gray-800">The Digital Gap</h3>
+                    </div>
+                    <p class="text-gray-600">Most digital tools require internet, excluding populations relying on basic
+                        phones/SMS or lacking data access.</p>
                 </div>
             </div>
         </section>
@@ -891,40 +923,76 @@
         <!-- Slide 6: Problem (Desktop) -->
         <section id="slide-6" class="desktop-only bg-gray-50">
             <div class="container mx-auto px-6 z-10 max-w-6xl">
-                <div class="text-center mb-16 anim-element fade-up">
+                <div class="text-center mb-10 anim-element fade-up">
                     <div
                         class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-100 text-red-600 mb-6">
                         <i class="fas fa-unlink text-3xl"></i>
                     </div>
                     <h2 class="text-5xl font-bold text-gray-900 mb-2">The Problem</h2>
-                    <span
-                        class="text-orange-500 font-bold tracking-widest uppercase text-sm bg-orange-100 px-3 py-1 rounded-full">Main
-                        Challenge</span>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div
-                        class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-100 hover:shadow-xl transition-shadow">
-                        <div class="text-red-500 mb-4"><i class="fas fa-exclamation-circle text-4xl"></i></div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">Reach & Scale</h3>
-                        <p class="text-lg text-gray-600">SMEs in Africa struggle to reach customers in rural or
-                            low-connectivity areas and scale their businesses effectively.</p>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <!-- Column 1: Client Organization (Orange) -->
+                    <div class="flex flex-col gap-6">
+                        <!-- Header -->
+                        <div class="flex items-center justify-center gap-4 mb-4 anim-element fade-up delay-100">
+                            <div
+                                class="w-16 h-16 bg-white border-4 border-orange-500 rounded-full shadow-lg flex items-center justify-center">
+                                <i class="fas fa-store text-2xl text-orange-600"></i>
+                            </div>
+                            <h3
+                                class="text-3xl font-bold text-blue-900 bg-white/80 px-6 py-2 rounded-full text-center backdrop-blur-sm shadow-sm">
+                                Client Organization</h3>
+                        </div>
+
+                        <!-- Cards -->
+                        <div
+                            class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-200 hover:shadow-xl transition-shadow">
+                            <div class="flex items-center gap-4 mb-4">
+                                <i class="fas fa-exclamation-circle text-4xl text-red-500"></i>
+                                <h3 class="text-xl font-bold text-gray-800">Reach & Scale</h3>
+                            </div>
+                            <p class="text-lg text-gray-600">SMEs in Africa struggle to reach customers in rural or
+                                low-connectivity areas and scale their businesses effectively.</p>
+                        </div>
+
+                        <div
+                            class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-300 hover:shadow-xl transition-shadow">
+                            <div class="flex items-center gap-4 mb-4">
+                                <i class="fas fa-hourglass-half text-4xl text-red-500"></i>
+                                <h3 class="text-xl font-bold text-gray-800">Resource Limits</h3>
+                            </div>
+                            <p class="text-lg text-gray-600">SMEs lack the time, modern tools, and sufficient funds to
+                                manage high volumes of potential customers.</p>
+                        </div>
                     </div>
 
-                    <div
-                        class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-200 hover:shadow-xl transition-shadow">
-                        <div class="text-red-500 mb-4"><i class="fas fa-wifi text-4xl"></i></div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">The Digital Gap</h3>
-                        <p class="text-lg text-gray-600">Most digital tools require internet, excluding populations
-                            relying on basic phones/SMS or lacking data access.</p>
-                    </div>
+                    <!-- Column 2: End Users (Blue) -->
+                    <div class="flex flex-col gap-6 h-full">
+                        <!-- Header -->
+                        <div class="flex items-center justify-center gap-4 mb-4 anim-element fade-up delay-100">
+                            <h3
+                                class="text-3xl font-bold text-blue-900 bg-white/80 px-6 py-2 rounded-full text-center backdrop-blur-sm shadow-sm order-2">
+                                End Users</h3>
+                            <div
+                                class="w-16 h-16 bg-blue-900 border-4 border-white rounded-full shadow-lg flex items-center justify-center order-1">
+                                <i class="fas fa-users text-2xl text-white"></i>
+                            </div>
+                        </div>
 
-                    <div
-                        class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-right delay-300 hover:shadow-xl transition-shadow">
-                        <div class="text-red-500 mb-4"><i class="fas fa-hourglass-half text-4xl"></i></div>
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">Resource Limits</h3>
-                        <p class="text-lg text-gray-600">SMEs lack the time, modern tools, and sufficient funds to
-                            manage high volumes of potential customers.</p>
+                        <!-- Card -->
+                        <div
+                            class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-red-500 anim-element slide-left delay-200 hover:shadow-xl transition-shadow h-full flex flex-col justify-center">
+                            <div class="flex items-center gap-4 mb-4">
+                                <i class="fas fa-wifi text-4xl text-red-500"></i>
+                                <h3 class="text-xl font-bold text-gray-800">The Digital Gap</h3>
+                            </div>
+                            <p class="text-lg text-gray-600">Most digital tools require internet, excluding populations
+                                relying on basic phones/SMS or lacking data access.</p>
+                        </div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="images/BRIDGES.png" alt="BRIDGES">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -975,7 +1043,7 @@
             <div class="absolute inset-0 bg-blue-900 z-0 overflow-hidden"></div>
             <div class="container mx-auto px-6 z-10 text-white relative h-full flex flex-col justify-center">
                 <div
-                    class="w-full bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg backdrop-blur-sm anim-element fade-up">
+                    class="w-full bg-gradient-to-br from-blue-800 to-blue-900 p-5 rounded-2xl border border-blue-600/50 shadow-lg backdrop-blur-sm anim-element fade-up mb-5">
                     <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">Client Organizations
                     </h4>
                     <p class="text-xl leading-relaxed text-white">
@@ -984,15 +1052,8 @@
                         offline populations and you.
                     </p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Slide 7C: Solution - User (Mobile) -->
-        <section id="slide-7c" class="mobile-only">
-            <div class="absolute inset-0 bg-blue-900 z-0 overflow-hidden"></div>
-            <div class="container mx-auto px-6 z-10 text-white relative h-full flex flex-col justify-center">
                 <div
-                    class="w-full bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-2xl border border-blue-600/50 shadow-lg backdrop-blur-sm anim-element fade-up">
+                    class="w-full bg-gradient-to-br from-blue-800 to-blue-900 p-5 rounded-2xl border border-blue-600/50 shadow-lg backdrop-blur-sm anim-element fade-up">
                     <h4 class="text-orange-400 font-bold mb-3 uppercase tracking-wider text-md">End Users</h4>
                     <p class="text-xl leading-relaxed text-white">
                         Creating <span id="user-word-slide7-mobile" class="cycling-word">simple</span>
@@ -1136,7 +1197,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800 text-xl mb-1">Control & Monitoring</h4>
-                            <p class="text-gray-600">Full control and monitoring of communication channels.</p>
+                            <p class="text-gray-600">Full control to monitoring of communication channels.</p>
                         </div>
                     </div>
                 </div>
@@ -1209,7 +1270,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800 text-2xl mb-1">Control & Monitoring</h4>
-                            <p class="text-gray-600 text-xl">Full control and monitoring of all communication channels
+                            <p class="text-gray-600 text-xl">Full control to monitoring of all communication channels
                                 with customers.</p>
                         </div>
                     </div>
@@ -1319,7 +1380,7 @@
                         <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
                             <i class="fas fa-magic text-orange-500 text-2xl mt-1"></i>
                             <span class="text-xl text-gray-800"><strong>Automation</strong> - Easy to use tool with no
-                                tech knowledgeable need</span>
+                                tech skills needed</span>
                         </li>
                         <li class="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 transition-colors">
                             <i class="fas fa-comments text-orange-500 text-2xl mt-1"></i>
@@ -1826,7 +1887,7 @@
                         // Remove fade out class to fade in
                         spanElement.classList.remove('changing');
                     }, 300); // Wait for fade out
-                }, 2000); // Change every 2 seconds
+                }, 1000); // Change every 1 seconds
             }
 
             if (clientSpan && userSpan) {

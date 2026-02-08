@@ -204,23 +204,153 @@
             border-radius: 4px;
         }
 
-        /* Print Override */
+        /* Print Override - Landscape PDF Export */
         @media print {
+
+            /* Set landscape orientation */
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+
+            /* Reset body for print */
+            body {
+                margin: 0;
+                padding: 0;
+                background: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
             .slides-container {
                 height: auto;
                 overflow: visible;
                 scroll-snap-type: none;
             }
 
+            /* Each desktop section on its own page */
             section {
-                height: auto;
+                height: 100vh;
+                width: 100vw;
                 page-break-after: always;
-                min-height: 100vh;
+                page-break-inside: avoid;
+                break-after: page;
+                break-inside: avoid;
+                box-sizing: border-box;
+                overflow: hidden;
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
             }
 
+            /* Last section doesn't need page break */
+            section:last-of-type {
+                page-break-after: auto;
+                break-after: auto;
+            }
+
+            /* Hide navigation elements */
             .fixed-logo,
             .nav-dots {
                 display: none !important;
+            }
+
+            /* Hide all mobile-only sections in print */
+            .mobile-only {
+                display: none !important;
+            }
+
+            /* Show desktop-only sections in print */
+            .desktop-only {
+                display: flex !important;
+            }
+
+            /* Force all animated elements to be visible */
+            .anim-element {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+
+            .fade-up,
+            .slide-right,
+            .slide-left,
+            .pop-in {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            /* Ensure backgrounds print properly */
+            section,
+            section * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            /* Hide scroll indicator arrow */
+            .animate-bounce {
+                display: none !important;
+            }
+
+            /* Ensure SVG charts are visible */
+            .chart-circle {
+                animation: none !important;
+            }
+
+            /* Ensure absolute positioned backgrounds print */
+            .absolute {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Stretch content and add margins for specific sections */
+            #slide-3 .container,
+            #slide-4 .container,
+            #slide-8 .container,
+            #slide-9 .container,
+            #slide-11 .container {
+                max-width: 95% !important;
+                width: 95% !important;
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+            }
+
+            /* Add top and bottom margins for these sections */
+            #slide-3,
+            #slide-4,
+            #slide-8,
+            #slide-9,
+            #slide-11 {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+
+            /* Stretch the grids wider */
+            #slide-3 .max-w-6xl,
+            #slide-4 .max-w-7xl,
+            #slide-8 .max-w-6xl,
+            #slide-11 .max-w-6xl {
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+
+            /* Stretch the Value section (slide-9) grid container */
+            #slide-9 .grid {
+                width: 100% !important;
+                gap: 2rem !important;
+            }
+
+            /* Ensure content areas use full width */
+            #slide-4 .grid {
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+
+            #slide-8 .grid {
+                max-width: 100% !important;
+                width: 100% !important;
             }
         }
 
@@ -414,8 +544,8 @@
                     Compass</h2>
                 <p
                     class="text-3xl md:text-5xl text-gray-700 font-light leading-relaxed max-w-5xl mx-auto anim-element fade-up delay-200">
-                    Building bridges between <span class="font-bold text-orange-500">offline communities</span> and <span
-                        class="font-bold text-blue-900">advanced technologies</span>.
+                    Building bridges between <span class="font-bold text-orange-500">offline communities</span> and
+                    <span class="font-bold text-blue-900">advanced technologies</span>.
                 </p>
             </div>
         </section>

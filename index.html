@@ -215,7 +215,10 @@
 
 <body>
     <div class="fixed-bg"></div>
-    <div class="fixed-logo"><img src="./images/Square logo + name design.png" alt="iNua Technologies"></div>
+    <div class="fixed-logo cursor-pointer"
+        onclick="document.getElementById('scroller').scrollTo({top: 0, behavior: 'smooth'});">
+        <img src="./images/man_circle_only-removebg-preview.png" alt="iNua Technologies">
+    </div>
     <div class="nav-dots" id="navDotsContainer"></div>
 
     <main class="slides-container" id="scroller">
@@ -265,18 +268,14 @@
                                 <p class="text-base">It's not just a lack of physical infrastructure; it's a lack of
                                     access due to <strong>high data costs</strong></p>
                             </div>
-                            <div class="flex items-start gap-3 bg-white/60 p-3 rounded-xl"><i
-                                    class="fas fa-mobile-alt text-red-500 text-xl mt-1 shrink-0"></i>
-                                <p class="text-base">For the poorest 20%, an entry-level internet phone costs
-                                    <strong>87% of their monthly income.</strong>
-                                </p>
-                            </div>
                             <div
-                                class="flex items-start gap-3 bg-[#1B4F32]/10 p-3 rounded-xl border-l-4 border-[#1B4F32]">
-                                <i class="fas fa-store text-[#1B4F32] text-xl mt-1 shrink-0"></i>
-                                <p class="text-base"><strong>The Organizational World:</strong> SMEs and NGOs lack the
-                                    time and tools and resources to reach these customers or manage a high volume of
-                                    distant customer inquiries, which inhibits their ability to scale their businesses.
+                                class="flex items-start gap-4 bg-[#1B4F32]/10 p-6 rounded-2xl border-l-8 border-[#1B4F32]">
+                                <i class="fas fa-store text-[#1B4F32] text-2xl mt-2 shrink-0"></i>
+                                <p class="text-lg text-gray-800 leading-relaxed">
+                                    <strong class="text-[#1B4F32] block text-xl mb-1">The Organizational World:</strong>
+                                    SMEs and NGOs lack the time and tools and resources to reach these customers or
+                                    manage a high volume of distant customer inquiries, which inhibits their ability to
+                                    scale their businesses.
                                 </p>
                             </div>
                         </div>
@@ -318,18 +317,22 @@
                                 <!-- Rural -->
                                 <div
                                     class="relative pl-5 border-l-2 border-dashed border-[#E9A117]/40 anim-element delay-4">
-                                    <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-[#E9A117]"></div>
+                                    <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-[#E9A117]">
+                                    </div>
                                     <h3 class="text-2xl font-bold text-[#E9A117] mb-0">55% <span
-                                            class="text-base text-gray-700 font-normal">Live in Rural Areas</span></h3>
+                                            class="text-base text-gray-700 font-normal">Live in Rural
+                                            Areas</span></h3>
                                     <p class="text-gray-500 text-sm">~833 Million People</p>
                                 </div>
                                 <!-- Offline -->
                                 <div
                                     class="ml-6 relative pl-5 border-l-2 border-dashed border-[#D97757]/40 anim-element delay-5">
-                                    <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-[#D97757]"></div>
+                                    <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-[#D97757]">
+                                    </div>
                                     <div class="mb-1">
                                         <h3 class="text-2xl font-bold text-[#D97757] inline-block mr-1">72%</h3>
-                                        <span class="text-base text-gray-700 font-normal">of the rural population is
+                                        <span class="text-base text-gray-700 font-normal">of the rural
+                                            population is
                                             <strong>Offline</strong></span>
                                     </div>
                                 </div>
@@ -999,7 +1002,7 @@
 
             // Click to advance slide
             document.addEventListener('click', (e) => {
-                if (e.target.closest('a, button, .nav-dot, input')) return;
+                if (e.target.closest('a, button, .nav-dot, input, .fixed-logo')) return;
                 const scroller = document.getElementById('scroller');
                 const center = window.innerHeight / 2;
                 let currentSection = null;

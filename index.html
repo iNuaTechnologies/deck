@@ -1,1916 +1,1453 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iNua Technologies Pitch Deck</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>iNua Technologies – AI Experts at Scale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
-
         :root {
-            --orange: #E9A117;
-            --green: #1B4F32;
-            --brown: #7A431D;
-            --cream: #FCF9F5;
+            --heading-color: #8c4115;
+            --text-color: #544a42;
+            --accent-orange: #f2a51a;
+            --line-color: #eab683;
+            --brand-green: #126b4f;
+            --bg-top: #FFFEFA;
+            --bg-bottom: #FFF1E0;
+            --card: #FFFDF8;
+            --line-light: rgba(140, 100, 60, 0.12);
         }
 
-        body,
-        html {
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            color: #2D3748;
-            overflow-x: hidden;
-            background: transparent;
+            box-sizing: border-box;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: var(--green);
-            font-weight: 700;
-        }
-
-        .fixed-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            background-color: var(--cream);
-            background-image: url('./images/Square backround design.png');
-            background-size: 100% 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .slides-container {
-            height: 100vh;
-            overflow-y: scroll;
+        html {
             scroll-snap-type: y mandatory;
-            position: relative;
-            z-index: 1;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+            min-height: 100vh;
         }
 
         section {
             height: 100vh;
-            width: 100vw;
-            scroll-snap-align: center;
-            position: relative;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
             overflow: hidden;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.78);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 32px rgba(27, 79, 50, 0.06);
-            border-radius: 20px;
-            z-index: 10;
-            padding: 2.5rem;
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--heading-color);
         }
 
-        .gradient-text {
-            background: linear-gradient(110deg, var(--green) 0%, var(--orange) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
+        .content-container {
+            max-width: 1400px;
+            width: 100%;
+            padding: 0 60px;
+            text-align: center;
         }
 
-        .anim-element {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        section.active .anim-element {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-right {
-            transform: translateX(-40px);
-        }
-
-        section.active .slide-right {
-            transform: translateX(0);
-        }
-
-        .slide-left {
-            transform: translateX(40px);
-        }
-
-        section.active .slide-left {
-            transform: translateX(0);
-        }
-
-        .delay-1 {
-            transition-delay: .12s;
-        }
-
-        .delay-2 {
-            transition-delay: .24s;
-        }
-
-        .delay-3 {
-            transition-delay: .36s;
-        }
-
-        .delay-4 {
-            transition-delay: .48s;
-        }
-
-        .delay-5 {
-            transition-delay: .6s;
-        }
-
-        .fixed-logo {
-            position: fixed;
-            top: 1.5rem;
-            left: 2rem;
-            z-index: 50;
-        }
-
-        .fixed-logo img {
-            height: 4rem;
-            object-fit: contain;
-        }
-
-        .nav-dots {
-            position: fixed;
-            right: 2rem;
+        .scale-wrapper {
+            width: 1920px;
+            height: 945px;
+            position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            z-index: 50;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: center center;
+        }
+
+        /* ===== LANDSCAPE BACKGROUND (used from team-slide onward) ===== */
+        .landscape-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            background-image: url('images/farm_landscape_bg.png');
+            background-size: cover;
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.4;
+            mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+        }
+
+        /* ===== SLIDE LOGO ===== */
+        .slide-logo {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            height: 40px;
+            z-index: 100;
+            opacity: 0.85;
+        }
+
+        /* ===== TITLE / BG SLIDES ===== */
+        .bg-slide {
+            background-image: url('images/Elegant wave patterns in soft hues.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bg-slide .content-container h1 {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--brand-green);
+        }
+
+        .bg-slide .content-container h3 {
+            font-size: 32px;
+            font-weight: 400;
+            color: var(--text-color);
+            font-family: 'Nunito', sans-serif;
+        }
+
+        /* ===== TWO-COLUMN SLIDE ===== */
+        .two-col {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1400px;
+            padding: 0 80px;
+        }
+
+        .two-col .text-side {
+            flex: 1.3;
+            text-align: left;
+        }
+
+        .two-col .text-side h2 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .two-col .text-side p {
+            font-size: 22px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .two-col .image-side {
+            flex: 0.7;
+        }
+
+        .two-col .image-side img {
+            max-width: 500px;
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+
+        /* ===== STATEMENT SLIDE ===== */
+        .statement-slide {
+            text-align: center;
+            padding: 0 100px;
+        }
+
+        .statement-slide h2 {
+            font-size: 48px;
+            line-height: 1.3;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .statement-slide p {
+            font-size: 24px;
+            margin-top: 30px;
+            color: var(--text-color);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== STRUCTURE CARDS (3-4 in a row) ===== */
+        .cards-section h2 {
+            font-size: 44px;
+            margin-bottom: 50px;
+        }
+
+        .structure-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .structure-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 300px;
+            flex: 1;
+            min-width: 240px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .structure-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .structure-card .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--brand-green);
+        }
+
+        .structure-card h4 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--heading-color);
+        }
+
+        .structure-card p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        /* ===== SIX-CARD GRID ===== */
+        .six-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .six-grid .grid-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 16px;
+            padding: 30px 24px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .six-grid .grid-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .six-grid .grid-card .card-icon {
+            font-size: 36px;
+            margin-bottom: 14px;
+            color: var(--accent-orange);
+        }
+
+        .six-grid .grid-card h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .six-grid .grid-card p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        /* ===== TEAM SLIDE (hero-lineup-wrap style) ===== */
+        .team-slide {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .team-slide .scale-wrapper {
             display: flex;
             flex-direction: column;
-            gap: .8rem;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
         }
 
-        .nav-dot {
-            width: 10px;
-            height: 10px;
+        .team-title {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .team-title h1 {
+            font-size: 3.5rem;
+            color: var(--brand-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-title p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Team Group Banner (matching website hero-lineup-wrap) */
+        .team-group-banner {
+            position: relative;
+            border-radius: 24px;
+            background: linear-gradient(180deg, #FFFEFA 0%, #FFFDF5 50%, #FFF1E0 100%);
+            border: 1px solid var(--line-light);
+            overflow: visible;
+            box-shadow: 0 16px 45px rgba(140, 65, 21, 0.1);
+            height: 540px;
+            width: 1400px;
+            max-width: 85%;
+        }
+
+        .team-group-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 5%;
+            right: 5%;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
-            background: rgba(27, 79, 50, 0.25);
-            transition: all .3s ease;
+            box-shadow: 0 -8px 25px rgba(18, 107, 79, 0.08);
+            z-index: 1;
         }
 
-        .nav-dot.active {
-            background: var(--orange);
-            transform: scale(1.4);
-            box-shadow: 0 0 8px rgba(233, 161, 23, 0.4);
+        .team-lineup-flex {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            height: 540px;
+            padding: 0 40px;
         }
 
-        .accent-bar {
-            height: 4px;
-            width: 60px;
-            background: var(--orange);
-            border-radius: 4px;
+        .team-lineup-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+            margin: 0 6px;
+            flex-shrink: 0;
+            position: relative;
         }
 
-        .dark-section {
-            background: var(--green);
-            color: white;
+        .team-lineup-member:nth-child(4) {
+            z-index: 6;
+            transform: scale(1.08);
         }
 
-        .dark-section h2,
-        .dark-section h3,
-        .dark-section h4 {
-            color: white;
+        .team-lineup-member img {
+            height: 540px;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+            object-position: bottom center;
+            mix-blend-mode: multiply;
         }
 
-        /* ── Hide mobile-only slides on desktop ── */
-        .mobile-only-slide {
+        /* ===== AGENTS CAROUSEL (mirroring website agents-carousel-wrapper) ===== */
+        .carousel-slide {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .carousel-slide .scale-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .carousel-title {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .carousel-title h2 {
+            font-size: 2.8rem;
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-title p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .agents-carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 1200px;
+            max-width: 90%;
+            z-index: 10;
+        }
+
+        .agents-showcase-viewport {
+            flex: 1;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            border-radius: 24px;
+            background: rgba(255, 253, 248, 0.7);
+            border: 1px solid var(--line-light);
+            backdrop-filter: blur(8px);
+            padding: 30px 18px;
+            scrollbar-width: none;
+        }
+
+        .agents-showcase-viewport::-webkit-scrollbar {
             display: none;
         }
 
-        /* ── Mobile ──────────────────────────────────────────── */
-        @media (max-width: 768px) {
-
-            /* Re-enable full-screen snap scrolling */
-            .slides-container {
-                height: 100svh;
-                overflow-y: scroll;
-                scroll-snap-type: y mandatory;
-            }
-
-            section {
-                height: 100svh;
-                min-height: unset;
-                width: 100%;
-                padding: 3.5rem 0.4rem 0.5rem;
-                box-sizing: border-box;
-                align-items: flex-start;
-                justify-content: flex-start;
-                overflow: hidden;
-                scroll-snap-align: center;
-                border-top: none;
-            }
-
-            /* Hide long desktop slides; show their mobile splits instead */
-            .desktop-only-slide {
-                display: none !important;
-            }
-
-            .mobile-only-slide {
-                display: flex !important;
-            }
-
-            /* ─ Logo & nav ─ */
-            .fixed-logo {
-                top: 0.6rem;
-                left: 0.75rem;
-            }
-
-            .fixed-logo img {
-                height: 2.4rem;
-            }
-
-            .nav-dots {
-                right: 0.5rem;
-                gap: 0.45rem;
-            }
-
-            .nav-dot {
-                width: 7px;
-                height: 7px;
-            }
-
-            /* ─ Glass card ─ */
-            .glass-card {
-                padding: 1rem 0.85rem !important;
-                border-radius: 14px;
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            /* ─ Container / wrappers ─ */
-            .container {
-                padding-left: 0.4rem !important;
-                padding-right: 0.4rem !important;
-                width: 100% !important;
-            }
-
-            .max-w-4xl,
-            .max-w-5xl,
-            .max-w-6xl {
-                max-width: 100% !important;
-            }
-
-            /* ─ Slide 1 ─ */
-            #slide-1 h1 {
-                font-size: 2.1rem !important;
-                line-height: 1.1;
-            }
-
-            #slide-1 p.text-3xl {
-                font-size: 1rem !important;
-            }
-
-            #slide-1 .h-24 {
-                height: 4.5rem;
-            }
-
-            /* ─ Font scaling ─ */
-            h2.text-5xl,
-            h2.text-4xl {
-                font-size: 1.5rem !important;
-            }
-
-            h2.text-3xl {
-                font-size: 1.25rem !important;
-            }
-
-            .text-3xl {
-                font-size: 1.1rem !important;
-            }
-
-            .text-2xl {
-                font-size: 1rem !important;
-            }
-
-            .text-xl {
-                font-size: 0.9rem !important;
-            }
-
-            /* ─ MD grids → single column ─ */
-            .grid.md\:grid-cols-2,
-            .grid.md\:grid-cols-3 {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* ─ Use-case inner grids → single column ─ */
-            .grid.grid-cols-2 {
-                grid-template-columns: 1fr !important;
-            }
-
-            /* ─ Slide 8 icons ─ */
-            #slide-8 .w-20.h-20 {
-                width: 2.8rem !important;
-                height: 2.8rem !important;
-                font-size: 1.2rem !important;
-            }
-
-            /* ─ Slide 10 pills ─ */
-            #slide-10 .flex.items-center.justify-center.gap-3 {
-                flex-wrap: wrap;
-                gap: 0.4rem;
-            }
-
-            /* ─ Slide 12 SDG boxes ─ */
-            #slide-12 .w-28 {
-                width: 4.8rem !important;
-                height: 4.8rem !important;
-            }
-
-            /* ─ Slide 13 team cards ─ */
-            .w-72 {
-                width: 100% !important;
-                max-width: 17rem;
-            }
-
-            /* ─ Slide 14 CTA button ─ */
-            #slide-14 a.inline-block {
-                font-size: 0.82rem !important;
-                padding: 0.7rem 1rem !important;
-                word-break: break-all;
-            }
+        .agents-showcase {
+            display: flex;
+            gap: 14px;
         }
 
-        /* ── Print ─────────────────────────────────────────────── */
-        @media print {
-            .slides-container {
-                height: auto;
-                overflow: visible;
-                scroll-snap-type: none;
-            }
-
-            section {
-                page-break-after: always;
-                height: 100vh;
-            }
-
-            .fixed-logo,
-            .nav-dots {
-                display: none !important;
-            }
-
-            .anim-element {
-                opacity: 1 !important;
-                transform: none !important;
-            }
+        .agent-mini {
+            flex: 0 0 180px;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 6px 12px;
+            border-radius: 16px;
+            background: var(--card);
+            border: 1.5px solid rgba(140, 100, 60, 0.25);
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        /* Rotating word animation */
-        .rotating-word-wrapper {
-            display: inline-block;
-            position: relative;
-            height: 1.4em;
-            vertical-align: bottom;
+        .agent-mini:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(140, 65, 21, 0.1);
+            border-color: var(--line-color);
+        }
+
+        .agent-mini img {
+            width: 200px;
+            height: 260px;
+            object-fit: contain;
+            object-position: bottom;
+            margin-bottom: 4px;
+            mix-blend-mode: multiply;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+        }
+
+        .agent-mini strong {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--heading-color);
+        }
+
+        .agent-mini small {
+            font-size: 0.72rem;
+            color: var(--text-color);
+            line-height: 1.2;
+        }
+
+        .carousel-nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--card);
+            border: 1px solid var(--line-light);
+            color: var(--heading-color);
+            font-size: 1.6rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(140, 65, 21, 0.12);
+            transition: all 0.25s ease;
+            z-index: 5;
+            flex-shrink: 0;
+        }
+
+        .carousel-nav-btn:hover {
+            background: var(--brand-green);
+            color: #fff;
+            border-color: var(--brand-green);
+            transform: scale(1.1);
+        }
+
+        /* ===== CLUSTER SLIDE ===== */
+        .cluster-slide {
             overflow: hidden;
         }
 
-        .rotating-word-wrapper .rotating-word-sizer {
-            display: inline-block;
-            visibility: hidden;
-            height: 0;
-            overflow: hidden;
-            font-weight: 800;
-        }
-
-        .rotating-word {
-            display: block;
+        .cluster-slide .scale-wrapper {
             position: absolute;
-            left: 0;
+            top: 50%;
+            left: 50%;
+        }
+
+        .cluster-character {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 700px;
+            z-index: 2;
+        }
+
+        .cluster-character img {
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .character-backdrop {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse at center bottom, rgba(18, 107, 79, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .cluster-title {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 5;
+        }
+
+        .cluster-title h2 {
+            font-size: 38px;
+            color: var(--heading-color);
+        }
+
+        .cluster-title .agent-role {
+            font-size: 20px;
+            color: var(--brand-green);
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .cluster-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 20px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            z-index: 4;
+            max-width: 260px;
+            transition: transform 0.3s ease;
+        }
+
+        .cluster-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .cluster-card h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--heading-color);
+        }
+
+        .cluster-card p {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        .cluster-card .card-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--brand-green);
+        }
+
+        .card-top-left { top: 160px; left: 100px; }
+        .card-top-right { top: 160px; right: 100px; }
+        .card-bottom-left { bottom: 200px; left: 80px; }
+        .card-bottom-right { bottom: 200px; right: 80px; }
+
+        .cluster-connectors {
+            position: absolute;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            line-height: 1.4em;
-            opacity: 0;
-            transform: translateY(100%);
-            transition: opacity 0.45s ease, transform 0.45s ease;
-            white-space: nowrap;
-            font-weight: 800;
-            color: var(--orange);
+            z-index: 3;
+            pointer-events: none;
         }
 
-        .rotating-word.active {
-            opacity: 1;
-            transform: translateY(0);
+        .cluster-connectors line {
+            stroke: var(--line-color);
+            stroke-width: 2;
+            stroke-dasharray: 8, 6;
         }
 
-        .rotating-word.exit {
-            opacity: 0;
-            transform: translateY(-100%);
+        .floating-icon {
+            position: absolute;
+            font-size: 32px;
+            opacity: 0.3;
+            animation: float 4s ease-in-out infinite;
+            z-index: 1;
+            color: var(--brand-green);
+        }
+
+        .floating-icon:nth-child(2) { animation-delay: 1s; }
+        .floating-icon:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* ===== CHANNELS SLIDE ===== */
+        .channels-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .channel-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 50px 40px;
+            width: 300px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .channel-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .channel-card .card-icon {
+            font-size: 56px;
+            margin-bottom: 24px;
+            color: var(--brand-green);
+        }
+
+        .channel-card h4 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .channel-card p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        /* ===== TRUST CARDS ===== */
+        .trust-cards {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .trust-card {
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 20px;
+            padding: 36px 28px;
+            max-width: 280px;
+            flex: 1;
+            min-width: 220px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            text-align: left;
+            border-top: 4px solid var(--brand-green);
+            transition: transform 0.3s ease;
+        }
+
+        .trust-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .trust-card .card-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+            color: var(--brand-green);
+        }
+
+        .trust-card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .trust-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* ===== CONTACT SLIDE ===== */
+        .contact-slide .content-container {
+            text-align: center;
+        }
+
+        .contact-slide h2 {
+            font-size: 44px;
+            margin-bottom: 24px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-slide p {
+            font-size: 22px;
+            color: var(--text-color);
+            margin-bottom: 40px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--brand-green);
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #0e5a40;
+            transform: translateY(-3px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .scale-wrapper {
+                position: relative;
+                width: 100%;
+                height: auto;
+                transform: none;
+                top: auto;
+                left: auto;
+            }
+
+            .two-col {
+                flex-direction: column;
+                padding: 0 30px;
+            }
+
+            .structure-cards, .channels-cards, .trust-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .six-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-group-banner {
+                height: 280px;
+                width: 95%;
+            }
+
+            .team-lineup-flex {
+                height: 280px;
+                padding: 0 10px;
+            }
+
+            .team-lineup-member {
+                width: 70px;
+                margin: 0 2px;
+            }
+
+            .team-lineup-member img {
+                height: 280px;
+            }
+
+            .cluster-card {
+                position: relative;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                max-width: 100%;
+                margin: 10px;
+            }
+
+            .cluster-character {
+                height: 50vh;
+            }
+
+            .cluster-connectors {
+                display: none;
+            }
+
+            .agent-mini {
+                flex: 0 0 140px;
+                min-width: 140px;
+            }
+
+            .agent-mini img {
+                width: 140px;
+                height: 130px;
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="fixed-bg"></div>
-    <div class="fixed-logo cursor-pointer"
-        onclick="document.getElementById('scroller').scrollTo({top: 0, behavior: 'smooth'});">
-        <img src="./images/man_circle_only-removebg-preview.png" alt="iNua Technologies">
-    </div>
-    <div class="nav-dots" id="navDotsContainer"></div>
 
-    <main class="slides-container" id="scroller">
+    <!-- SLIDE 1: Title -->
+    <section class="bg-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="content-container">
+            <h1>iNua Technologies</h1>
+            <h3>Put the right expert within everyone's reach.</h3>
+        </div>
+    </section>
 
-        <!-- SLIDE 1: Title -->
-        <section id="slide-1" class="active">
-            <div class="container mx-auto px-8 z-10 relative text-center">
-                <div class="glass-card max-w-4xl mx-auto anim-element">
-                    <img src="./images/woman_logo_ceircle-removebg-preview.png" alt="iNua Technologies"
-                        class="h-24 mx-auto mb-6 anim-element delay-1">
-                    <h1 class="text-6xl md:text-8xl font-black mb-4 leading-tight anim-element delay-1"><span
-                            class="gradient-text">iNua Technologies</span></h1>
-                    <p class="text-3xl md:text-4xl font-light text-[#1B4F32] mb-8 anim-element delay-2">Building Bridges
-                    </p>
-                    <div class="accent-bar mx-auto mb-8 anim-element delay-2"></div>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed anim-element delay-3">We use
-                        technical expertise to level the playing field, creating a bridge that allows communities to
-                        grow on their own terms.</p>
+    <!-- SLIDE 2: Problem Statement -->
+    <section>
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="two-col">
+            <div class="text-side">
+                <h2>Organisations struggle to deliver expert guidance at scale.</h2>
+                <p>Whether it's farmers, customers, learners, or community members — people need trusted answers in their language, through channels they can actually use.</p>
+                <p style="margin-top: 16px; color: #d32f2f; font-weight: 600;">Most can't reach an expert when it matters most.</p>
+            </div>
+            <div class="image-side">
+                <img src="images/stressed_farmer.png" alt="Person needing guidance">
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3: Solution -->
+    <section>
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="statement-slide">
+            <h2>AI experts available through <span style="color: var(--brand-green);">phone call</span>, <span style="color: var(--accent-orange);">WhatsApp</span>, and <span style="color: var(--brand-green);">SMS</span></h2>
+            <p>Trained on your organisation's knowledge, speaking local languages, delivering guidance at any scale.</p>
+        </div>
+    </section>
+
+    <!-- SLIDE 4: Platform Pillars -->
+    <section class="cards-section">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="content-container">
+            <h2>From Knowledge to Action at Scale</h2>
+            <div class="structure-cards">
+                <div class="structure-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
+                    <h4>Build</h4>
+                    <p>Train AI experts on your knowledge, policies, languages, and operational boundaries.</p>
+                </div>
+                <div class="structure-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg></div>
+                    <h4>Engage</h4>
+                    <p>Run inbound and outbound engagement journeys through calls, SMS, and WhatsApp.</p>
+                </div>
+                <div class="structure-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div>
+                    <h4>Understand</h4>
+                    <p>Turn every conversation into real-time patterns and actionable operational insight.</p>
+                </div>
+                <div class="structure-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div>
+                    <h4>Escalate</h4>
+                    <p>Automatically route urgent or complex cases to your human field teams with full context.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SLIDE 2: The Problem – "The Storm" -->
-        <section id="slide-2" class="desktop-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card mx-auto anim-element" style="padding:2rem 2rem; max-width:92vw;">
-                    <div class="text-center mb-4 anim-element delay-1">
-                        <p class="text-base font-bold tracking-widest text-[#E9A117] uppercase mb-2">The Storm</p>
-                        <h2 class="text-5xl font-extrabold mb-2">The Problem</h2>
-                        <div class="accent-bar mx-auto mb-3"></div>
+
+    <!-- SLIDE 5: Meet the AI Team (hero-lineup-wrap style) -->
+    <section class="team-slide" style="position: relative; height: 100vh; overflow: hidden;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+
+        <div class="scale-wrapper">
+            <div class="team-title">
+                <h1>Meet the iNua AI Team</h1>
+                <p>Purpose-built experts, each specialised for a different organisational need.</p>
+            </div>
+
+            <div class="team-group-banner">
+                <div class="team-lineup-flex">
+                    <div class="team-lineup-member">
+                        <img src="images/chris_full.png" alt="Chris">
                     </div>
-                    <p class="text-xl text-center font-semibold text-[#1B4F32] mb-5 anim-element delay-1 italic">
-                        Digital Inclusion and Technology isn't a luxury; it's a baseline requirement for economic
-                        growth.</p>
-
-                    <div class="grid md:grid-cols-2 gap-8 items-center anim-element delay-2">
-                        <!-- LEFT: Text bullets -->
-                        <div class="space-y-3">
-
-                            <div class="flex items-start gap-3 bg-white/60 p-3 rounded-xl"><i
-                                    class="fas fa-wifi text-red-500 text-xl mt-1 shrink-0"></i>
-                                <p class="text-base">We are in the Digital Era, of While the world moves toward AI and
-                                    high-speed data, <strong>72% of rural Africa is still offline</strong></p>
-                            </div>
-                            <div class="flex items-start gap-3 bg-white/60 p-3 rounded-xl"><i
-                                    class="fas fa-signal text-red-500 text-xl mt-1 shrink-0"></i>
-                                <p class="text-base">It's not just a lack of physical infrastructure; it's a lack of
-                                    access due to <strong>high data costs</strong></p>
-                            </div>
-                            <div
-                                class="flex items-start gap-4 bg-[#1B4F32]/10 p-6 rounded-2xl border-l-8 border-[#1B4F32]">
-                                <i class="fas fa-store text-[#1B4F32] text-2xl mt-2 shrink-0"></i>
-                                <p class="text-lg text-gray-800 leading-relaxed">
-                                    <strong class="text-[#1B4F32] block text-xl mb-1">The Organizational World:</strong>
-                                    SMEs and NGOs lack the time and tools and resources to reach these customers or
-                                    manage a high volume of distant customer inquiries, which inhibits their ability to
-                                    scale their businesses.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- RIGHT: Pie Chart (Market Context) -->
-                        <div class="flex flex-col items-center gap-6">
-                            <h3
-                                class="text-xl md:text-2xl font-bold text-[#1B4F32] mb-[-1rem] text-center w-full bg-white/60 rounded-xl py-2 px-4 shadow-sm border border-white/80">
-                                <i class="fas fa-globe-africa text-[#E9A117] mr-2"></i>The Reality
-                            </h3>
-                            <!-- Pie Chart -->
-                            <div class="relative w-48 h-48 md:w-56 md:h-56 flex-shrink-0 anim-element delay-3">
-                                <!-- CSS based radial chart for perfect rendering -->
-                                <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center filter drop-shadow-xl anim-element delay-3"
-                                    style="background: conic-gradient(#E9A117 0% 55%, #1B4F3215 55% 100%);">
-
-                                    <!-- Inner Ring (72% of the orbit) -->
-                                    <div class="absolute w-[80%] h-[80%] rounded-full flex items-center justify-center shadow-inner"
-                                        style="background: conic-gradient(#D97757 0% 39.6%, #E9A11730 39.6% 55%, transparent 55% 100%);">
-
-                                        <!-- Center White Hole (to create the donut) -->
-                                        <div
-                                            class="w-[75%] h-[75%] bg-white/95 backdrop-blur-md rounded-full shadow-lg flex flex-col items-center justify-center border border-[#1B4F32]/10">
-                                            <div
-                                                class="text-[14px] md:text-[16px] font-black leading-none text-[#1B4F32]">
-                                                1.515B
-                                            </div>
-                                            <div
-                                                class="text-[6px] font-bold uppercase tracking-widest opacity-80 mt-1 text-[#1B4F32]">
-                                                Africa
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Legend -->
-                            <div class="flex flex-col gap-4 w-full max-w-xs">
-                                <!-- Rural -->
-                                <div
-                                    class="relative pl-5 border-l-2 border-dashed border-[#E9A117]/40 anim-element delay-4">
-                                    <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-[#E9A117]">
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-[#E9A117] mb-0">55% <span
-                                            class="text-base text-gray-700 font-normal">Live in Rural
-                                            Areas</span></h3>
-                                    <p class="text-gray-500 text-sm">~833 Million People</p>
-                                </div>
-                                <!-- Offline -->
-                                <div
-                                    class="ml-6 relative pl-5 border-l-2 border-dashed border-[#D97757]/40 anim-element delay-5">
-                                    <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-[#D97757]">
-                                    </div>
-                                    <div class="mb-1">
-                                        <h3 class="text-2xl font-bold text-[#D97757] inline-block mr-1">72%</h3>
-                                        <span class="text-base text-gray-700 font-normal">of the rural
-                                            population is
-                                            <strong>Offline</strong></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="team-lineup-member">
+                        <img src="images/grace_full.png" alt="Grace">
+                    </div>
+                    <div class="team-lineup-member">
+                        <img src="images/josef_full.png" alt="Josef">
+                    </div>
+                    <div class="team-lineup-member">
+                        <img src="images/inua_full.png" alt="iNua">
+                    </div>
+                    <div class="team-lineup-member">
+                        <img src="images/faith_full.png" alt="Faith">
+                    </div>
+                    <div class="team-lineup-member">
+                        <img src="images/nia_full.png" alt="Nia">
+                    </div>
+                    <div class="team-lineup-member">
+                        <img src="images/nuru_full.png" alt="Nuru">
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SLIDE 2a: Mobile – The Problem (text) -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element">
-                    <div class="text-center mb-3 anim-element delay-1">
-                        <p class="text-xs font-bold tracking-widest text-[#E9A117] uppercase mb-1">The Storm</p>
-                        <h2 class="text-3xl font-extrabold mb-2">The Problem</h2>
-                        <div class="accent-bar mx-auto mb-2"></div>
-                    </div>
-                    <p class="text-sm text-center font-semibold text-[#1B4F32] mb-3 italic">
-                        "Digital Inclusion isn't a luxury; it's a baseline requirement for economic growth".</p>
-                    <div class="space-y-2">
-                        <div class="flex items-start gap-2 bg-white/60 p-2.5 rounded-xl">
-                            <i class="fas fa-wifi text-red-500 text-base mt-0.5 shrink-0"></i>
-                            <p class="text-sm">While the world moves toward AI, <strong>72% of rural Africa is still
-                                    offline</strong></p>
+    <!-- SLIDE 6: Agents Carousel (website-style individual cards) -->
+    <section class="carousel-slide" style="position: relative; height: 100vh; overflow: hidden;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+
+        <div class="scale-wrapper">
+            <div class="carousel-title">
+                <h2>Endless Experts. One Platform.</h2>
+                <p>Each expert is purpose-built for a specific role — deploy individually or as a coordinated team.</p>
+            </div>
+
+            <div class="agents-carousel-wrapper">
+                <button class="carousel-nav-btn prev" id="carouselPrev" aria-label="Previous agents">&#8249;</button>
+                <div class="agents-showcase-viewport" id="showcaseViewport">
+                    <div class="agents-showcase">
+                        <div class="agent-mini" style="--agent-color: #126b4f">
+                            <img src="images/chris_full.png" alt="Chris">
+                            <strong>Chris</strong>
+                            <small>Agronomic Expert</small>
                         </div>
-                        <div class="flex items-start gap-2 bg-white/60 p-2.5 rounded-xl">
-                            <i class="fas fa-signal text-red-500 text-base mt-0.5 shrink-0"></i>
-                            <p class="text-sm">Not just lack of infrastructure — a lack of access due to <strong>high
-                                    data costs</strong></p>
+                        <div class="agent-mini" style="--agent-color: #e88b1a">
+                            <img src="images/josef_full.png" alt="Josef">
+                            <strong>Josef</strong>
+                            <small>Financial Guidance</small>
                         </div>
-                        <div class="flex items-start gap-3 bg-[#1B4F32]/10 p-3 rounded-xl border-l-4 border-[#1B4F32]">
-                            <i class="fas fa-store text-[#1B4F32] text-lg mt-0.5 shrink-0"></i>
-                            <p class="text-sm text-gray-800 leading-relaxed">
-                                <strong class="text-[#1B4F32] block mb-0.5">The Organizational World:</strong>
-                                SMEs and NGOs lack tools to reach remote customers or manage high-volume inquiries at
-                                scale.
-                            </p>
+                        <div class="agent-mini" style="--agent-color: #126b4f">
+                            <img src="images/inua_full.png" alt="iNua">
+                            <strong>iNua</strong>
+                            <small>Data Analytics Manager</small>
+                        </div>
+                        <div class="agent-mini" style="--agent-color: #e88b1a">
+                            <img src="images/grace_full.png" alt="Grace">
+                            <strong>Grace</strong>
+                            <small>M&E</small>
+                        </div>
+                        <div class="agent-mini" style="--agent-color: #5a7247">
+                            <img src="images/faith_full.png" alt="Faith">
+                            <strong>Faith</strong>
+                            <small>Pest & Disease Diagnosis</small>
+                        </div>
+                        <div class="agent-mini" style="--agent-color: #587a9a">
+                            <img src="images/nia_full.png" alt="Nia">
+                            <strong>Nia</strong>
+                            <small>Customer Support</small>
+                        </div>
+                        <div class="agent-mini" style="--agent-color: #76579d">
+                            <img src="images/nuru_full.png" alt="Nuru">
+                            <strong>Nuru</strong>
+                            <small>Weather Advisor</small>
+                        </div>
+                        <div class="agent-mini" style="--agent-color: #b95f4c">
+                            <img src="images/marry_full.png" alt="Marry">
+                            <strong>Marry</strong>
+                            <small>Emergency Support</small>
+                        </div>
+                        <div class="agent-mini" style="--agent-color: #c5a23e">
+                            <img src="images/gift_full.png" alt="Gift">
+                            <strong>Gift</strong>
+                            <small>Beekeeping Coach</small>
+                        </div>
+                        <div class="agent-mini" style="--agent-color: #76579d">
+                            <img src="images/lwazi_full.png" alt="Lwazi">
+                            <strong>Lwazi</strong>
+                            <small>Disability Emergency Preparedness</small>
+                        </div>
+                        <div class="agent-mini" style="--agent-color: #76579d">
+                            <img src="images/tariq_full.png" alt="Tariq">
+                            <strong>Tariq</strong>
+                            <small>Sales & Acquisition</small>
                         </div>
                     </div>
                 </div>
+                <button class="carousel-nav-btn next" id="carouselNext" aria-label="Next agents">&#8250;</button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SLIDE 2b: Mobile – The Reality (pie chart) -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element">
-                    <h3
-                        class="text-lg font-bold text-[#1B4F32] text-center mb-4 bg-white/60 rounded-xl py-2 px-3 border border-white/80">
-                        <i class="fas fa-globe-africa text-[#E9A117] mr-2"></i>The Reality: Africa's Digital Divide
-                    </h3>
-                    <div class="flex flex-col items-center gap-5">
-                        <div class="relative w-44 h-44 flex-shrink-0">
-                            <div class="w-40 h-40 rounded-full flex items-center justify-center filter drop-shadow-xl"
-                                style="background: conic-gradient(#E9A117 0% 55%, #1B4F3215 55% 100%);">
-                                <div class="absolute w-[80%] h-[80%] rounded-full flex items-center justify-center shadow-inner"
-                                    style="background: conic-gradient(#D97757 0% 39.6%, #E9A11730 39.6% 55%, transparent 55% 100%);">
-                                    <div
-                                        class="w-[75%] h-[75%] bg-white/95 rounded-full flex flex-col items-center justify-center border border-[#1B4F32]/10">
-                                        <div class="text-[14px] font-black text-[#1B4F32]">1.515B</div>
-                                        <div class="text-[6px] font-bold uppercase tracking-widest text-[#1B4F32]">
-                                            Africa</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-4 w-full max-w-xs">
-                            <div class="relative pl-5 border-l-2 border-dashed border-[#E9A117]/40">
-                                <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-[#E9A117]"></div>
-                                <h3 class="text-2xl font-bold text-[#E9A117]">55% <span
-                                        class="text-base text-gray-700 font-normal">Live in Rural Areas</span></h3>
-                                <p class="text-gray-500 text-sm">~833 Million People</p>
-                            </div>
-                            <div class="ml-6 relative pl-5 border-l-2 border-dashed border-[#D97757]/40">
-                                <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-[#D97757]"></div>
-                                <h3 class="text-2xl font-bold text-[#D97757] inline-block mr-1">72%</h3>
-                                <span class="text-base text-gray-700">of rural population is
-                                    <strong>Offline</strong></span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- SLIDE 7: Chris - Agronomic Expert -->
+    <section class="cluster-slide" style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="scale-wrapper">
+            <div class="cluster-title">
+                <h2>Chris</h2>
+                <div class="agent-role">Agronomic Expert</div>
+            </div>
+
+            <div class="character-backdrop"></div>
+            <div class="cluster-character">
+                <img src="images/chris_v3_nobg.png" alt="Chris">
+            </div>
+
+            <div class="cluster-card card-top-left">
+                <div class="card-icon"><i class="ph ph-plant"></i></div>
+                <h4>Crop Information</h4>
+                <p>Stage-by-stage guidance from planting to harvest, tailored to local conditions.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="card-icon"><i class="ph ph-drop"></i></div>
+                <h4>Fertilizer Guidance</h4>
+                <p>Dosage, timing, and application methods based on crop type and growth stage.</p>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="card-icon"><i class="ph ph-leaf"></i></div>
+                <h4>Field Tips</h4>
+                <p>Practical advice on soil preparation, spacing, weeding, and pest prevention.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="card-icon"><i class="ph ph-bell-ringing"></i></div>
+                <h4>Proactive Advisory</h4>
+                <p>Timely alerts on upcoming actions based on crop calendar and weather patterns.</p>
+            </div>
+
+            <svg class="cluster-connectors" viewBox="0 0 1920 945">
+                <defs><marker id="arrow-chris" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eab683"/></marker></defs>
+                <line x1="360" y1="280" x2="760" y2="400" marker-end="url(#arrow-chris)"/>
+                <line x1="1560" y1="280" x2="1160" y2="400" marker-end="url(#arrow-chris)"/>
+                <line x1="340" y1="650" x2="760" y2="550" marker-end="url(#arrow-chris)"/>
+                <line x1="1580" y1="650" x2="1160" y2="550" marker-end="url(#arrow-chris)"/>
+            </svg>
+
+            <i class="ph ph-leaf floating-icon" style="top: 120px; left: 250px;"></i>
+            <i class="ph ph-plant floating-icon" style="top: 300px; right: 200px;"></i>
+            <i class="ph ph-grain floating-icon" style="bottom: 150px; left: 350px;"></i>
+        </div>
+    </section>
+
+    <!-- SLIDE 8: Nia - Customer Support -->
+    <section class="cluster-slide" style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="scale-wrapper">
+            <div class="cluster-title">
+                <h2>Nia</h2>
+                <div class="agent-role">Customer Support</div>
+            </div>
+
+            <div class="character-backdrop"></div>
+            <div class="cluster-character">
+                <img src="images/nia_v3_nobg.png" alt="Nia">
+            </div>
+
+            <div class="cluster-card card-top-left">
+                <div class="card-icon"><i class="ph ph-question"></i></div>
+                <h4>General Questions</h4>
+                <p>Answers about programmes, services, eligibility, and next steps in any local language.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="card-icon"><i class="ph ph-info"></i></div>
+                <h4>Programme Information</h4>
+                <p>Explains schedules, requirements, benefits, and how to participate.</p>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="card-icon"><i class="ph ph-arrows-split"></i></div>
+                <h4>Issue Routing</h4>
+                <p>Identifies the right team for each query and routes accordingly with context.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="card-icon"><i class="ph ph-clock"></i></div>
+                <h4>24/7 Availability</h4>
+                <p>Always accessible — no queues, no office hours, no missed calls.</p>
+            </div>
+
+            <svg class="cluster-connectors" viewBox="0 0 1920 945">
+                <defs><marker id="arrow-nia" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eab683"/></marker></defs>
+                <line x1="360" y1="280" x2="760" y2="400" marker-end="url(#arrow-nia)"/>
+                <line x1="1560" y1="280" x2="1160" y2="400" marker-end="url(#arrow-nia)"/>
+                <line x1="340" y1="650" x2="760" y2="550" marker-end="url(#arrow-nia)"/>
+                <line x1="1580" y1="650" x2="1160" y2="550" marker-end="url(#arrow-nia)"/>
+            </svg>
+
+            <i class="ph ph-chat-dots floating-icon" style="top: 120px; left: 250px;"></i>
+            <i class="ph ph-headset floating-icon" style="top: 300px; right: 200px;"></i>
+            <i class="ph ph-hand-waving floating-icon" style="bottom: 150px; left: 350px;"></i>
+        </div>
+    </section>
+
+    <!-- SLIDE 9: Nuru - Weather Advisor -->
+    <section class="cluster-slide" style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="scale-wrapper">
+            <div class="cluster-title">
+                <h2>Nuru</h2>
+                <div class="agent-role">Weather Advisor</div>
+            </div>
+
+            <div class="character-backdrop"></div>
+            <div class="cluster-character">
+                <img src="images/nuru_v3_nobg.png" alt="Nuru">
+            </div>
+
+            <div class="cluster-card card-top-left">
+                <div class="card-icon"><i class="ph ph-cloud-rain"></i></div>
+                <h4>Weather Alerts</h4>
+                <p>Proactive warnings about rain, drought, frost, and extreme weather events.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="card-icon"><i class="ph ph-calendar-check"></i></div>
+                <h4>Planting Windows</h4>
+                <p>Optimal timing recommendations for planting based on forecast and soil conditions.</p>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="card-icon"><i class="ph ph-sun"></i></div>
+                <h4>Today's Forecast</h4>
+                <p>Daily localised weather updates to inform immediate farming decisions.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="card-icon"><i class="ph ph-chart-line"></i></div>
+                <h4>Seasonal Planning</h4>
+                <p>Long-range outlooks to help plan crop selection and resource allocation.</p>
+            </div>
+
+            <svg class="cluster-connectors" viewBox="0 0 1920 945">
+                <defs><marker id="arrow-nuru" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eab683"/></marker></defs>
+                <line x1="360" y1="280" x2="760" y2="400" marker-end="url(#arrow-nuru)"/>
+                <line x1="1560" y1="280" x2="1160" y2="400" marker-end="url(#arrow-nuru)"/>
+                <line x1="340" y1="650" x2="760" y2="550" marker-end="url(#arrow-nuru)"/>
+                <line x1="1580" y1="650" x2="1160" y2="550" marker-end="url(#arrow-nuru)"/>
+            </svg>
+
+            <i class="ph ph-sun floating-icon" style="top: 120px; left: 250px;"></i>
+            <i class="ph ph-cloud floating-icon" style="top: 300px; right: 200px;"></i>
+            <i class="ph ph-cloud-rain floating-icon" style="bottom: 150px; left: 350px;"></i>
+        </div>
+    </section>
+
+    <!-- SLIDE 10: Grace - M&E & Data Collection -->
+    <section class="cluster-slide" style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="scale-wrapper">
+            <div class="cluster-title">
+                <h2>Grace</h2>
+                <div class="agent-role">M&E & Data Collection</div>
+            </div>
+
+            <div class="character-backdrop"></div>
+            <div class="cluster-character">
+                <img src="images/grace_full.png" alt="Grace">
+            </div>
+
+            <div class="cluster-card card-top-left">
+                <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div>
+                <h4>Structured Surveys</h4>
+                <p>Collect data through natural conversations — no forms, no literacy barriers, just dialogue.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg></div>
+                <h4>Participant Feedback</h4>
+                <p>Capture sentiment, satisfaction, and needs between formal surveys and field visits.</p>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+                <h4>Outcome Tracking</h4>
+                <p>Monitor adoption, behaviour change, and programme outcomes continuously over time.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div>
+                <h4>Real-time Insights</h4>
+                <p>Surface patterns, gaps, and opportunities as they emerge — not months later in a report.</p>
+            </div>
+
+            <svg class="cluster-connectors" viewBox="0 0 1920 945">
+                <defs><marker id="arrow-grace" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eab683"/></marker></defs>
+                <line x1="360" y1="280" x2="760" y2="400" marker-end="url(#arrow-grace)"/>
+                <line x1="1560" y1="280" x2="1160" y2="400" marker-end="url(#arrow-grace)"/>
+                <line x1="340" y1="650" x2="760" y2="550" marker-end="url(#arrow-grace)"/>
+                <line x1="1580" y1="650" x2="1160" y2="550" marker-end="url(#arrow-grace)"/>
+            </svg>
+
+            <i class="ph ph-chart-bar floating-icon" style="top: 120px; left: 250px;"></i>
+            <i class="ph ph-clipboard-text floating-icon" style="top: 300px; right: 200px;"></i>
+            <i class="ph ph-database floating-icon" style="bottom: 150px; left: 350px;"></i>
+        </div>
+    </section>
+
+    <!-- SLIDE 11: Channels -->
+    <section class="cards-section" style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="content-container" style="position: relative; z-index: 2;">
+            <h2>Reach people through the channels they already use.</h2>
+            <div class="channels-cards" style="margin-top: 50px;">
+                <div class="channel-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></div>
+                    <h4>Phone Calls</h4>
+                    <p>Inbound and outbound voice conversations in local languages. No smartphone required.</p>
+                </div>
+                <div class="channel-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg></div>
+                    <h4>SMS</h4>
+                    <p>Low-data text engagement for alerts, reminders, and quick answers.</p>
+                </div>
+                <div class="channel-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="currentColor"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.04-1.24.69-1.82.95-2.07.25-.25.54-.31.71-.31h.53c.17 0 .39-.03.61.46.22.49.74 1.81.81 1.94.07.13.11.28.02.45-.09.17-.14.27-.27.42l-.39.47c-.12.14-.26.29-.11.57.14.27.64 1.11 1.38 1.81.95.89 1.74 1.17 1.98 1.3.25.13.39.11.54-.07.14-.18.62-.72.78-.97.17-.24.33-.2.56-.12.23.08 1.47.69 1.72.82z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.77.47 3.44 1.29 4.88L2 22l5.23-1.25C8.67 21.54 10.29 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.55 0-3.01-.42-4.25-1.16l-.3-.18-3.12.75.78-3.01-.2-.32C4.29 14.93 3.87 13.51 3.87 12c0-4.48 3.65-8.13 8.13-8.13S20.13 7.52 20.13 12 16.48 20 12 20z"/></svg></div>
+                    <h4>WhatsApp</h4>
+                    <p>Rich conversational support with images, voice notes, and structured flows.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SLIDE 3: The Pain Point -->
-        <section id="slide-3" class="desktop-only-slide">
-            <div class="container mx-auto px-8 z-10 relative">
-                <div class="glass-card max-w-6xl mx-auto anim-element" style="padding:2rem 2.5rem;">
-                    <div class="text-center mb-5 anim-element delay-1">
-                        <h2 class="text-3xl font-extrabold mb-2">The Pain Point</h2>
-                        <div class="accent-bar mx-auto mb-3"></div>
-                        <p class="text-lg font-semibold text-gray-600 max-w-4xl mx-auto leading-relaxed">Organizations
-                            face a scalability ceiling by relying on manual, human-led communication that limits the
-                            scope, consistency, and reliability of data collection from remote communities.</p>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-10 anim-element delay-2">
-                        <!-- SME Struggle -->
-                        <div class="bg-white/70 rounded-2xl p-5 border-t-4 border-[#E9A117] flex flex-col">
-                            <h3 class="text-lg font-bold text-[#E9A117] mb-1"><i class="fas fa-store mr-2"></i>SME
-                                Struggle</h3>
+    <!-- SLIDE: Dashboard -->
+    <section style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="content-container" style="position: relative; z-index: 2;">
+            <h2 style="font-size: 44px; margin-bottom: 16px;">See every conversation, need, opportunity, and escalation.</h2>
+            <p style="font-size: 20px; color: var(--text-color); max-width: 750px; margin: 0 auto 40px;">A shared dashboard gives teams visibility across every expert and every population they serve.</p>
+            <img src="images/dashboard-laptop.png" alt="iNua Technologies Insights Dashboard" style="max-width: 900px; width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.12);">
+        </div>
+    </section>
 
-                            <p class="text-sm text-gray-500 mb-4"><strong>Context:</strong> A local solar distributor
-                                aiming to scale operations in rural regions.</p>
-                            <p class="text-sm text-gray-700 leading-relaxed"><strong>The Problem:</strong> Once a
-                                product leaves the shop, the customer effectively becomes invisible. Distributors cannot
-                                monitor performance, offer technical support, or maintain a relationship with remote
-                                equipment at scale because they rely on a limited number of field agents.<br><br>
-                                Without a
-                                reliable, two-way digital link, businesses cannot proactively serve their clients,
-                                leading to stalled growth and eroded trust.</p>
-                        </div>
-                        <!-- Agricultural Gap -->
-                        <div class="bg-white/70 rounded-2xl p-5 border-t-4 border-[#1B4F32] flex flex-col">
-                            <h3 class="text-lg font-bold text-[#1B4F32] mb-1"><i class="fas fa-seedling mr-2"></i>The
-                                Agricultural Gap</h3>
-
-                            <p class="text-sm text-gray-500 mb-4"><strong>Context:</strong> A smallholder farmer facing
-                                an unfamiliar, devastating crop pest.</p>
-                            <p class="text-sm text-gray-700 leading-relaxed"><strong>The Problem:</strong> Food security
-                                and climent change management information often exists as a static PDF on an NGO's
-                                website, a world away
-                                for a farmer with no internet access. <br><br>The knowledge gap remains because
-                                current digital tools are built for the online world, leaving the most vulnerable
-                                farmers disconnected from the very expertise that could save their livelihoods.</p>
-                        </div>
-                        <!-- Humanitarian Blindspot -->
-                        <div class="bg-white/70 rounded-2xl p-5 border-t-4 border-red-500 flex flex-col">
-                            <h3 class="text-lg font-bold text-red-600 mb-1"><i class="fas fa-hands-helping mr-2"></i>The
-                                Humanitarian Blindspot</h3>
-
-                            <p class="text-sm text-gray-500 mb-4"><strong>Context:</strong> Rapid response during
-                                post-disaster recovery efforts.</p>
-                            <p class="text-sm text-gray-700 leading-relaxed"><strong>The Problem:</strong> When
-                                infrastructure collapses, relief organizations are forced to rely on slow, manual field
-                                surveys that struggle to move information where there is no internet.<br><br>This
-                                creates a
-                                dangerous feedback delay. By the time an organization identifies where help is
-                                needed, the crisis has already evolved, leaving aid teams reactive rather than
-                                responsive.</p>
-                        </div>
-                    </div>
+    <!-- SLIDE 11: Use Cases -->
+    <section class="cards-section" style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="content-container" style="position: relative; z-index: 2;">
+            <h2>What can your AI team do?</h2>
+            <div class="six-grid" style="margin-top: 40px;">
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg></div>
+                    <h4>On-demand Guidance</h4>
+                    <p>Deliver approved answers in local languages, anytime.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg></div>
+                    <h4>Continuous Feedback</h4>
+                    <p>Turn natural conversations into structured operational insights.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+                    <h4>Training Reinforcement</h4>
+                    <p>Follow up after sessions, check understanding, track application.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg></div>
+                    <h4>Alerts & Escalation</h4>
+                    <p>Detect risk signals and route urgent cases to human teams.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+                    <h4>Network Support</h4>
+                    <p>Onboard members, provide role-specific guidance, surface issues.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M18.36 9l.6 3H5.04l.6-3h12.72M20 4H4v2h16V4zm0 3H4l-1 5v2h1v6h10v-6h4v6h2v-6h1v-2l-1-5zM6 18v-4h6v4H6z"/></svg></div>
+                    <h4>Sales & Conversion</h4>
+                    <p>Qualify prospects, provide product info, hand off sales-ready leads.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SLIDE 3a: Mobile – SME Struggle -->
-        <section class="mobile-only-slide">
-            <div class="container mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element">
-                    <div class="text-center mb-3">
-                        <h2 class="text-2xl font-extrabold mb-1">The Pain Point</h2>
-                        <div class="accent-bar mx-auto"></div>
-                    </div>
-                    <div class="bg-white/70 rounded-2xl p-4 border-t-4 border-[#E9A117]">
-                        <h3 class="text-base font-bold text-[#E9A117] mb-2"><i class="fas fa-store mr-2"></i>The SME
-                            Struggle</h3>
-                        <p class="text-xs text-gray-500 mb-2"><strong>Context:</strong> A local solar distributor aiming
-                            to scale operations in rural regions.</p>
-                        <p class="text-sm text-gray-700 leading-relaxed"><strong>The Problem:</strong> Once a product
-                            leaves the shop, the customer effectively becomes invisible. Distributors cannot monitor
-                            performance, offer technical support, or maintain relationships at scale — they rely on a
-                            limited number of field agents.<br><br>Without a reliable, two-way digital link, businesses
-                            cannot proactively serve clients, leading to stalled growth and eroded trust.</p>
-                    </div>
+    <!-- SLIDE 12: Industries -->
+    <section class="cards-section" style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="content-container" style="position: relative; z-index: 2;">
+            <h2>Adapted to the realities of your sector.</h2>
+            <div class="six-grid" style="margin-top: 40px;">
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z"/></svg></div>
+                    <h4>Agriculture & Food Systems</h4>
+                    <p>Agronomic advisory, training, supplier support, input sales.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z"/></svg></div>
+                    <h4>Financial Services</h4>
+                    <p>Financial guidance, loan follow-up, customer support, lead conversion.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+                    <h4>Education</h4>
+                    <p>Learning support, training reinforcement, reminders, feedback.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M17.73 12.02l3.98-3.98c.39-.39.39-1.02 0-1.41l-4.34-4.34c-.39-.39-1.02-.39-1.41 0l-3.98 3.98L8 2.29C7.8 2.1 7.55 2 7.29 2c-.25 0-.51.1-.7.29L2.25 6.63c-.39.39-.39 1.02 0 1.41l3.98 3.98L2.25 16c-.39.39-.39 1.02 0 1.41l4.34 4.34c.39.39 1.02.39 1.41 0l3.98-3.98 3.98 3.98c.2.2.45.29.71.29.26 0 .51-.1.71-.29l4.34-4.34c.39-.39.39-1.02 0-1.41l-3.99-3.98zM12 9c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-4.71 1.96L3.66 7.34l3.63-3.63 3.62 3.62-3.62 3.63zM10 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2.66 9.34l-3.63-3.62 3.63-3.63 3.62 3.63-3.62 3.62z"/></svg></div>
+                    <h4>WASH & Humanitarian</h4>
+                    <p>Emergency guidance, incident reporting, community support.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></div>
+                    <h4>Advocacy & Civil Rights</h4>
+                    <p>Rights information, case intake, community feedback, escalation.</p>
+                </div>
+                <div class="grid-card">
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
+                    <h4>Distributed Networks</h4>
+                    <p>Sales support, network onboarding, product guidance at scale.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SLIDE 3b: Mobile – Agricultural Gap -->
-        <section class="mobile-only-slide">
-            <div class="container mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element">
-                    <div class="text-center mb-3">
-                        <h2 class="text-2xl font-extrabold mb-1">The Pain Point</h2>
-                        <div class="accent-bar mx-auto"></div>
-                    </div>
-                    <div class="bg-white/70 rounded-2xl p-4 border-t-4 border-[#1B4F32]">
-                        <h3 class="text-base font-bold text-[#1B4F32] mb-2"><i class="fas fa-seedling mr-2"></i>The
-                            Agricultural Gap</h3>
-                        <p class="text-xs text-gray-500 mb-2"><strong>Context:</strong> A smallholder farmer facing an
-                            unfamiliar, devastating crop pest.</p>
-                        <p class="text-sm text-gray-700 leading-relaxed"><strong>The Problem:</strong> Critical,
-                            life-saving information often exists as a static PDF on an NGO's website — a world away for
-                            a farmer with no internet access.<br><br>The knowledge gap remains because current digital
-                            tools are built for the online world, leaving the most vulnerable farmers disconnected from
-                            the expertise that could save their livelihoods.</p>
-                    </div>
+    <!-- SLIDE 13: Why Trust iNua -->
+    <section class="cards-section" style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="content-container" style="position: relative; z-index: 2;">
+            <h2>Why Organisations Trust iNua</h2>
+            <div class="trust-cards" style="margin-top: 50px;">
+                <div class="trust-card">
+                    <div class="card-icon"><i class="ph ph-translate"></i></div>
+                    <h4>Local-Language First</h4>
+                    <p>Every interaction happens in the language and dialect people know best. Zero literacy barriers.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="card-icon"><i class="ph ph-shield-check"></i></div>
+                    <h4>Strict Knowledge Compliance</h4>
+                    <p>Experts share only organisation-approved information. No hallucination, no off-script answers.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="card-icon"><i class="ph ph-users"></i></div>
+                    <h4>Human-Centered Escalation</h4>
+                    <p>Complex or urgent cases route directly to human teams with full conversation context.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="card-icon"><i class="ph ph-lock"></i></div>
+                    <h4>Data Privacy & Security</h4>
+                    <p>Enterprise-grade encryption and compliance. Your data stays yours.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SLIDE 3c: Mobile – Humanitarian Blindspot -->
-        <section class="mobile-only-slide">
-            <div class="container mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element">
-                    <div class="text-center mb-3">
-                        <h2 class="text-2xl font-extrabold mb-1">The Pain Point</h2>
-                        <div class="accent-bar mx-auto"></div>
-                    </div>
-                    <div class="bg-white/70 rounded-2xl p-4 border-t-4 border-red-500">
-                        <h3 class="text-base font-bold text-red-600 mb-2"><i class="fas fa-hands-helping mr-2"></i>The
-                            Humanitarian Blindspot</h3>
-                        <p class="text-xs text-gray-500 mb-2"><strong>Context:</strong> Rapid response during
-                            post-disaster recovery efforts.</p>
-                        <p class="text-sm text-gray-700 leading-relaxed"><strong>The Problem:</strong> When
-                            infrastructure collapses, relief organizations rely on slow, manual field surveys that
-                            struggle to move information where there is no internet.<br><br>This creates a dangerous
-                            feedback delay. By the time an organization identifies where help is needed, the crisis has
-                            evolved — leaving aid teams reactive rather than responsive.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- SLIDE 14: Contact -->
+    <section class="contact-slide" style="position: relative;">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="landscape-bg"></div>
+        <div class="content-container" style="position: relative; z-index: 2;">
+            <h2>Who does your organisation need to make available at scale?</h2>
+            <p>Start with one expert. Build the team your organisation needs.</p>
+            <a href="mailto:info@inua-technologies.com" class="contact-btn">info@inua-technologies.com</a>
+        </div>
+    </section>
 
-        <!-- SLIDE 4: The Map - Competitive Landscape -->
-        <section id="slide-4" class="desktop-only-slide">
-            <div class="container mx-auto px-8 z-10 relative">
-                <div class="glass-card max-w-5xl mx-auto anim-element" style="padding:2rem 2.5rem;">
-                    <div class="text-center mb-5 anim-element delay-1">
-                        <p class="text-sm font-bold tracking-widest text-[#E9A117] uppercase mb-2">The Map</p>
-                        <h2 class="text-3xl font-extrabold mb-2">The Competitive Landscape</h2>
-                        <div class="accent-bar mx-auto mb-3"></div>
-                        <p class="text-lg font-semibold text-gray-600">The Status Quo: Fragmented and High-Barrier
-                            Solutions</p>
-                    </div>
-                    <p class="text-base text-gray-700 mb-5 text-center anim-element delay-1">The current landscape is
-                        dominated by two types of entities:</p>
-                    <div class="grid md:grid-cols-2 gap-5 anim-element delay-2">
-                        <div class="bg-white/70 rounded-2xl p-5 border-l-4 border-[#E9A117]">
-                            <h3 class="text-xl font-bold text-[#E9A117] mb-3"><i
-                                    class="fas fa-walking mr-2"></i>Traditional Engagement</h3>
-                            <p class="text-base text-gray-700 leading-relaxed">Reliant on physical visits of field
-                                agents, high travel costs, and manual paper systems - slow, non-scalable information
-                                loops.</p>
-                        </div>
-                        <div class="bg-white/70 rounded-2xl p-5 border-l-4 border-[#1B4F32]">
-                            <h3 class="text-xl font-bold text-[#1B4F32] mb-3"><i
-                                    class="fas fa-server mr-2"></i>High-Tech Infrastructure Platforms</h3>
-                            <p class="text-base text-gray-700 leading-relaxed mb-3">Established tools like UNICEF's
-                                U-Report, mHealth, and TextIt have proven the demand for SMS-based dialogue. However,
-                                these solutions often:</p>
-                            <ul class="space-y-2 text-sm text-gray-600">
-                                <li class="flex items-start gap-2"><i
-                                        class="fas fa-times-circle text-red-400 mt-1 shrink-0"></i>Target only large,
-                                    well-resourced international organizations.</li>
-                                <li class="flex items-start gap-2"><i
-                                        class="fas fa-times-circle text-red-400 mt-1 shrink-0"></i>Require deep
-                                    technical expertise to configure and manage.</li>
-                                <li class="flex items-start gap-2"><i
-                                        class="fas fa-times-circle text-red-400 mt-1 shrink-0"></i>Are often rigid,
-                                    designed for specific sectors (like health or youth engagement) rather than a broad
-                                    organizational need.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 4a: Mobile – Competitive Landscape (Traditional) -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element">
-                    <div class="text-center mb-3 anim-element delay-1">
-                        <p class="text-xs font-bold tracking-widest text-[#E9A117] uppercase mb-1">The Map</p>
-                        <h2 class="text-2xl font-extrabold mb-1">Competitive Landscape</h2>
-                        <div class="accent-bar mx-auto mb-2"></div>
-                        <p class="text-sm font-semibold text-gray-600">Fragmented &amp; High-Barrier Solutions</p>
-                    </div>
-                    <div class="bg-white/70 rounded-2xl p-4 border-l-4 border-[#E9A117] mb-3">
-                        <h3 class="text-base font-bold text-[#E9A117] mb-2"><i
-                                class="fas fa-walking mr-2"></i>Traditional Engagement</h3>
-                        <p class="text-sm text-gray-700 leading-relaxed">Reliant on physical visits of field agents,
-                            high travel costs, and manual paper systems — slow, non-scalable information loops.</p>
-                    </div>
-                    <div class="bg-white/70 rounded-2xl p-4 border-l-4 border-[#1B4F32]">
-                        <h3 class="text-base font-bold text-[#1B4F32] mb-2"><i class="fas fa-server mr-2"></i>High-Tech
-                            Infrastructure Platforms</h3>
-                        <p class="text-sm text-gray-700 leading-relaxed mb-2">Tools like UNICEF's U-Report, mHealth, and
-                            TextIt have proven the demand. However, these solutions often:</p>
-                        <ul class="space-y-1.5 text-xs text-gray-600">
-                            <li class="flex items-start gap-2"><i
-                                    class="fas fa-times-circle text-red-400 mt-0.5 shrink-0"></i>Target only large,
-                                well-resourced international organizations.</li>
-                            <li class="flex items-start gap-2"><i
-                                    class="fas fa-times-circle text-red-400 mt-0.5 shrink-0"></i>Require deep technical
-                                expertise to configure.</li>
-                            <li class="flex items-start gap-2"><i
-                                    class="fas fa-times-circle text-red-400 mt-0.5 shrink-0"></i>Are rigid, designed for
-                                specific sectors rather than broad organizational needs.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 5: The Compass (Vision) -->
-        <section id="slide-5">
-            <div class="container mx-auto px-8 z-10 relative text-center">
-                <div class="glass-card max-w-4xl mx-auto anim-element">
-                    <div
-                        class="w-20 h-20 mx-auto bg-[#E9A117]/15 rounded-full flex items-center justify-center text-[#E9A117] mb-6 anim-element delay-1">
-                        <i class="fas fa-compass text-4xl"></i>
-                    </div>
-                    <p class="text-sm font-bold tracking-widest text-[#E9A117] uppercase mb-3 anim-element delay-1">The
-                        Compass</p>
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-8 anim-element delay-1">Vision</h2>
-                    <p
-                        class="text-2xl md:text-3xl font-semibold text-[#1B4F32] mb-8 leading-relaxed anim-element delay-2 italic">
-                        Instead of waiting for connectivity barriers to be resolved, we bridge over them.</p>
-                    <div class="space-y-4 max-w-2xl mx-auto anim-element delay-3">
-                        <p class="text-xl text-gray-700 leading-relaxed">We don't solve the internet problem; we bridge
-                            the communication.</p>
-                        <p class="text-xl text-gray-700 leading-relaxed">We prioritize utilizing advanced tools where
-                            they are crucially needed to empower self-development.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 6: The Solution - The Ship -->
-        <section id="slide-6" class="desktop-only-slide">
-            <div class="container mx-auto px-8 z-10 relative">
-                <div class="glass-card max-w-6xl mx-auto anim-element" style="padding:1.8rem 2.2rem;">
-                    <div class="text-center mb-4 anim-element delay-1">
-                        <p class="text-sm font-bold tracking-widest text-[#E9A117] uppercase mb-1">The Ship</p>
-                        <h2 class="text-3xl font-extrabold mb-2">Our Solution – iNua Technologies</h2>
-                        <div class="accent-bar mx-auto mb-3"></div>
-                    </div>
-                    <p class="text-base text-center text-gray-700 mb-2 anim-element delay-1">
-                        An SMS-powered AI agent that turns cumulative organizational knowledge into an instant,
-                        interactive expert.</p>
-                    <p class="text-base text-center text-gray-600 mb-4 anim-element delay-1">We take the organization's
-                        knowledge and turn them into an instant SMS based AI professional
-                        expert.</p>
-                    <h3 class="text-xl font-bold text-[#1B4F32] text-center mb-3 anim-element delay-2">Core
-                        Capabilities:</h3>
-                    <div class="grid md:grid-cols-3 gap-3 anim-element delay-2">
-                        <div class="bg-white/60 p-3 rounded-xl border-l-3 border-[#E9A117]">
-                            <h4 class="text-sm font-bold text-[#E9A117] mb-1"><i class="fas fa-brain mr-1"></i>Instant
-                                AI Expertise</h4>
-                            <p class="text-xs text-gray-700 leading-relaxed">We deploy professional AI agent that
-                                provide immediate, expert responses based entirely on your specific organizational
-                                data.</p>
-                        </div>
-                        <div class="bg-white/60 p-3 rounded-xl border-l-3 border-[#1B4F32]">
-                            <h4 class="text-sm font-bold text-[#1B4F32] mb-1"><i
-                                    class="fas fa-satellite-dish mr-1"></i>The "Feeler" Mechanism</h4>
-                            <p class="text-xs text-gray-700 leading-relaxed">Proactively gather field intelligence.
-                                Create predetermined question paths that allow the AI to initiate dialogue and collect
-                                structured data directly from the community.</p>
-                        </div>
-                        <div class="bg-white/60 p-3 rounded-xl border-l-3 border-[#E9A117]">
-                            <h4 class="text-sm font-bold text-[#E9A117] mb-1"><i class="fas fa-sms mr-1"></i>Automated
-                                SMS Troubleshooting</h4>
-                            <p class="text-xs text-gray-700 leading-relaxed">We bridge the "last mile" by allowing
-                                disconnected populations to receive immediate troubleshooting via basic text. This
-                                builds local agency while giving your organization real-time control and visibility.</p>
-                        </div>
-                        <div class="bg-white/60 p-3 rounded-xl border-l-3 border-[#1B4F32]">
-                            <h4 class="text-sm font-bold text-[#1B4F32] mb-1"><i
-                                    class="fas fa-hand-pointer mr-1"></i>Seamless Managment - Easy to Use Platform</h4>
-                            <p class="text-xs text-gray-700 leading-relaxed">A system designed for anyone to use.
-                                Organizations simply upload data or notes (PDFs, manuals, expert's knowledge), and our
-                                platform instantly translates that
-                                cumulative knowledge into an SMS-accessible expert.</p>
-                        </div>
-                        <div class="bg-white/60 p-3 rounded-xl border-l-3 border-[#E9A117]">
-                            <h4 class="text-sm font-bold text-[#E9A117] mb-1"><i
-                                    class="fas fa-sync-alt mr-1"></i>Dynamic Knowledge</h4>
-                            <p class="text-xs text-gray-700 leading-relaxed">Stay accurate in real-time. Our technical
-                                approach prioritizes the latest updates shared through the "Note" system, ensuring the
-                                AI agent always provides the most current information to the end-user.</p>
-                        </div>
-                        <div class="bg-white/60 p-3 rounded-xl border-l-3 border-[#1B4F32]">
-                            <h4 class="text-sm font-bold text-[#1B4F32] mb-1"><i
-                                    class="fas fa-chart-line mr-1"></i>Scalable Impact Dashboard</h4>
-                            <p class="text-xs text-gray-700 leading-relaxed">Manage thousands of simultaneous
-                                conversations without internet dependency. Our interactive dashboard allows SMEs and
-                                NGOs to monitor trends, serve customers efficiently, and scale their reach without
-                                increasing headcount.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 6a: Mobile – Solution intro + first 3 capabilities -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:0.8rem 0.75rem;">
-                    <div class="text-center mb-2 anim-element delay-1">
-                        <p class="text-xs font-bold tracking-widest text-[#E9A117] uppercase mb-0.5">The Ship</p>
-                        <h2 class="text-lg font-extrabold mb-1">The Solution – iNua</h2>
-                        <div class="accent-bar mx-auto mb-1"></div>
-                    </div>
-                    <p class="text-sm text-center text-gray-700 mb-2 anim-element delay-1"><strong>The Tech:</strong> An
-                        SMS-powered AI agent that turns organizational knowledge into an instant, interactive expert.
-                    </p>
-                    <div class="space-y-2 anim-element delay-2">
-                        <div class="bg-white/60 p-2.5 rounded-xl border-l-3 border-[#E9A117]">
-                            <h4 class="text-sm font-bold text-[#E9A117] mb-0.5"><i class="fas fa-brain mr-1"></i>Instant
-                                AI Expertise</h4>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Professional AI agent providing
-                                immediate, expert responses based on your specific organizational data.</p>
-                        </div>
-                        <div class="bg-white/60 p-2.5 rounded-xl border-l-3 border-[#1B4F32]">
-                            <h4 class="text-sm font-bold text-[#1B4F32] mb-0.5"><i
-                                    class="fas fa-satellite-dish mr-1"></i>The "Feeler" Mechanism</h4>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Proactively gather field intelligence
-                                via predetermined question paths that collect structured data from the community.</p>
-                        </div>
-                        <div class="bg-white/60 p-2.5 rounded-xl border-l-3 border-[#E9A117]">
-                            <h4 class="text-sm font-bold text-[#E9A117] mb-0.5"><i class="fas fa-sms mr-1"></i>Automated
-                                SMS Troubleshooting</h4>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Disconnected populations receive
-                                immediate troubleshooting via basic text, building local agency with real-time
-                                visibility.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 6b: Mobile – Solution last 3 capabilities -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:0.8rem 0.75rem;">
-                    <div class="text-center mb-2 anim-element delay-1">
-                        <h2 class="text-lg font-extrabold mb-1">Core Capabilities</h2>
-                        <div class="accent-bar mx-auto mb-1"></div>
-                    </div>
-                    <div class="space-y-2 anim-element delay-2">
-                        <div class="bg-white/60 p-2.5 rounded-xl border-l-3 border-[#1B4F32]">
-                            <h4 class="text-sm font-bold text-[#1B4F32] mb-0.5"><i
-                                    class="fas fa-hand-pointer mr-1"></i>Seamless "Drag-and-Drop" Management</h4>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Organizations simply upload data or
-                                notes, and the platform instantly translates cumulative knowledge into an SMS-accessible
-                                expert.</p>
-                        </div>
-                        <div class="bg-white/60 p-2.5 rounded-xl border-l-3 border-[#E9A117]">
-                            <h4 class="text-sm font-bold text-[#E9A117] mb-0.5"><i
-                                    class="fas fa-sync-alt mr-1"></i>Dynamic Knowledge</h4>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Prioritizes the latest updates through
-                                the "Note" system, ensuring the AI agent always provides the most current information.
-                            </p>
-                        </div>
-                        <div class="bg-white/60 p-2.5 rounded-xl border-l-3 border-[#1B4F32]">
-                            <h4 class="text-sm font-bold text-[#1B4F32] mb-0.5"><i
-                                    class="fas fa-chart-line mr-1"></i>Scalable Impact Dashboard</h4>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Manage thousands of simultaneous
-                                conversations without internet dependency. Monitor trends and scale reach without
-                                increasing headcount.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 7: The Value / Impact -->
-        <section id="slide-7" class="desktop-only-slide">
-            <div class="container mx-auto px-8 z-10 relative">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-6 anim-element">
-                        <p class="text-sm font-bold tracking-widest text-[#E9A117] uppercase mb-2">The Treasure</p>
-                        <h2 class="text-4xl font-extrabold text-[#1B4F32] mb-2">The Value / Impact</h2>
-                        <div class="accent-bar mx-auto"></div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="glass-card anim-element slide-right delay-1" style="border-top:4px solid #E9A117;">
-                            <div class="flex items-center gap-3 mb-4"><i
-                                    class="fas fa-store text-2xl text-[#E9A117]"></i>
-                                <h3 class="text-2xl font-bold text-[#1B4F32]">Client Organizations</h3>
-                            </div>
-                            <p class="text-base text-gray-700 leading-relaxed mb-4">Empowering the backbone of Africa's
-                                economy with tools that fuel growth and unlock untapped markets. Creating
-                                <span class="rotating-word-wrapper"><span
-                                        class="rotating-word-sizer">automated</span><span class="rotating-word active"
-                                        data-index="0">simpler</span><span class="rotating-word"
-                                        data-index="1">instant</span><span class="rotating-word"
-                                        data-index="2">scalable</span><span class="rotating-word"
-                                        data-index="3">automated</span></span>
-                                communication between offline populations and
-                                SMEs/NGOs.
-                            </p>
-                            <p class="text-base text-gray-700 leading-relaxed bg-white/50 p-3 rounded-lg">Scale to new
-                                clients, easy retention, and get actionable data insights for continuous improvement.
-                            </p>
-                        </div>
-                        <div class="glass-card anim-element slide-left delay-2" style="border-top:4px solid #1B4F32;">
-                            <div class="flex items-center gap-3 mb-4"><i
-                                    class="fas fa-users text-2xl text-[#1B4F32]"></i>
-                                <h3 class="text-2xl font-bold text-[#1B4F32]">End Users</h3>
-                            </div>
-                            <p class="text-base text-gray-700 leading-relaxed">Creating reliable, instant access to
-                                information and services without internet dependency, increasing their agency.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 7a: Mobile – Value: Client Organizations -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="border-top:4px solid #E9A117;">
-                    <div class="text-center mb-3 anim-element delay-1">
-                        <p class="text-xs font-bold tracking-widest text-[#E9A117] uppercase mb-1">The Treasure</p>
-                        <h2 class="text-2xl font-extrabold text-[#1B4F32] mb-1">The Value / Impact</h2>
-                        <div class="accent-bar mx-auto"></div>
-                    </div>
-                    <div class="flex items-center gap-2 mb-3"><i class="fas fa-store text-xl text-[#E9A117]"></i>
-                        <h3 class="text-lg font-bold text-[#1B4F32]">Client Organizations</h3>
-                    </div>
-                    <p class="text-sm text-gray-700 leading-relaxed mb-3">Empowering the backbone of Africa's economy
-                        with tools that fuel growth and unlock untapped markets. Creating better (simple, instant,
-                        scalable, and automated) communication between offline populations and SMEs/NGOs.</p>
-                    <p class="text-sm text-gray-700 leading-relaxed bg-white/50 p-3 rounded-lg">Scale to new clients,
-                        easy retention, and get "Actionable Data" insights for continuous improvement.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 7b: Mobile – Value: End Users -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full my-auto">
-                <div class="glass-card anim-element" style="border-top:4px solid #1B4F32;">
-                    <div class="text-center mb-3 anim-element delay-1">
-                        <p class="text-xs font-bold tracking-widest text-[#E9A117] uppercase mb-1">The Treasure</p>
-                        <h2 class="text-2xl font-extrabold text-[#1B4F32] mb-1">The Value / Impact</h2>
-                        <div class="accent-bar mx-auto"></div>
-                    </div>
-                    <div class="flex items-center gap-2 mb-3"><i class="fas fa-users text-xl text-[#1B4F32]"></i>
-                        <h3 class="text-lg font-bold text-[#1B4F32]">End Users</h3>
-                    </div>
-                    <p class="text-sm text-gray-700 leading-relaxed">Creating reliable, instant access to information
-                        and services without internet dependency, increasing their agency.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 8: How It Works -->
-        <section id="slide-8" class="desktop-only-slide">
-            <div class="container mx-auto px-8 z-10 relative text-center">
-                <div class="glass-card max-w-5xl mx-auto anim-element">
-                    <h2 class="text-4xl font-extrabold mb-2 anim-element delay-1">How It Works</h2>
-                    <p class="text-lg text-gray-500 mb-8 anim-element delay-1">Simplicity by Design</p>
-                    <div class="accent-bar mx-auto mb-10 anim-element delay-1"></div>
-                    <div class="grid md:grid-cols-4 gap-6 items-start anim-element delay-2">
-                        <div class="flex flex-col items-center text-center">
-                            <div
-                                class="w-20 h-20 rounded-full bg-[#E9A117]/15 flex items-center justify-center text-[#E9A117] mb-4 text-3xl">
-                                <i class="fas fa-file-upload"></i>
-                            </div>
-                            <span class="text-xs font-bold text-[#E9A117] uppercase tracking-widest mb-2">Step 1</span>
-                            <p class="text-base text-gray-700">Organization uploads files (PDFs, presentations, website
-                                URL, notes and more) via drag-and-drop interface.</p>
-                        </div>
-                        <div class="flex flex-col items-center text-center">
-                            <div
-                                class="w-20 h-20 rounded-full bg-[#1B4F32]/15 flex items-center justify-center text-[#1B4F32] mb-4 text-3xl">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <span class="text-xs font-bold text-[#1B4F32] uppercase tracking-widest mb-2">Step 2</span>
-                            <p class="text-base text-gray-700">iNua creates an automated AI expert on your data.</p>
-                            <p class="text-sm text-gray-500 mt-1">prioritizing the latest information to ensure
-                                accuracy.</p>
-                        </div>
-                        <div class="flex flex-col items-center text-center">
-                            <div
-                                class="w-20 h-20 rounded-full bg-[#E9A117]/15 flex items-center justify-center text-[#E9A117] mb-4 text-3xl">
-                                <i class="fas fa-sms"></i>
-                            </div>
-                            <span class="text-xs font-bold text-[#E9A117] uppercase tracking-widest mb-2">Step 3</span>
-                            <p class="text-base text-gray-700">End-users send simple SMS queries to a unique short code.
-                            </p>
-                        </div>
-                        <div class="flex flex-col items-center text-center">
-                            <div
-                                class="w-20 h-20 rounded-full bg-[#1B4F32]/15 flex items-center justify-center text-[#1B4F32] mb-4 text-3xl">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <span class="text-xs font-bold text-[#1B4F32] uppercase tracking-widest mb-2">Step 4</span>
-                            <p class="text-base text-gray-700">Track every interaction, view a live dashboard of
-                                insights and trends, enabling data-driven decision making and rapid response to emerging
-                                needs.</p>
-                        </div>
-                    </div>
-                    <div
-                        class="mt-8 flex items-center justify-center gap-4 text-2xl text-gray-400 anim-element delay-3">
-                        <i class="fas fa-file-pdf text-[#E9A117]"></i><i class="fas fa-long-arrow-alt-right"></i><i
-                            class="fas fa-cog text-[#1B4F32]"></i><i class="fas fa-long-arrow-alt-right"></i><i
-                            class="fas fa-comment-dots text-[#E9A117]"></i><i class="fas fa-long-arrow-alt-right"></i><i
-                            class="fas fa-tachometer-alt text-[#1B4F32]"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 8a: Mobile – How It Works -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full my-auto">
-                <div class="glass-card anim-element" style="padding:1.5rem 1rem;">
-                    <div class="text-center mb-4 anim-element delay-1">
-                        <h2 class="text-2xl font-extrabold mb-1">How It Works</h2>
-                        <p class="text-sm text-gray-500 mb-2">Simplicity by Design</p>
-                        <div class="accent-bar mx-auto mb-4"></div>
-                    </div>
-                    <div class="space-y-5 anim-element delay-2">
-                        <div class="flex items-center gap-4 text-left">
-                            <div
-                                class="w-14 h-14 rounded-full bg-[#E9A117]/15 flex-shrink-0 flex items-center justify-center text-[#E9A117] text-2xl">
-                                <i class="fas fa-file-upload"></i>
-                            </div>
-                            <div>
-                                <span
-                                    class="text-[11px] font-bold text-[#E9A117] uppercase tracking-widest mb-0.5 block">Step
-                                    1</span>
-                                <p class="text-sm text-gray-700 leading-tight">Organization uploads files via
-                                    drag-and-drop.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 text-left">
-                            <div
-                                class="w-14 h-14 rounded-full bg-[#1B4F32]/15 flex-shrink-0 flex items-center justify-center text-[#1B4F32] text-2xl">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div>
-                                <span
-                                    class="text-[11px] font-bold text-[#1B4F32] uppercase tracking-widest mb-0.5 block">Step
-                                    2</span>
-                                <p class="text-sm text-gray-700 leading-tight">iNua creates an automated AI expert
-                                    prioritizing latest info.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 text-left">
-                            <div
-                                class="w-14 h-14 rounded-full bg-[#E9A117]/15 flex-shrink-0 flex items-center justify-center text-[#E9A117] text-2xl">
-                                <i class="fas fa-sms"></i>
-                            </div>
-                            <div>
-                                <span
-                                    class="text-[11px] font-bold text-[#E9A117] uppercase tracking-widest mb-0.5 block">Step
-                                    3</span>
-                                <p class="text-sm text-gray-700 leading-tight">Users send simple SMS queries to a short
-                                    code.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 9: Strategic Use Cases -->
-        <section id="slide-9" class="desktop-only-slide">
-            <div class="container mx-auto px-8 z-10 relative">
-                <div class="glass-card max-w-6xl mx-auto anim-element" style="padding:1.5rem 2rem;">
-                    <div class="text-center mb-4 anim-element delay-1">
-                        <h2 class="text-3xl font-extrabold mb-1">Strategic Use Cases</h2>
-                        <div class="accent-bar mx-auto"></div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-4 anim-element delay-2">
-                        <!-- Agricultural -->
-                        <div class="bg-white/60 rounded-xl p-3 border-t-3 border-[#7A431D]">
-                            <h3 class="text-base font-bold text-[#7A431D] mb-2"><i
-                                    class="fas fa-seedling mr-2"></i>Agricultural</h3>
-                            <div class="grid grid-cols-2 gap-2 text-xs">
-                                <div class="bg-[#E9A117]/10 p-2 rounded-lg">
-                                    <p class="font-bold text-[#E9A117] mb-1">The Organization (SME/NGO)</p>
-                                    <p class="text-gray-600"><strong>Problem:</strong> The scalability is limited
-                                        by the number of agents; cannot monitor remote equipment or provide support at
-                                        scale.</p>
-                                    <p class="text-gray-600 mt-1"><strong>iNua:</strong> The interactive dashboard
-                                        manages large-scale
-                                        communication and flags complex issues and recognizes trends.</p>
-                                </div>
-                                <div class="bg-[#1B4F32]/10 p-2 rounded-lg">
-                                    <p class="font-bold text-[#1B4F32] mb-1">The Smallholder Farmer</p>
-                                    <p class="text-gray-600"><strong>Problem:</strong> Easy-to-solve
-                                        problems treated the same as complex - both needing waiting for days for an
-                                        agent visit to be solved.</p>
-                                    <p class="text-gray-600 mt-1"><strong>iNua:</strong> The SMS-AI agent provides
-                                        real-time troubleshooting guidance directly to
-                                        their pocket 24\h a day.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Humanitarian -->
-                        <div class="bg-white/60 rounded-xl p-3 border-t-3 border-[#7A431D]">
-                            <h3 class="text-base font-bold text-[#7A431D] mb-2"><i
-                                    class="fas fa-hands-helping mr-2"></i>Humanitarian Feedback</h3>
-                            <div class="grid grid-cols-2 gap-2 text-xs">
-                                <div class="bg-[#E9A117]/10 p-2 rounded-lg">
-                                    <p class="font-bold text-[#E9A117] mb-1">The Relief Organization (NGO/INGO)</p>
-                                    <p class="text-gray-600"><strong>Problem:</strong> Reliance on
-                                        slow, manual field surveys that struggle to move information where the internet
-                                        is down.</p>
-                                    <p class="text-gray-600 mt-1"><strong>iNua:</strong> Turning thousands of SMS field
-                                        reports into a real-time
-                                        map of urgent needs.</p>
-                                </div>
-                                <div class="bg-[#1B4F32]/10 p-2 rounded-lg">
-                                    <p class="font-bold text-[#1B4F32] mb-1">The Displaced Community Member</p>
-                                    <p class="text-gray-600"><strong>Problem:</strong> Critical
-                                        updates on aid locations move via word-of-mouth or need the internet to get,
-                                        often becoming invalid by the time they arrive.</p>
-                                    <p class="text-gray-600 mt-1"><strong>iNua:</strong> Enabling two-say dialogue
-                                        channel, A
-                                        simple data-free portal to report damage or needs and receive immediate,
-                                        location-specific instructions.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Public Health -->
-                        <div class="bg-white/60 rounded-xl p-3 border-t-3 border-[#7A431D]">
-                            <h3 class="text-base font-bold text-[#7A431D] mb-2"><i
-                                    class="fas fa-heartbeat mr-2"></i>Public Health – Rural Maternal Support</h3>
-                            <div class="grid grid-cols-2 gap-2 text-xs">
-                                <div class="bg-[#E9A117]/10 p-2 rounded-lg">
-                                    <p class="font-bold text-[#E9A117] mb-1">The Health Organization (Clinic/NGO)</p>
-                                    <p class="text-gray-600"><strong>Problem:</strong> High
-                                        maternal mortality rates driven by poor awareness and missed Antenatal Care
-                                        (ANC) appointments.</p>
-                                    <p class="text-gray-600 mt-1"><strong>iNua:</strong> Enable automated clinical help
-                                        desk.
-                                        An AI-enabled platform that manages pregnancy-stage-oriented reminders and
-                                        educational message sequences.</p>
-                                </div>
-                                <div class="bg-[#1B4F32]/10 p-2 rounded-lg">
-                                    <p class="font-bold text-[#1B4F32] mb-1">The Rural Pregnant Woman</p>
-                                    <p class="text-gray-600"><strong>Problem:</strong> Lack of
-                                        awareness regarding the life-saving importance of regular ANC visits and
-                                        difficulty recognizing critical danger signs.</p>
-                                    <p class="text-gray-600 mt-1"><strong>iNua:</strong> A
-                                        two-way communication channel that provides instant guidance and periodic status
-                                        checks directly to their pocket.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Commerce -->
-                        <div class="bg-white/60 rounded-xl p-3 border-t-3 border-[#7A431D]">
-                            <h3 class="text-base font-bold text-[#7A431D] mb-2"><i
-                                    class="fas fa-shopping-cart mr-2"></i>Inclusive Commerce – SME Market Model</h3>
-                            <div class="grid grid-cols-2 gap-2 text-xs">
-                                <div class="bg-[#E9A117]/10 p-2 rounded-lg">
-                                    <p class="font-bold text-[#E9A117] mb-1">The Local Merchant (SME)</p>
-                                    <p class="text-gray-600"><strong>Problem:</strong> Once a
-                                        customer leaves the shop, they become "invisible," making it impossible to scale
-                                        or retain them.</p>
-                                    <p class="text-gray-600 mt-1"><strong>iNua:</strong> Managing workspace to push mass
-                                        SMS updates and monitor customer
-                                        interest trends.</p>
-                                </div>
-                                <div class="bg-[#1B4F32]/10 p-2 rounded-lg">
-                                    <p class="font-bold text-[#1B4F32] mb-1">The Distant Customer</p>
-                                    <p class="text-gray-600"><strong>Problem:</strong> No way to
-                                        know if fresh items have arrived or if the store is open without physical visit,
-                                        costly phone call, or internet.</p>
-                                    <p class="text-gray-600 mt-1"><strong>iNua:</strong> Instant pricing, availability,
-                                        customer
-                                        service, and ordering via a feature phone.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 9a: Mobile – Use Case: Agricultural -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:0.8rem 0.75rem;">
-                    <div class="text-center mb-2 anim-element delay-1">
-                        <h2 class="text-xl font-extrabold mb-1">Strategic Use Cases</h2>
-                        <div class="accent-bar mx-auto mb-2"></div>
-                    </div>
-                    <div class="bg-white/60 rounded-xl p-3 border-t-3 border-[#1B4F32]">
-                        <h3 class="text-lg font-bold text-[#1B4F32] mb-2"><i
-                                class="fas fa-seedling mr-2"></i>Agricultural</h3>
-                        <div class="space-y-3 text-[13px] leading-relaxed">
-                            <div class="bg-[#E9A117]/10 p-2.5 rounded-lg">
-                                <p class="font-bold text-[#E9A117] mb-1">The Organization (SME/NGO)</p>
-                                <p class="text-gray-600"><strong>Problem:</strong> The Scalability Ceiling — limited by
-                                    agents; cannot monitor remote equipment at scale.</p>
-                                <p class="text-gray-600 mt-1"><strong>iNua:</strong> Turns data into an automated AI
-                                    expert managing large-scale communication and flagging issues.</p>
-                            </div>
-                            <div class="bg-[#1B4F32]/10 p-2.5 rounded-lg">
-                                <p class="font-bold text-[#1B4F32] mb-1">The Smallholder Farmer</p>
-                                <p class="text-gray-600"><strong>Problem:</strong> Easy-to-solve problems treated the
-                                    same as complex — both needing days for an agent visit.</p>
-                                <p class="text-gray-600 mt-1"><strong>iNua:</strong> An instant SMS-AI expert providing
-                                    real-time troubleshooting directly to their pocket 24/h.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 9b: Mobile – Use Case: Humanitarian -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:0.8rem 0.75rem;">
-                    <div class="text-center mb-2 anim-element delay-1">
-                        <h2 class="text-xl font-extrabold mb-1">Strategic Use Cases</h2>
-                        <div class="accent-bar mx-auto mb-2"></div>
-                    </div>
-                    <div class="bg-white/60 rounded-xl p-3 border-t-3 border-red-500">
-                        <h3 class="text-lg font-bold text-red-600 mb-2"><i
-                                class="fas fa-hands-helping mr-2"></i>Humanitarian Feedback</h3>
-                        <div class="space-y-3 text-[13px] leading-relaxed">
-                            <div class="bg-[#E9A117]/10 p-2.5 rounded-lg">
-                                <p class="font-bold text-[#E9A117] mb-1">The Relief Organization (NGO/INGO)</p>
-                                <p class="text-gray-600"><strong>Problem:</strong> The Feedback Delay — reliance on
-                                    slow, manual field surveys where the internet is down.</p>
-                                <p class="text-gray-600 mt-1"><strong>iNua:</strong> An automated dashboard turning
-                                    thousands of SMS field reports into a real-time map of urgent needs.</p>
-                            </div>
-                            <div class="bg-red-500/10 p-2.5 rounded-lg">
-                                <p class="font-bold text-red-600 mb-1">The Displaced Community Member</p>
-                                <p class="text-gray-600"><strong>Problem:</strong> Critical updates on aid locations
-                                    move via word-of-mouth, often becoming invalid on arrival.</p>
-                                <p class="text-gray-600 mt-1"><strong>iNua:</strong> A simple data-free portal to report
-                                    needs and receive immediate, location-specific instructions.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 9c: Mobile – Use Case: Public Health -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:0.8rem 0.75rem;">
-                    <div class="text-center mb-2 anim-element delay-1">
-                        <h2 class="text-xl font-extrabold mb-1">Strategic Use Cases</h2>
-                        <div class="accent-bar mx-auto mb-2"></div>
-                    </div>
-                    <div class="bg-white/60 rounded-xl p-3 border-t-3 border-green-500">
-                        <h3 class="text-lg font-bold text-green-700 mb-2"><i class="fas fa-heartbeat mr-2"></i>Public
-                            Health – Maternal Support</h3>
-                        <div class="space-y-3 text-[13px] leading-relaxed">
-                            <div class="bg-[#E9A117]/10 p-2.5 rounded-lg">
-                                <p class="font-bold text-[#E9A117] mb-1">The Health Organization (Clinic/NGO)</p>
-                                <p class="text-gray-600"><strong>Problem:</strong> Low uptake — high maternal mortality
-                                    from poor awareness and missed ANC appointments.</p>
-                                <p class="text-gray-600 mt-1"><strong>iNua:</strong> AI-enabled platform managing
-                                    pregnancy-stage-oriented reminders and educational sequences.</p>
-                            </div>
-                            <div class="bg-green-500/10 p-2.5 rounded-lg">
-                                <p class="font-bold text-green-700 mb-1">The Rural Pregnant Woman</p>
-                                <p class="text-gray-600"><strong>Problem:</strong> Lack of awareness on the importance
-                                    of regular ANC visits and recognizing danger signs.</p>
-                                <p class="text-gray-600 mt-1"><strong>iNua:</strong> A two-way SMS channel providing
-                                    instant guidance and periodic status checks to their pocket.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 9d: Mobile – Use Case: Commerce -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:0.8rem 0.75rem;">
-                    <div class="text-center mb-2 anim-element delay-1">
-                        <h2 class="text-xl font-extrabold mb-1">Strategic Use Cases</h2>
-                        <div class="accent-bar mx-auto mb-2"></div>
-                    </div>
-                    <div class="bg-white/60 rounded-xl p-3 border-t-3 border-[#E9A117]">
-                        <h3 class="text-lg font-bold text-[#E9A117] mb-2"><i
-                                class="fas fa-shopping-cart mr-2"></i>Inclusive Commerce – SME Model</h3>
-                        <div class="space-y-3 text-[13px] leading-relaxed">
-                            <div class="bg-[#E9A117]/10 p-2.5 rounded-lg">
-                                <p class="font-bold text-[#E9A117] mb-1">The Local Merchant (SME)</p>
-                                <p class="text-gray-600"><strong>Problem:</strong> The Visibility Ceiling — once a
-                                    customer leaves the shop, they become "invisible."</p>
-                                <p class="text-gray-600 mt-1"><strong>iNua:</strong> Interactive Marketing Dashboard to
-                                    push mass SMS updates and monitor customer trends.</p>
-                            </div>
-                            <div class="bg-[#1B4F32]/10 p-2.5 rounded-lg">
-                                <p class="font-bold text-[#1B4F32] mb-1">The Distant Customer</p>
-                                <p class="text-gray-600"><strong>Problem:</strong> No way to know if items arrived or
-                                    store is open without a costly visit or phone call.</p>
-                                <p class="text-gray-600 mt-1"><strong>iNua:</strong> A text-based chatbot providing
-                                    instant pricing, availability, and ordering via feature phone.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 10: Business Model -->
-        <section id="slide-10" class="desktop-only-slide">
-            <div class="container mx-auto px-8 z-10 relative">
-                <div class="glass-card max-w-5xl mx-auto anim-element" style="padding:2rem 2.5rem;">
-                    <div class="text-center mb-5 anim-element delay-1">
-                        <p class="text-sm font-bold tracking-widest text-[#E9A117] uppercase mb-2">The Engine</p>
-                        <h2 class="text-3xl font-extrabold mb-2">Business Model</h2>
-                        <div class="accent-bar mx-auto mb-3"></div>
-                        <p class="text-lg font-semibold text-gray-600">The SaaS Model for the Offline World</p>
-                    </div>
-                    <p class="text-base text-center text-gray-700 mb-5 anim-element delay-1">Our revenue is driven by a
-                        predictable, tiered subscription model.</p>
-                    <div class="grid md:grid-cols-3 gap-4 mb-5 anim-element delay-2">
-                        <div class="bg-white/60 p-4 rounded-xl text-center border-t-3 border-[#E9A117]">
-                            <i class="fas fa-rocket text-2xl text-[#E9A117] mb-2"></i>
-                            <h4 class="text-base font-bold text-[#1B4F32] mb-1">Setup Fee</h4>
-                            <p class="text-sm text-gray-600">One-time technical onboarding and AI Knowledge Base
-                                configuration.</p>
-                        </div>
-                        <div class="bg-white/60 p-4 rounded-xl text-center border-t-3 border-[#1B4F32]">
-                            <i class="fas fa-calendar-check text-2xl text-[#1B4F32] mb-2"></i>
-                            <h4 class="text-base font-bold text-[#1B4F32] mb-1">Monthly Subscription</h4>
-                            <p class="text-sm text-gray-600">Tiered access to the Admin Dashboard including all
-                                available tools, and AI Agent maintenance.</p>
-                        </div>
-                        <div class="bg-white/60 p-4 rounded-xl text-center border-t-3 border-[#E9A117]">
-                            <i class="fas fa-sms text-2xl text-[#E9A117] mb-2"></i>
-                            <h4 class="text-base font-bold text-[#1B4F32] mb-1">Zero-Friction for Users</h4>
-                            <p class="text-sm text-gray-600">We cover the SMS costs, removing the financial barrier for
-                                the community while providing fixed-price certainty for our clients.</p>
-                        </div>
-                    </div>
-                    <div
-                        class="flex items-center justify-center gap-3 text-sm font-medium text-gray-500 mb-4 anim-element delay-2">
-                        <span class="bg-[#E9A117]/15 px-3 py-1 rounded-full text-[#E9A117] font-bold">Step 1:
-                            Upload</span><i class="fas fa-arrow-right text-gray-300"></i>
-                        <span class="bg-[#1B4F32]/15 px-3 py-1 rounded-full text-[#1B4F32] font-bold">Step 2:
-                            Automate</span><i class="fas fa-arrow-right text-gray-300"></i>
-                        <span class="bg-[#E9A117]/15 px-3 py-1 rounded-full text-[#E9A117] font-bold">Step 3:
-                            Capture</span>
-                    </div>
-                    <div
-                        class="bg-[#1B4F32]/10 p-4 rounded-xl text-center anim-element delay-3 border border-[#1B4F32]/20">
-                        <p class="text-base font-semibold text-[#1B4F32] italic">"We aren't just selling a communication
-                            tool; we are selling the infrastructure for scalable revenue, trust and actionable field
-                            intelligence."</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 10a: Mobile – Business Model: Revenue -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:0.8rem 0.75rem;">
-                    <div class="text-center mb-2 anim-element delay-1">
-                        <p class="text-xs font-bold tracking-widest text-[#E9A117] uppercase mb-0.5">The Engine</p>
-                        <h2 class="text-xl font-extrabold mb-1">Business Model</h2>
-                        <div class="accent-bar mx-auto mb-1"></div>
-                        <p class="text-sm font-semibold text-gray-600">The SaaS Model for the Offline World</p>
-                    </div>
-                    <p class="text-xs text-center text-gray-700 mb-2">Our revenue is driven by a predictable, tiered
-                        subscription model.</p>
-                    <div class="space-y-2 anim-element delay-2">
-                        <div class="bg-white/60 p-3 rounded-xl text-left border-t-3 border-[#E9A117]">
-                            <h4 class="text-sm font-bold text-[#1B4F32] mb-1 flex items-center gap-2">
-                                <i class="fas fa-rocket text-lg text-[#E9A117]"></i> Setup Fee
-                            </h4>
-                            <p class="text-xs text-gray-600">One-time technical onboarding and AI Knowledge Base
-                                configuration.</p>
-                        </div>
-                        <div class="bg-white/60 p-3 rounded-xl text-left border-t-3 border-[#1B4F32]">
-                            <h4 class="text-sm font-bold text-[#1B4F32] mb-1 flex items-center gap-2">
-                                <i class="fas fa-calendar-check text-lg text-[#1B4F32]"></i> Monthly Subscription
-                            </h4>
-                            <p class="text-xs text-gray-600">Tiered access to Admin Dashboard, tools, and AI Agent
-                                maintenance.</p>
-                        </div>
-                        <div class="bg-white/60 p-3 rounded-xl text-left border-t-3 border-[#E9A117]">
-                            <h4 class="text-sm font-bold text-[#1B4F32] mb-1 flex items-center gap-2">
-                                <i class="fas fa-sms text-lg text-[#E9A117]"></i> Zero-Friction for Users
-                            </h4>
-                            <p class="text-xs text-gray-600">We cover SMS costs, removing the financial barrier for the
-                                community.</p>
-                        </div>
-                    </div>
-                    <div
-                        class="bg-[#1B4F32]/10 p-3 rounded-xl text-center mt-2 anim-element delay-3 border border-[#1B4F32]/20">
-                        <p class="text-xs font-semibold text-[#1B4F32] italic">"We aren't just selling a communication
-                            tool; we are selling the infrastructure for scalable revenue, trust and actionable field
-                            intelligence."</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 11: Strategic Uniqueness -->
-        <section id="slide-11" class="desktop-only-slide">
-            <div class="container mx-auto px-8 z-10 relative">
-                <div class="glass-card max-w-6xl mx-auto anim-element" style="padding:1.8rem 2.2rem;">
-                    <div class="text-center mb-4 anim-element delay-1">
-                        <h2 class="text-3xl font-extrabold mb-2">iNua's Strategic Uniqueness</h2>
-                        <div class="accent-bar mx-auto"></div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-4 anim-element delay-2">
-                        <div class="bg-white/60 p-4 rounded-xl border-l-4 border-[#E9A117]">
-                            <h3 class="text-base font-bold text-[#E9A117] mb-2"><i
-                                    class="fas fa-hand-pointer mr-2"></i>Extreme Simplicity: The "Drag-and-Drop"
-                                Knowledge Base</h3>
-                            <p class="text-sm text-gray-700 leading-relaxed">While competitors require complex
-                                logic-tree setups, iNua allows any organization to have an expert AI provider instantly.
-                                <br>Our drag-and-drop interface turns standard PDFs, manuals, and daily "Notes" into a
-                                professional SMS expert. This lowers the entry barrier for local community centers and
-                                small businesses that lack IT departments or technical skills.
-                            </p>
-                        </div>
-                        <div class="bg-white/60 p-4 rounded-xl border-l-4 border-[#1B4F32]">
-                            <h3 class="text-base font-bold text-[#1B4F32] mb-2"><i class="fas fa-cubes mr-2"></i>Radical
-                                Modularity: One Platform, Multiple Industries</h3>
-                            <p class="text-sm text-gray-700 leading-relaxed mb-2">iNua is designed to rely solely
-                                on the organization's uploaded data, creating a modular
-                                infrastructure that bridges the communication gap across any sector.</p>
-                            <p class="text-sm text-gray-700 leading-relaxed"><strong>Accuracy:</strong> Our technical
-                                approach prioritizes the latest added information, ensuring rural users never receive
-                                outdated guidance.</p>
-                        </div>
-                        <div class="bg-white/60 p-4 rounded-xl border-l-4 border-[#E9A117]">
-                            <h3 class="text-base font-bold text-[#E9A117] mb-2"><i class="fas fa-sms mr-2"></i>The "Zero
-                                Data" Philosophy</h3>
-                            <p class="text-sm text-gray-700 leading-relaxed">By covering the end-user's cost and
-                                offering our clients fixed-price
-                                tiers, we remove the 'financial anxiety' from communication.
-                                <br>We don't solve the internet problem; we enable communication despite it. In rural
-                                Africa, a 10-cent SMS isn't just a message;
-                                it's a decision. We've replaced the fear of cost with the freedom to ask, making it safe
-                                for the community to engage and predictable
-                                for organizations to scale.
-                            </p>
-                        </div>
-                        <div class="bg-white/60 p-4 rounded-xl border-l-4 border-[#1B4F32]">
-                            <h3 class="text-base font-bold text-[#1B4F32] mb-2"><i
-                                    class="fas fa-satellite-dish mr-2"></i>Proactive Intelligence: The "Feeler" and LIFO
-                                Logic</h3>
-                            <p class="text-sm text-gray-700 leading-relaxed"><strong>The "Feeler":</strong> Moves
-                                beyond passive chatbots by initiating conversation to collect structured field data
-                                (ground-truth evidence) directly from the community.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 11a: Mobile – Strategic Uniqueness (Part 1) -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:0.8rem 0.75rem;">
-                    <div class="text-center mb-2 anim-element delay-1">
-                        <h2 class="text-lg font-extrabold mb-1">Strategic Uniqueness</h2>
-                        <div class="accent-bar mx-auto mb-2"></div>
-                    </div>
-                    <div class="space-y-3 anim-element delay-2">
-                        <div class="bg-white/60 p-3 rounded-xl border-l-4 border-[#E9A117]">
-                            <h3 class="text-sm font-bold text-[#E9A117] mb-1"><i
-                                    class="fas fa-hand-pointer mr-2"></i>Extreme Simplicity: "Drag-and-Drop"</h3>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Our drag-and-drop interface turns
-                                standard PDFs, manuals, and daily "Notes" into a professional SMS expert instantly. This
-                                lowers the entry barrier for local centers and small businesses that lack IT skills.</p>
-                        </div>
-                        <div class="bg-white/60 p-3 rounded-xl border-l-4 border-[#1B4F32]">
-                            <h3 class="text-sm font-bold text-[#1B4F32] mb-1"><i class="fas fa-cubes mr-2"></i>Radical
-                                Modularity</h3>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">Designed as a modular infrastructure
-                                that bridges the communication gap across any sector, as it relies solely on the
-                                organization's uploaded data.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 11b: Mobile – Strategic Uniqueness (Part 2) -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:0.8rem 0.75rem;">
-                    <div class="text-center mb-2 anim-element delay-1">
-                        <h2 class="text-lg font-extrabold mb-1">Strategic Uniqueness</h2>
-                        <div class="accent-bar mx-auto mb-2"></div>
-                    </div>
-                    <div class="space-y-3 anim-element delay-2">
-                        <div class="bg-white/60 p-3 rounded-xl border-l-4 border-[#E9A117]">
-                            <h3 class="text-sm font-bold text-[#E9A117] mb-1"><i class="fas fa-sms mr-2"></i>The "Zero
-                                Data" Philosophy</h3>
-                            <p class="text-[12px] text-gray-700 leading-relaxed">We cover end-user SMS costs and offer
-                                our clients fixed-price tiers, replacing the 'financial anxiety' from communication.
-                                Safe for the community to engage and predictable for organizations to scale.</p>
-                        </div>
-                        <div class="bg-white/60 p-3 rounded-xl border-l-4 border-[#1B4F32]">
-                            <h3 class="text-sm font-bold text-[#1B4F32] mb-1"><i
-                                    class="fas fa-satellite-dish mr-2"></i>Proactive Intelligence</h3>
-                            <p class="text-[12px] text-gray-700 leading-relaxed mb-1"><strong>"Feeler":</strong> Moves
-                                beyond passive chatbots by initiating conversation to collect structured field data.</p>
-                            <p class="text-[12px] text-gray-700 leading-relaxed"><strong>Accuracy:</strong> Prioritizes
-                                the latest added information, ensuring rural users never receive outdated guidance.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 12: SDG Alignment -->
-        <section id="slide-12">
-            <div class="container mx-auto px-8 z-10 relative text-center">
-                <div class="glass-card max-w-4xl mx-auto anim-element">
-                    <h2 class="text-4xl font-extrabold mb-3 anim-element delay-1">Social Impact & SDG Alignment</h2>
-                    <div class="accent-bar mx-auto mb-4 anim-element delay-1"></div>
-                    <p class="text-lg text-gray-600 mb-8 anim-element delay-1">Direct alignment with UN Sustainable
-                        Development Goals</p>
-                    <div class="flex flex-wrap justify-center gap-4 anim-element delay-2">
-                        <div
-                            class="w-28 h-28 bg-red-600 text-white p-2 flex flex-col justify-between items-start rounded-xl shadow-lg hover:scale-105 transition-transform">
-                            <span class="text-xl font-black opacity-50">1</span><span
-                                class="font-bold text-left text-xs leading-tight uppercase">No Poverty</span>
-                        </div>
-                        <div
-                            class="w-28 h-28 bg-yellow-500 text-white p-2 flex flex-col justify-between items-start rounded-xl shadow-lg hover:scale-105 transition-transform">
-                            <span class="text-xl font-black opacity-50">2</span><span
-                                class="font-bold text-left text-xs leading-tight uppercase">Zero Hunger</span>
-                        </div>
-                        <div
-                            class="w-28 h-28 bg-green-600 text-white p-2 flex flex-col justify-between items-start rounded-xl shadow-lg hover:scale-105 transition-transform">
-                            <span class="text-xl font-black opacity-50">3</span><span
-                                class="font-bold text-left text-xs leading-tight uppercase">Good Health</span>
-                        </div>
-                        <div
-                            class="w-28 h-28 bg-red-700 text-white p-2 flex flex-col justify-between items-start rounded-xl shadow-lg hover:scale-105 transition-transform">
-                            <span class="text-xl font-black opacity-50">4</span><span
-                                class="font-bold text-left text-xs leading-tight uppercase">Quality Education</span>
-                        </div>
-                        <div
-                            class="w-28 h-28 bg-red-800 text-white p-2 flex flex-col justify-between items-start rounded-xl shadow-lg hover:scale-105 transition-transform">
-                            <span class="text-xl font-black opacity-50">8</span><span
-                                class="font-bold text-left text-xs leading-tight uppercase">Decent Work</span>
-                        </div>
-                        <div
-                            class="w-28 h-28 bg-pink-600 text-white p-2 flex flex-col justify-between items-start rounded-xl shadow-lg hover:scale-105 transition-transform">
-                            <span class="text-xl font-black opacity-50">10</span><span
-                                class="font-bold text-left text-xs leading-tight uppercase">Reduced Inequalities</span>
-                        </div>
-                        <div
-                            class="w-28 h-28 bg-blue-700 text-white p-2 flex flex-col justify-between items-start rounded-xl shadow-lg hover:scale-105 transition-transform">
-                            <span class="text-xl font-black opacity-50">16</span><span
-                                class="font-bold text-left text-xs leading-tight uppercase">Peace & Justice</span>
-                        </div>
-                        <div
-                            class="w-28 h-28 bg-blue-900 text-white p-2 flex flex-col justify-between items-start rounded-xl shadow-lg hover:scale-105 transition-transform">
-                            <span class="text-xl font-black opacity-50">17</span><span
-                                class="font-bold text-left text-xs leading-tight uppercase">Partnerships</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 13: Team -->
-        <section id="slide-13" class="desktop-only-slide">
-            <div class="container mx-auto px-8 z-10 relative text-center">
-                <div class="glass-card max-w-5xl mx-auto anim-element">
-                    <h2 class="text-4xl font-extrabold mb-2 anim-element delay-1">The Crew</h2>
-                    <div class="accent-bar mx-auto mb-8 anim-element delay-1"></div>
-                    <div class="flex flex-wrap justify-center gap-6 mb-8 anim-element delay-2">
-                        <!-- Michal -->
-                        <div
-                            class="w-72 bg-white/70 rounded-2xl p-5 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                            <div
-                                class="w-36 h-48 bg-gray-200 mx-auto mb-4 overflow-hidden border-4 border-[#E9A117] rounded-lg">
-                                <img src="./images/michal.jpeg" alt="Michal Avidar" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800">Michal Avidar</h3>
-                            <p class="text-[#E9A117] font-semibold text-sm tracking-widest uppercase mb-3">Founder</p>
-                            <a href="mailto:michal@inua-technologies.com"
-                                class="block text-gray-500 hover:text-[#1B4F32] mb-1 text-sm transition-colors"><i
-                                    class="far fa-envelope mr-2"></i>michal@inua-technologies.com</a>
-                            <a href="https://www.linkedin.com/in/michal-avidar/"
-                                class="block text-[#1B4F32] font-bold hover:text-[#E9A117] transition-colors text-sm"><i
-                                    class="fab fa-linkedin mr-2"></i>LinkedIn</a>
-                        </div>
-                        <!-- Adi -->
-                        <div
-                            class="w-72 bg-white/70 rounded-2xl p-5 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                            <div
-                                class="w-36 h-48 bg-gray-200 mx-auto mb-4 overflow-hidden border-4 border-[#1B4F32] rounded-lg">
-                                <img src="./images/adi.jpeg" alt="Adi Livnat" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800">Adi Livnat</h3>
-                            <p class="text-[#1B4F32] font-semibold text-sm tracking-widest uppercase mb-3">Founder
-                            </p>
-                            <a href="mailto:adi@inua-technologies.com"
-                                class="block text-gray-500 hover:text-[#1B4F32] mb-1 text-sm transition-colors"><i
-                                    class="far fa-envelope mr-2"></i>adi@inua-technologies.com</a>
-                            <a href="https://www.linkedin.com/in/adi-livnat-300974123/"
-                                class="block text-[#1B4F32] font-bold hover:text-[#E9A117] transition-colors text-sm"><i
-                                    class="fab fa-linkedin mr-2"></i>LinkedIn</a>
-                        </div>
-                    </div>
-                    <div class="inline-block bg-white/50 p-5 rounded-2xl shadow-inner anim-element delay-3">
-                        <p class="text-lg text-gray-600 mb-3 font-bold">iNua Social</p>
-                        <div class="flex justify-center gap-8 text-3xl text-[#1B4F32]">
-                            <a href="https://www.linkedin.com/company/inua-technologies"><i
-                                    class="fab fa-linkedin hover:text-[#E9A117] transition-colors transform hover:scale-110 duration-200"></i></a>
-                            <a href="https://www.facebook.com/profile.php?id=61584431531752"><i
-                                    class="fab fa-facebook hover:text-[#E9A117] transition-colors transform hover:scale-110 duration-200"></i></a>
-                            <a href="https://www.instagram.com/inua_technologies/"><i
-                                    class="fab fa-instagram hover:text-[#E9A117] transition-colors transform hover:scale-110 duration-200"></i></a>
-                        </div>
-                    </div>
-                    <p class="mt-6 text-lg text-gray-500 italic anim-element delay-4">we understand. hence, we create.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 13a: Mobile – Team (Michal) -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:1rem 0.75rem;">
-                    <h2 class="text-xl font-extrabold mb-1 text-center">Team – "The Crew"</h2>
-                    <div class="accent-bar mx-auto mb-4"></div>
-                    <div class="w-full bg-white/70 rounded-2xl p-4 shadow-lg border border-gray-100 text-center mx-auto"
-                        style="max-width:18rem;">
-                        <div
-                            class="w-28 h-36 bg-gray-200 mx-auto mb-3 overflow-hidden border-3 border-[#E9A117] rounded-lg">
-                            <img src="./images/michal.jpeg" alt="Michal Avidar" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800">Michal Avidar</h3>
-                        <p class="text-[#E9A117] font-semibold text-xs tracking-widest uppercase mb-2">Founder</p>
-                        <a href="mailto:michal@inua-technologies.com"
-                            class="block text-gray-500 hover:text-[#1B4F32] mb-1 text-xs"><i
-                                class="far fa-envelope mr-1.5"></i>michal@inua-technologies.com</a>
-                        <a href="https://www.linkedin.com/in/michal-avidar/"
-                            class="block text-[#1B4F32] font-bold hover:text-[#E9A117] text-xs"><i
-                                class="fab fa-linkedin mr-1.5"></i>LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 13b: Mobile – Team (Adi) -->
-        <section class="mobile-only-slide">
-            <div class="mx-auto px-3 z-10 relative w-full">
-                <div class="glass-card anim-element" style="padding:1rem 0.75rem;">
-                    <div class="w-full bg-white/70 rounded-2xl p-4 shadow-lg border border-gray-100 text-center mx-auto mb-4"
-                        style="max-width:18rem;">
-                        <div
-                            class="w-28 h-36 bg-gray-200 mx-auto mb-3 overflow-hidden border-3 border-[#1B4F32] rounded-lg">
-                            <img src="./images/adi.jpeg" alt="Adi Livnat" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800">Adi Livnat</h3>
-                        <p class="text-[#1B4F32] font-semibold text-xs tracking-widest uppercase mb-2">Co-Founder</p>
-                        <a href="mailto:adi@inua-technologies.com"
-                            class="block text-gray-500 hover:text-[#1B4F32] mb-1 text-xs"><i
-                                class="far fa-envelope mr-1.5"></i>adi@inua-technologies.com</a>
-                        <a href="https://www.linkedin.com/in/adi-livnat-300974123/"
-                            class="block text-[#1B4F32] font-bold hover:text-[#E9A117] text-xs"><i
-                                class="fab fa-linkedin mr-1.5"></i>LinkedIn</a>
-                    </div>
-                    <div class="inline-block bg-white/50 p-3 rounded-xl shadow-inner text-center w-full">
-                        <p class="text-sm font-bold text-gray-600 mb-2">iNua Social</p>
-                        <div class="flex justify-center gap-6 text-2xl text-[#1B4F32]">
-                            <a href="https://www.linkedin.com/company/inua-technologies"><i
-                                    class="fab fa-linkedin"></i></a>
-                            <a href="https://www.facebook.com/profile.php?id=61584431531752"><i
-                                    class="fab fa-facebook"></i></a>
-                            <a href="https://www.instagram.com/inua_technologies/"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-xs text-center text-gray-500 italic">we understand. hence, we create.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 14: Next Steps -->
-        <section id="slide-14">
-            <div class="container mx-auto px-8 z-10 relative text-center">
-                <div class="glass-card max-w-4xl mx-auto anim-element">
-                    <div
-                        class="w-20 h-20 mx-auto bg-[#E9A117]/15 rounded-full flex items-center justify-center text-[#E9A117] mb-6 anim-element delay-1">
-                        <i class="fas fa-calendar-alt text-4xl"></i>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 anim-element delay-1">Next Steps</h2>
-                    <div class="accent-bar mx-auto mb-8 anim-element delay-1"></div>
-                    <p class="text-2xl text-gray-700 mb-6 anim-element delay-2">Book a Demo / Meeting</p>
-                    <a href="mailto:info@inua-technolgies.com"
-                        class="inline-block bg-[#E9A117] text-white px-10 py-4 rounded-full text-xl font-bold hover:bg-[#d4910f] transition-colors shadow-lg hover:shadow-xl anim-element delay-2"><i
-                            class="fas fa-envelope mr-3"></i>info@inua-technolgies.com</a>
-                    <div class="mt-8 anim-element delay-3">
-                        <a href="https://inua-technologies.com" target="_blank"
-                            class="inline-flex items-center gap-3 text-[#1B4F32] font-semibold text-lg hover:text-[#E9A117] transition-colors"><i
-                                class="fas fa-globe"></i>inua-technologies.com</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
+    <!-- SLIDE 15: Thank You -->
+    <section class="bg-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <div class="content-container">
+            <h1>Thank You</h1>
+            <h3>iNua Technologies</h3>
+            <p style="margin-top: 12px; font-size: 20px; color: var(--heading-color); font-weight: 700; letter-spacing: 0.04em;">C Inua Technologies</p>
+            <p style="margin-top: 20px; font-size: 18px; color: var(--text-color);">Listen. Learn. Support. At scale.</p>
+        </div>
+    </section>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const isMobile = window.innerWidth <= 768;
-            const allSections = Array.from(document.querySelectorAll("section"));
-            const navContainer = document.getElementById("navDotsContainer");
-
-            // On mobile show mobile-only slides; on desktop show desktop-only slides
-            const slides = isMobile
-                ? allSections.filter(s => !s.classList.contains("desktop-only-slide"))
-                : allSections.filter(s => !s.classList.contains("mobile-only-slide"));
-
-            slides.forEach((sec, i) => {
-                const dot = document.createElement("span");
-                dot.className = `nav-dot ${i === 0 ? 'active' : ''}`;
-                dot.title = `Slide ${i + 1}`;
-                dot.style.cursor = 'pointer';
-                dot.addEventListener('click', () => sec.scrollIntoView({ behavior: 'smooth' }));
-                navContainer.appendChild(dot);
+        // Scale wrapper system
+        function adjustScales() {
+            if (window.innerWidth <= 768) return;
+            const wrappers = document.querySelectorAll('.scale-wrapper');
+            const targetW = 1920;
+            const targetH = 945;
+            wrappers.forEach(wrapper => {
+                const parent = wrapper.parentElement;
+                const parentW = parent.clientWidth;
+                const parentH = parent.clientHeight;
+                const scaleX = parentW / targetW;
+                const scaleY = parentH / targetH;
+                const scale = Math.min(scaleX, scaleY);
+                wrapper.style.transform = `translate(-50%, -50%) scale(${scale})`;
             });
+        }
+        window.addEventListener('load', adjustScales);
+        window.addEventListener('resize', adjustScales);
+        adjustScales();
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("active");
-                        const idx = slides.indexOf(entry.target);
-                        document.querySelectorAll('.nav-dot').forEach((d, i) =>
-                            d.classList.toggle('active', i === idx));
-                    } else {
-                        entry.target.classList.remove("active");
-                    }
+        // Carousel navigation
+        (function() {
+            const viewport = document.getElementById('showcaseViewport');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+
+            if (viewport && prevBtn && nextBtn) {
+                const updateArrows = () => {
+                    prevBtn.style.opacity = viewport.scrollLeft <= 10 ? '0.4' : '1';
+                    const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+                    nextBtn.style.opacity = viewport.scrollLeft >= maxScroll - 10 ? '0.4' : '1';
+                };
+
+                prevBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    viewport.scrollBy({ left: -220, behavior: 'smooth' });
                 });
-            }, { threshold: 0.4 });
 
-            slides.forEach(sec => observer.observe(sec));
+                nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    viewport.scrollBy({ left: 220, behavior: 'smooth' });
+                });
 
-            // Rotating word animation
-            const words = document.querySelectorAll('.rotating-word');
-            if (words.length > 0) {
-                let currentIndex = 0;
-                setInterval(() => {
-                    const current = words[currentIndex];
-                    current.classList.remove('active');
-                    current.classList.add('exit');
-                    setTimeout(() => current.classList.remove('exit'), 500);
-
-                    currentIndex = (currentIndex + 1) % words.length;
-                    words[currentIndex].classList.add('active');
-                }, 2500);
+                viewport.addEventListener('scroll', updateArrows);
+                window.addEventListener('resize', updateArrows);
+                updateArrows();
             }
-            // Click to advance slide
-            const scroller = document.getElementById('scroller');
-            scroller.addEventListener('click', (e) => {
-                // Don't advance if clicking on links, buttons, or interactive elements
-                const interactive = e.target.closest('a, button, input, textarea, select, .nav-dot');
-                if (interactive) return;
+        })();
 
-                // Find the current visible slide
-                let currentSlide = null;
-                slides.forEach(sec => {
-                    const rect = sec.getBoundingClientRect();
-                    if (rect.top >= -100 && rect.top < window.innerHeight / 2) {
-                        currentSlide = sec;
+        // Navigation: spacebar and click to advance
+        (function() {
+            function getNextSection() {
+                const sections = Array.from(document.querySelectorAll('section'));
+                const scrollY = window.scrollY || window.pageYOffset;
+                for (let i = 0; i < sections.length; i++) {
+                    if (sections[i].offsetTop > scrollY + 10) {
+                        return sections[i];
                     }
-                });
+                }
+                return null;
+            }
 
-                if (currentSlide && currentSlide.nextElementSibling) {
-                    currentSlide.nextElementSibling.scrollIntoView({ behavior: 'smooth' });
+            document.addEventListener('keydown', function(e) {
+                if (e.code === 'Space' || e.key === ' ') {
+                    const tag = document.activeElement.tagName.toLowerCase();
+                    if (['input', 'textarea', 'select', 'button'].includes(tag)) return;
+                    e.preventDefault();
+                    const next = getNextSection();
+                    if (next) next.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        });
+
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('a, button, input, select, textarea, .agents-carousel-wrapper')) return;
+                if (window.getSelection().toString().length > 0) return;
+                const next = getNextSection();
+                if (next) next.scrollIntoView({ behavior: 'smooth' });
+            });
+        })();
     </script>
 </body>
-
 </html>

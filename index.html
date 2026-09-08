@@ -495,6 +495,25 @@
             transform: scale(1.1);
         }
 
+        /* ===== AGENT SHOWCASE FULL SLIDES ===== */
+        .agent-full-slide {
+            background: #FDFBF7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-slide-img {
+            width: 1920px;
+            height: 1080px;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        }
+
         /* ===== CLUSTER SLIDE ===== */
         .cluster-slide {
             overflow: hidden;
@@ -1491,6 +1510,16 @@
                             <strong>Tariq</strong>
                             <small>Sales & Acquisition</small>
                         </div>
+                        <div class="agent-mini" style="--agent-color: #2e7d32">
+                            <img src="images/amara_full.png" alt="Amara">
+                            <strong>Amara</strong>
+                            <small>Fundraising Expert</small>
+                        </div>
+                        <div class="agent-mini" style="--agent-color: #0277bd">
+                            <img src="images/baraka_full.png" alt="Baraka">
+                            <strong>Baraka</strong>
+                            <small>Aquaculture Expert</small>
+                        </div>
                     </div>
                 </div>
                 <button class="carousel-nav-btn next" id="carouselNext" aria-label="Next agents">&#8250;</button>
@@ -1498,204 +1527,82 @@
         </div>
     </section>
 
-    <!-- SLIDE 7: Chris - Agronomic Expert -->
-    <section class="cluster-slide" style="position: relative;">
+    <!-- AGENT 01: Chris - Agronomic -->
+    <section class="agent-full-slide">
         <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <div class="landscape-bg"></div>
-        <div class="scale-wrapper">
-            <div class="cluster-title">
-                <h2>Chris</h2>
-                <div class="agent-role">Agronomic Expert</div>
-            </div>
-
-            <div class="character-backdrop"></div>
-            <div class="cluster-character">
-                <img src="images/chris_v3_nobg.png" alt="Chris">
-            </div>
-
-            <div class="cluster-card card-top-left">
-                <div class="card-icon"><i class="ph ph-plant"></i></div>
-                <h4>Crop Information</h4>
-                <p>Stage-by-stage guidance from planting to harvest, tailored to local conditions.</p>
-            </div>
-            <div class="cluster-card card-top-right">
-                <div class="card-icon"><i class="ph ph-drop"></i></div>
-                <h4>Fertilizer Guidance</h4>
-                <p>Dosage, timing, and application methods based on crop type and growth stage.</p>
-            </div>
-            <div class="cluster-card card-bottom-left">
-                <div class="card-icon"><i class="ph ph-leaf"></i></div>
-                <h4>Field Tips</h4>
-                <p>Practical advice on soil preparation, spacing, weeding, and pest prevention.</p>
-            </div>
-            <div class="cluster-card card-bottom-right">
-                <div class="card-icon"><i class="ph ph-bell-ringing"></i></div>
-                <h4>Proactive Advisory</h4>
-                <p>Timely alerts on upcoming actions based on crop calendar and weather patterns.</p>
-            </div>
-
-            <svg class="cluster-connectors" viewBox="0 0 1920 945">
-                <defs><marker id="arrow-chris" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eab683"/></marker></defs>
-                <line x1="360" y1="280" x2="760" y2="400" marker-end="url(#arrow-chris)"/>
-                <line x1="1560" y1="280" x2="1160" y2="400" marker-end="url(#arrow-chris)"/>
-                <line x1="340" y1="650" x2="760" y2="550" marker-end="url(#arrow-chris)"/>
-                <line x1="1580" y1="650" x2="1160" y2="550" marker-end="url(#arrow-chris)"/>
-            </svg>
-
-            <i class="ph ph-leaf floating-icon" style="top: 120px; left: 250px;"></i>
-            <i class="ph ph-plant floating-icon" style="top: 300px; right: 200px;"></i>
-            <i class="ph ph-grain floating-icon" style="bottom: 150px; left: 350px;"></i>
-        </div>
+        <img src="images/01_Chris_Agronomic_LinkedIn.png" alt="Chris - Agronomic" class="agent-slide-img">
     </section>
 
-    <!-- SLIDE 8: Nia - Customer Support -->
-    <section class="cluster-slide" style="position: relative;">
+    <!-- AGENT 02: Josef - Financial -->
+    <section class="agent-full-slide">
         <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <div class="landscape-bg"></div>
-        <div class="scale-wrapper">
-            <div class="cluster-title">
-                <h2>Nia</h2>
-                <div class="agent-role">Customer Support</div>
-            </div>
-
-            <div class="character-backdrop"></div>
-            <div class="cluster-character">
-                <img src="images/nia_v3_nobg.png" alt="Nia">
-            </div>
-
-            <div class="cluster-card card-top-left">
-                <div class="card-icon"><i class="ph ph-question"></i></div>
-                <h4>General Questions</h4>
-                <p>Answers about programmes, services, eligibility, and next steps in any local language.</p>
-            </div>
-            <div class="cluster-card card-top-right">
-                <div class="card-icon"><i class="ph ph-info"></i></div>
-                <h4>Programme Information</h4>
-                <p>Explains schedules, requirements, benefits, and how to participate.</p>
-            </div>
-            <div class="cluster-card card-bottom-left">
-                <div class="card-icon"><i class="ph ph-arrows-split"></i></div>
-                <h4>Issue Routing</h4>
-                <p>Identifies the right team for each query and routes accordingly with context.</p>
-            </div>
-            <div class="cluster-card card-bottom-right">
-                <div class="card-icon"><i class="ph ph-clock"></i></div>
-                <h4>24/7 Availability</h4>
-                <p>Always accessible — no queues, no office hours, no missed calls.</p>
-            </div>
-
-            <svg class="cluster-connectors" viewBox="0 0 1920 945">
-                <defs><marker id="arrow-nia" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eab683"/></marker></defs>
-                <line x1="360" y1="280" x2="760" y2="400" marker-end="url(#arrow-nia)"/>
-                <line x1="1560" y1="280" x2="1160" y2="400" marker-end="url(#arrow-nia)"/>
-                <line x1="340" y1="650" x2="760" y2="550" marker-end="url(#arrow-nia)"/>
-                <line x1="1580" y1="650" x2="1160" y2="550" marker-end="url(#arrow-nia)"/>
-            </svg>
-
-            <i class="ph ph-chat-dots floating-icon" style="top: 120px; left: 250px;"></i>
-            <i class="ph ph-headset floating-icon" style="top: 300px; right: 200px;"></i>
-            <i class="ph ph-hand-waving floating-icon" style="bottom: 150px; left: 350px;"></i>
-        </div>
+        <img src="images/02_Josef_Financial_LinkedIn.png" alt="Josef - Financial" class="agent-slide-img">
     </section>
 
-    <!-- SLIDE 9: Nuru - Weather Advisor -->
-    <section class="cluster-slide" style="position: relative;">
+    <!-- AGENT 03: Mary - Emergency Support -->
+    <section class="agent-full-slide">
         <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <div class="landscape-bg"></div>
-        <div class="scale-wrapper">
-            <div class="cluster-title">
-                <h2>Nuru</h2>
-                <div class="agent-role">Weather Advisor</div>
-            </div>
-
-            <div class="character-backdrop"></div>
-            <div class="cluster-character">
-                <img src="images/nuru_v3_nobg.png" alt="Nuru">
-            </div>
-
-            <div class="cluster-card card-top-left">
-                <div class="card-icon"><i class="ph ph-cloud-rain"></i></div>
-                <h4>Weather Alerts</h4>
-                <p>Proactive warnings about rain, drought, frost, and extreme weather events.</p>
-            </div>
-            <div class="cluster-card card-top-right">
-                <div class="card-icon"><i class="ph ph-calendar-check"></i></div>
-                <h4>Planting Windows</h4>
-                <p>Optimal timing recommendations for planting based on forecast and soil conditions.</p>
-            </div>
-            <div class="cluster-card card-bottom-left">
-                <div class="card-icon"><i class="ph ph-sun"></i></div>
-                <h4>Today's Forecast</h4>
-                <p>Daily localised weather updates to inform immediate farming decisions.</p>
-            </div>
-            <div class="cluster-card card-bottom-right">
-                <div class="card-icon"><i class="ph ph-chart-line"></i></div>
-                <h4>Seasonal Planning</h4>
-                <p>Long-range outlooks to help plan crop selection and resource allocation.</p>
-            </div>
-
-            <svg class="cluster-connectors" viewBox="0 0 1920 945">
-                <defs><marker id="arrow-nuru" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eab683"/></marker></defs>
-                <line x1="360" y1="280" x2="760" y2="400" marker-end="url(#arrow-nuru)"/>
-                <line x1="1560" y1="280" x2="1160" y2="400" marker-end="url(#arrow-nuru)"/>
-                <line x1="340" y1="650" x2="760" y2="550" marker-end="url(#arrow-nuru)"/>
-                <line x1="1580" y1="650" x2="1160" y2="550" marker-end="url(#arrow-nuru)"/>
-            </svg>
-
-            <i class="ph ph-sun floating-icon" style="top: 120px; left: 250px;"></i>
-            <i class="ph ph-cloud floating-icon" style="top: 300px; right: 200px;"></i>
-            <i class="ph ph-cloud-rain floating-icon" style="bottom: 150px; left: 350px;"></i>
-        </div>
+        <img src="images/03_Mary_Emergency_LinkedIn.png" alt="Mary - Emergency" class="agent-slide-img">
     </section>
 
-    <!-- SLIDE 10: Grace - M&E & Data Collection -->
-    <section class="cluster-slide" style="position: relative;">
+    <!-- AGENT 04: Nia - Customer Support -->
+    <section class="agent-full-slide">
         <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <div class="landscape-bg"></div>
-        <div class="scale-wrapper">
-            <div class="cluster-title">
-                <h2>Grace</h2>
-                <div class="agent-role">M&E & Data Collection</div>
-            </div>
+        <img src="images/04_Nia_Customer_Support_LinkedIn.png" alt="Nia - Customer Support" class="agent-slide-img">
+    </section>
 
-            <div class="character-backdrop"></div>
-            <div class="cluster-character">
-                <img src="images/grace_full.png" alt="Grace">
-            </div>
+    <!-- AGENT 05: Nuru - Weather Advisor -->
+    <section class="agent-full-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <img src="images/05_Nuru_Weather_Advisor_LinkedIn.png" alt="Nuru - Weather Advisor" class="agent-slide-img">
+    </section>
 
-            <div class="cluster-card card-top-left">
-                <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div>
-                <h4>Structured Surveys</h4>
-                <p>Collect data through natural conversations — no forms, no literacy barriers, just dialogue.</p>
-            </div>
-            <div class="cluster-card card-top-right">
-                <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg></div>
-                <h4>Participant Feedback</h4>
-                <p>Capture sentiment, satisfaction, and needs between formal surveys and field visits.</p>
-            </div>
-            <div class="cluster-card card-bottom-left">
-                <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
-                <h4>Outcome Tracking</h4>
-                <p>Monitor adoption, behaviour change, and programme outcomes continuously over time.</p>
-            </div>
-            <div class="cluster-card card-bottom-right">
-                <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div>
-                <h4>Real-time Insights</h4>
-                <p>Surface patterns, gaps, and opportunities as they emerge — not months later in a report.</p>
-            </div>
+    <!-- AGENT 06: Grace - M&E -->
+    <section class="agent-full-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <img src="images/06_Grace_ME_LinkedIn.png" alt="Grace - M&E" class="agent-slide-img">
+    </section>
 
-            <svg class="cluster-connectors" viewBox="0 0 1920 945">
-                <defs><marker id="arrow-grace" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eab683"/></marker></defs>
-                <line x1="360" y1="280" x2="760" y2="400" marker-end="url(#arrow-grace)"/>
-                <line x1="1560" y1="280" x2="1160" y2="400" marker-end="url(#arrow-grace)"/>
-                <line x1="340" y1="650" x2="760" y2="550" marker-end="url(#arrow-grace)"/>
-                <line x1="1580" y1="650" x2="1160" y2="550" marker-end="url(#arrow-grace)"/>
-            </svg>
+    <!-- AGENT 07: Gift - Beekeeping Coach -->
+    <section class="agent-full-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <img src="images/07_Gift_Beekeeping_LinkedIn.png" alt="Gift - Beekeeping" class="agent-slide-img">
+    </section>
 
-            <i class="ph ph-chart-bar floating-icon" style="top: 120px; left: 250px;"></i>
-            <i class="ph ph-clipboard-text floating-icon" style="top: 300px; right: 200px;"></i>
-            <i class="ph ph-database floating-icon" style="bottom: 150px; left: 350px;"></i>
-        </div>
+    <!-- AGENT 08: Faith - Pest & Disease Diagnosis -->
+    <section class="agent-full-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <img src="images/08_Faith_Pest_and_Disease_LinkedIn.png" alt="Faith - Pest and Disease" class="agent-slide-img">
+    </section>
+
+    <!-- AGENT 09: Lwazi - Disability Emergency Preparedness -->
+    <section class="agent-full-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <img src="images/09_Lwazi_Disability_Preparedness_LinkedIn.png" alt="Lwazi - Disability Preparedness" class="agent-slide-img">
+    </section>
+
+    <!-- AGENT 10: Tariq - Sales Specialist -->
+    <section class="agent-full-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <img src="images/10_Tariq_Sales_Specialist_LinkedIn.png" alt="Tariq - Sales Specialist" class="agent-slide-img">
+    </section>
+
+    <!-- AGENT 11: Amara - Fundraising Expert -->
+    <section class="agent-full-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <img src="images/11_Amara_Fundraising_Expert_LinkedIn.png" alt="Amara - Fundraising Expert" class="agent-slide-img">
+    </section>
+
+    <!-- AGENT 12: iNua - Data Analyst & Intelligence Manager -->
+    <section class="agent-full-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <img src="images/12_iNua_Data_Analyst_LinkedIn.png" alt="iNua - Data Analyst" class="agent-slide-img">
+    </section>
+
+    <!-- AGENT 13: Baraka - Aquaculture Expert Advisor -->
+    <section class="agent-full-slide">
+        <img src="images/logo.png" alt="iNua" class="slide-logo">
+        <img src="images/13_Baraka_Aquaculture_Expert_LinkedIn.png" alt="Baraka - Aquaculture Expert" class="agent-slide-img">
     </section>
 
     <!-- SLIDE 11: Channels -->

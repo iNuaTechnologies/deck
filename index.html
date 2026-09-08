@@ -497,21 +497,39 @@
 
         /* ===== AGENT SHOWCASE FULL SLIDES ===== */
         .agent-full-slide {
-            background: #FDFBF7;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .agent-full-slide .scale-wrapper {
+            width: 1920px;
+            height: 1080px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: center center;
         }
 
         .agent-slide-img {
             width: 1920px;
             height: 1080px;
-            max-width: 100%;
-            max-height: 100%;
+            max-width: none;
+            max-height: none;
             object-fit: contain;
             display: block;
-            margin: 0 auto;
-            border-radius: 4px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            border-radius: 0;
+            box-shadow: none;
         }
 
         /* ===== CLUSTER SLIDE ===== */
@@ -1093,9 +1111,21 @@
                 font-size: 1.3rem;
             }
 
-            /* ---- Cluster slides (agent detail) ---- */
-            .cluster-slide {
-                overflow: visible;
+            /* ---- Agent full slides (mobile) ---- */
+            .agent-full-slide {
+                height: 100vh;
+                min-height: 100vh;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .agent-full-slide .agent-slide-img {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                object-position: center;
             }
 
             .cluster-slide .scale-wrapper {
@@ -1529,80 +1559,93 @@
 
     <!-- AGENT 01: iNua - Data Analyst & Intelligence Manager -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/12_iNua_Data_Analyst_LinkedIn.png" alt="iNua - Data Analyst" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/12_iNua_Data_Analyst_LinkedIn.png" alt="iNua - Data Analyst" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 02: Chris - Agronomic -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/01_Chris_Agronomic_LinkedIn.png" alt="Chris - Agronomic" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/01_Chris_Agronomic_LinkedIn.png" alt="Chris - Agronomic" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 03: Josef - Financial -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/02_Josef_Financial_LinkedIn.png" alt="Josef - Financial" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/02_Josef_Financial_LinkedIn.png" alt="Josef - Financial" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 04: Mary - Emergency Support -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/03_Mary_Emergency_LinkedIn.png" alt="Mary - Emergency" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/03_Mary_Emergency_LinkedIn.png" alt="Mary - Emergency" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 05: Nia - Customer Support -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/04_Nia_Customer_Support_LinkedIn.png" alt="Nia - Customer Support" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/04_Nia_Customer_Support_LinkedIn.png" alt="Nia - Customer Support" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 06: Nuru - Weather Advisor -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/05_Nuru_Weather_Advisor_LinkedIn.png" alt="Nuru - Weather Advisor" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/05_Nuru_Weather_Advisor_LinkedIn.png" alt="Nuru - Weather Advisor" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 07: Grace - M&E -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/06_Grace_ME_LinkedIn.png" alt="Grace - M&E" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/06_Grace_ME_LinkedIn.png" alt="Grace - M&E" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 08: Gift - Beekeeping Coach -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/07_Gift_Beekeeping_LinkedIn.png" alt="Gift - Beekeeping" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/07_Gift_Beekeeping_LinkedIn.png" alt="Gift - Beekeeping" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 09: Faith - Pest & Disease Diagnosis -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/08_Faith_Pest_and_Disease_LinkedIn.png" alt="Faith - Pest and Disease" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/08_Faith_Pest_and_Disease_LinkedIn.png" alt="Faith - Pest and Disease" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 10: Lwazi - Disability Emergency Preparedness -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/09_Lwazi_Disability_Preparedness_LinkedIn.png" alt="Lwazi - Disability Preparedness" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/09_Lwazi_Disability_Preparedness_LinkedIn.png" alt="Lwazi - Disability Preparedness" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 11: Tariq - Sales Specialist -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/10_Tariq_Sales_Specialist_LinkedIn.png" alt="Tariq - Sales Specialist" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/10_Tariq_Sales_Specialist_LinkedIn.png" alt="Tariq - Sales Specialist" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 12: Amara - Fundraising Expert -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/11_Amara_Fundraising_Expert_LinkedIn.png" alt="Amara - Fundraising Expert" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/11_Amara_Fundraising_Expert_LinkedIn.png" alt="Amara - Fundraising Expert" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- AGENT 13: Baraka - Aquaculture Expert Advisor -->
     <section class="agent-full-slide">
-        <img src="images/logo.png" alt="iNua" class="slide-logo">
-        <img src="images/13_Baraka_Aquaculture_Expert_LinkedIn.png" alt="Baraka - Aquaculture Expert" class="agent-slide-img">
+        <div class="scale-wrapper">
+            <img src="images/13_Baraka_Aquaculture_Expert_LinkedIn.png" alt="Baraka - Aquaculture Expert" class="agent-slide-img">
+        </div>
     </section>
 
     <!-- SLIDE 11: Channels -->
@@ -1782,15 +1825,17 @@
         function adjustScales() {
             if (window.innerWidth <= 768) return;
             const wrappers = document.querySelectorAll('.scale-wrapper');
-            const targetW = 1920;
-            const targetH = 945;
             wrappers.forEach(wrapper => {
                 const parent = wrapper.parentElement;
                 const parentW = parent.clientWidth;
                 const parentH = parent.clientHeight;
+                const isAgentSlide = parent.classList.contains('agent-full-slide');
+                const targetW = 1920;
+                const targetH = isAgentSlide ? 1080 : 945;
                 const scaleX = parentW / targetW;
                 const scaleY = parentH / targetH;
-                const scale = Math.min(scaleX, scaleY);
+                // For agent full-bleed slides, fill the screen edge-to-edge
+                const scale = isAgentSlide ? Math.max(scaleX, scaleY) : Math.min(scaleX, scaleY);
                 wrapper.style.transform = `translate(-50%, -50%) scale(${scale})`;
             });
         }

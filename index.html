@@ -700,6 +700,9 @@
             z-index: 10;
             width: 248px;
             min-width: 190px;
+            height: auto;
+            min-height: fit-content;
+            box-sizing: border-box;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -714,6 +717,7 @@
 
         .agent-full-slide .card-bottom-left {
             top: 68%;
+            bottom: auto;
             left: 18%;
             transform: rotate(-1.5deg);
         }
@@ -726,6 +730,7 @@
 
         .agent-full-slide .card-bottom-right {
             top: 65%;
+            bottom: auto;
             right: 18%;
             transform: rotate(1.5deg);
         }
@@ -842,26 +847,6 @@
             font-size: 28px;
             margin-bottom: 10px;
             color: var(--brand-green);
-        }
-
-        .card-top-left {
-            top: 160px;
-            left: 100px;
-        }
-
-        .card-top-right {
-            top: 160px;
-            right: 100px;
-        }
-
-        .card-bottom-left {
-            bottom: 200px;
-            left: 80px;
-        }
-
-        .card-bottom-right {
-            bottom: 200px;
-            right: 80px;
         }
 
         .cluster-connectors {

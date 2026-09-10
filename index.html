@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iNua Technologies – AI Experts at Scale</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" />
     <style>
         :root {
             --heading-color: #8c4115;
@@ -49,7 +55,10 @@
             overflow: hidden;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Poppins', sans-serif;
             color: var(--heading-color);
         }
@@ -82,7 +91,7 @@
             width: 100%;
             height: 50vh;
             background-image: url('images/farm_landscape_bg.png');
-            background-size: cover;
+            background-size: 100% auto;
             background-position: bottom center;
             background-repeat: no-repeat;
             z-index: 0;
@@ -453,7 +462,7 @@
             object-position: bottom;
             margin-bottom: 4px;
             mix-blend-mode: multiply;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
         }
 
         .agent-mini strong {
@@ -499,7 +508,7 @@
         .agent-full-slide {
             width: 100%;
             height: 100vh;
-            background: linear-gradient(135deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+            background: #FFFEFA;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -508,9 +517,10 @@
             padding: 0;
         }
 
+        /* Agent slide scale wrapper (1920x945 matching standard deck coordinate canvas) */
         .agent-full-slide .scale-wrapper {
             width: 1920px;
-            height: 1080px;
+            height: 945px;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -523,13 +533,223 @@
 
         .agent-slide-img {
             width: 1920px;
-            height: 1080px;
+            height: 945px;
             max-width: none;
             max-height: none;
             object-fit: contain;
             display: block;
             border-radius: 0;
             box-shadow: none;
+        }
+
+        /* ===== HTML AGENT SLIDE LAYOUT (cluster pattern matching One Acre Fund) ===== */
+        .agent-cluster-title {
+            position: absolute;
+            top: 6%;
+            left: 6%;
+            text-align: left;
+            z-index: 8;
+            max-width: 440px;
+        }
+
+        .agent-cluster-title .ac-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 58px;
+            font-weight: 800;
+            color: #2c1a0e;
+            line-height: 1;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .agent-cluster-title .ac-role {
+            font-family: 'Nunito', sans-serif;
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--brand-green);
+            margin-bottom: 12px;
+        }
+
+        .agent-cluster-title .ac-bio {
+            font-size: 14px;
+            color: #6b5e52;
+            line-height: 1.5;
+        }
+
+        /* Agent character — full height, bottom-anchored */
+        .agent-cluster-char {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 800px;
+            max-width: 1152px;
+            object-fit: contain;
+            object-position: bottom;
+            z-index: 5;
+            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            pointer-events: none;
+            filter: brightness(1.04) contrast(1.05);
+        }
+
+        /* Radial glow behind character */
+        .agent-char-glow {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 960px;
+            height: 800px;
+            background: radial-gradient(ellipse at 50% 60%, #FFFDF5 20%, rgba(255, 255, 255, 0.5) 50%, transparent 70%);
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        /* SVG connector arrows */
+        .agent-cluster-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .agent-cluster-svg path {
+            fill: none;
+            stroke: #eab683;
+            stroke-width: 2.5px;
+            stroke-dasharray: 8 8;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+            vector-effect: non-scaling-stroke;
+        }
+
+        /* Material Symbols / MUI icon styling */
+        .material-symbols-rounded,
+        .material-icons-round {
+            font-family: 'Material Symbols Rounded', 'Material Icons Round';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 20px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            vertical-align: middle;
+        }
+
+        .cc-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        .cc-checklist li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-color);
+            line-height: 1.35;
+        }
+
+        .cc-checklist .cc-li-icon {
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        /* Cluster card icon row */
+        .cluster-card .cc-icon-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .cluster-card .cc-badge {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        /* Agent-slide specific card positions: tighter to agent character matching One Acre Fund */
+        .agent-full-slide .cluster-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-radius: 16px;
+            padding: 13px 17px;
+            box-shadow: 0 15px 30px rgba(140, 65, 21, 0.08), 0 5px 15px rgba(0, 0, 0, 0.02);
+            backdrop-filter: blur(12px);
+            text-align: left;
+            z-index: 10;
+            width: 248px;
+            min-width: 190px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .agent-full-slide .card-top-left {
+            top: 33%;
+            left: 16%;
+            transform: rotate(1.2deg);
+        }
+
+        .agent-full-slide .card-bottom-left {
+            top: 68%;
+            left: 18%;
+            transform: rotate(-1.5deg);
+        }
+
+        .agent-full-slide .card-top-right {
+            top: 28%;
+            right: 16%;
+            transform: rotate(-1.0deg);
+        }
+
+        .agent-full-slide .card-bottom-right {
+            top: 65%;
+            right: 18%;
+            transform: rotate(1.5deg);
+        }
+
+        .agent-full-slide .cluster-card:hover {
+            transform: translateY(-8px) scale(1.05) !important;
+            box-shadow: 0 30px 60px rgba(140, 65, 21, 0.12);
+            z-index: 20;
+        }
+
+        /* iNua watermark */
+        .agent-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+            opacity: 0.85;
+        }
+
+        .agent-watermark img {
+            height: 36px;
+            width: auto;
         }
 
         /* ===== CLUSTER SLIDE ===== */
@@ -624,10 +844,25 @@
             color: var(--brand-green);
         }
 
-        .card-top-left { top: 160px; left: 100px; }
-        .card-top-right { top: 160px; right: 100px; }
-        .card-bottom-left { bottom: 200px; left: 80px; }
-        .card-bottom-right { bottom: 200px; right: 80px; }
+        .card-top-left {
+            top: 160px;
+            left: 100px;
+        }
+
+        .card-top-right {
+            top: 160px;
+            right: 100px;
+        }
+
+        .card-bottom-left {
+            bottom: 200px;
+            left: 80px;
+        }
+
+        .card-bottom-right {
+            bottom: 200px;
+            right: 80px;
+        }
 
         .cluster-connectors {
             position: absolute;
@@ -654,12 +889,24 @@
             color: var(--brand-green);
         }
 
-        .floating-icon:nth-child(2) { animation-delay: 1s; }
-        .floating-icon:nth-child(3) { animation-delay: 2s; }
+        .floating-icon:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .floating-icon:nth-child(3) {
+            animation-delay: 2s;
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         /* ===== CHANNELS SLIDE ===== */
@@ -845,11 +1092,13 @@
 
         /* ===== RESPONSIVE – MOBILE (≤768px) ===== */
         @media (max-width: 768px) {
+
             /* Sections become auto-height with minimum full viewport */
             section {
                 height: auto;
                 min-height: 100vh;
-                min-height: 100dvh;   /* dynamic viewport height for mobile browsers */
+                min-height: 100dvh;
+                /* dynamic viewport height for mobile browsers */
                 padding: 80px 0 40px;
                 scroll-snap-align: start;
             }
@@ -1365,6 +1614,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- SLIDE 1: Title -->
@@ -1382,8 +1632,10 @@
         <div class="two-col">
             <div class="text-side">
                 <h2>Organisations struggle to deliver expert guidance at scale.</h2>
-                <p>Whether it's farmers, customers, learners, or community members — people need trusted answers in their language, through channels they can actually use.</p>
-                <p style="margin-top: 16px; color: #d32f2f; font-weight: 600;">Most can't reach an expert when it matters most.</p>
+                <p>Whether it's farmers, customers, learners, or community members — people need trusted answers in
+                    their language, through channels they can actually use.</p>
+                <p style="margin-top: 16px; color: #d32f2f; font-weight: 600;">Most can't reach an expert when it
+                    matters most.</p>
             </div>
             <div class="image-side">
                 <img src="images/stressed_farmer.png" alt="Person needing guidance">
@@ -1395,7 +1647,9 @@
     <section>
         <img src="images/logo.png" alt="iNua" class="slide-logo">
         <div class="statement-slide">
-            <h2>AI experts available through <span style="color: var(--brand-green);">phone call</span>, <span style="color: var(--accent-orange);">WhatsApp</span>, and <span style="color: var(--brand-green);">SMS</span></h2>
+            <h2>AI experts available through <span style="color: var(--brand-green);">phone call</span>, <span
+                    style="color: var(--accent-orange);">WhatsApp</span>, and <span
+                    style="color: var(--brand-green);">SMS</span></h2>
             <p>Trained on your organisation's knowledge, speaking local languages, delivering guidance at any scale.</p>
         </div>
     </section>
@@ -1407,22 +1661,37 @@
             <h2>From Knowledge to Action at Scale</h2>
             <div class="structure-cards">
                 <div class="structure-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z" />
+                        </svg></div>
                     <h4>Build</h4>
                     <p>Train AI experts on your knowledge, policies, languages, and operational boundaries.</p>
                 </div>
                 <div class="structure-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
+                        </svg></div>
                     <h4>Engage</h4>
                     <p>Run inbound and outbound engagement journeys through calls, SMS, and WhatsApp.</p>
                 </div>
                 <div class="structure-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+                        </svg></div>
                     <h4>Understand</h4>
                     <p>Turn every conversation into real-time patterns and actionable operational insight.</p>
                 </div>
                 <div class="structure-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+                        </svg></div>
                     <h4>Escalate</h4>
                     <p>Automatically route urgent or complex cases to your human field teams with full context.</p>
                 </div>
@@ -1536,7 +1805,7 @@
                             <small>Disability Emergency Preparedness</small>
                         </div>
                         <div class="agent-mini" style="--agent-color: #76579d">
-                            <img src="images/tariq_full.png" alt="Tariq">
+                            <img src="images/agents/tariq.png" alt="Tariq">
                             <strong>Tariq</strong>
                             <small>Sales & Acquisition</small>
                         </div>
@@ -1558,96 +1827,853 @@
     </section>
 
     <!-- AGENT 01: iNua - Data Analyst & Intelligence Manager -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/12_iNua_Data_Analyst_LinkedIn.png" alt="iNua - Data Analyst" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">iNua</div>
+                <div class="ac-role">Data Analyst &amp; Intelligence Manager</div>
+                <div class="ac-bio">iNua synthesizes thousands of frontline voice and chat interactions into actionable
+                    operational intelligence. From live community sentiment to regional risk alerts, iNua delivers
+                    high-value decision feeds to leadership.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/inua.png" alt="iNua" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff0e0;"><span
+                            class="material-symbols-rounded" style="color:#e65100;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#e65100;">insights</span>
+                        Conversational field intelligence</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#e65100;">trending_up</span>
+                        Real-time sentiment &amp; adoption</li>
+                    <li><span class="material-symbols-rounded cc-li-icon"
+                            style="color:#e65100;">notifications_active</span> Regional risks &amp; executive alerts
+                    </li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff0e0;"><span
+                            class="material-symbols-rounded" style="color:#e65100;">forum</span></span>
+                    <h4>Sentiment &amp; Adoption</h4>
+                </div>
+                <p>Aggregate frontline community voice calls and chats into live adoption, friction, and satisfaction
+                    metrics.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff0e0;"><span
+                            class="material-symbols-rounded" style="color:#e65100;">radar</span></span>
+                    <h4>Regional Anomaly Radar</h4>
+                </div>
+                <p>Surface emerging crop distress, localized weather hazards, or supply chain bottlenecks early.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff0e0;"><span
+                            class="material-symbols-rounded" style="color:#e65100;">bolt</span></span>
+                    <h4>Executive Decision Feeds</h4>
+                </div>
+                <p>Synthesize thousands of local conversations into prioritized briefings for leadership
+                    decision-making.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 02: Chris - Agronomic -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/01_Chris_Agronomic_LinkedIn.png" alt="Chris - Agronomic" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Chris</div>
+                <div class="ac-role">Agronomic</div>
+                <div class="ac-bio">Chris provides smallholder farmers with timely, practical agronomic guidance. From
+                    seed spacing to stage-by-stage fertilizer protocols, Chris empowers farmers to make informed
+                    decisions every day of the season.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/chris.png" alt="Chris" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#2e7d32;">psychology</span>
+                        Answer agronomic questions</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#2e7d32;">eco</span> Provide
+                        crop-specific guidance</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#2e7d32;">assignment</span>
+                        Reinforce field training</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">spa</span></span>
+                    <h4>Recurring Crop Issues</h4>
+                </div>
+                <p>Identify crop stress, nutrient deficiencies, and yellowing patterns early to provide approved
+                    guidance.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">school</span></span>
+                    <h4>Training Gaps</h4>
+                </div>
+                <p>Reinforce planting spacing, input application timing, and soil management best practices 24/7.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">location_on</span></span>
+                    <h4>Areas Needing Field Visits</h4>
+                </div>
+                <p>Detect complex crop anomalies early and route urgent cases directly to extension agronomists.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 03: Josef - Financial -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/02_Josef_Financial_LinkedIn.png" alt="Josef - Financial" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Josef</div>
+                <div class="ac-role">Financial</div>
+                <div class="ac-bio">Josef explains financial services, supports loan and repayment journeys, and helps
+                    people understand their available options. From clear loan terms to respectful repayment reminders,
+                    Josef ensures transparent, accessible finance.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/josef.png" alt="Josef" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e3f2fd;"><span
+                            class="material-symbols-rounded" style="color:#1565c0;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#1565c0;">description</span>
+                        Explain products and terms</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#1565c0;">verified</span> Support
+                        onboarding &amp; literacy</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#1565c0;">notifications</span>
+                        Send repayment reminders</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e3f2fd;"><span
+                            class="material-symbols-rounded" style="color:#1565c0;">shield</span></span>
+                    <h4>Repayment Risks</h4>
+                </div>
+                <p>Proactive, respectful reminders timed to harvest cash-flows keep accounts in good standing.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e3f2fd;"><span
+                            class="material-symbols-rounded" style="color:#1565c0;">lightbulb</span></span>
+                    <h4>Points of Confusion</h4>
+                </div>
+                <p>Transparent explanations of interest, payment dates, and product terms build trust.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e3f2fd;"><span
+                            class="material-symbols-rounded" style="color:#1565c0;">trending_up</span></span>
+                    <h4>Barriers to Adoption</h4>
+                </div>
+                <p>Identify onboarding friction and guide participants step-by-step through digital finance tools.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 04: Mary - Emergency Support -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/03_Mary_Emergency_LinkedIn.png" alt="Mary - Emergency" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Mary</div>
+                <div class="ac-role">Emergency Support</div>
+                <div class="ac-bio">Mary triages critical incidents, captures urgent field reports, and provides
+                    immediate guidance during emergencies. When crisis strikes, Mary ensures frontline workers and
+                    communities receive coordinated, life-saving support.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/mary.png" alt="Mary" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#ffebee;"><span
+                            class="material-symbols-rounded" style="color:#c62828;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#c62828;">emergency</span>
+                        Receive emergency reports</li>
+                    <li><span class="material-symbols-rounded cc-li-icon"
+                            style="color:#c62828;">health_and_safety</span> Provide approved guidance</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#c62828;">edit_note</span>
+                        Capture critical information</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#ffebee;"><span
+                            class="material-symbols-rounded" style="color:#c62828;">warning</span></span>
+                    <h4>Incident Patterns</h4>
+                </div>
+                <p>Rapid intake of water point breakdowns, health crises, and severe weather incidents across regions.
+                </p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#ffebee;"><span
+                            class="material-symbols-rounded" style="color:#c62828;">fmd_bad</span></span>
+                    <h4>Geographic Risk Areas</h4>
+                </div>
+                <p>Map hazard hotspots and send proactive emergency advisories to affected communities.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#ffebee;"><span
+                            class="material-symbols-rounded" style="color:#c62828;">cell_tower</span></span>
+                    <h4>Cases Awaiting Response</h4>
+                </div>
+                <p>Detect urgency signals and route critical cases directly to rapid-response teams.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 05: Nia - Customer Support -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/04_Nia_Customer_Support_LinkedIn.png" alt="Nia - Customer Support" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Nia</div>
+                <div class="ac-role">Customer Support</div>
+                <div class="ac-bio">Nia resolves inquiries, guides program participants, and assists users through
+                    onboarding and daily service questions. Available 24/7 in local languages, Nia delivers
+                    compassionate, consistent customer care at scale.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/nia.png" alt="Nia" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e3f2fd;"><span
+                            class="material-symbols-rounded" style="color:#0277bd;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#0277bd;">support_agent</span>
+                        Answer support queries</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#0277bd;">info</span> Explain
+                        services &amp; procedures</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#0277bd;">how_to_reg</span>
+                        Support onboarding &amp; registration</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e3f2fd;"><span
+                            class="material-symbols-rounded" style="color:#0277bd;">question_answer</span></span>
+                    <h4>Common Inquiries</h4>
+                </div>
+                <p>Instant resolution of high-frequency inquiries across registration, delivery dates, and policies.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e3f2fd;"><span
+                            class="material-symbols-rounded" style="color:#0277bd;">check_circle</span></span>
+                    <h4>Resolution Rates</h4>
+                </div>
+                <p>Guide participants step-by-step through registration forms and service procedures.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e3f2fd;"><span
+                            class="material-symbols-rounded" style="color:#0277bd;">thumb_up</span></span>
+                    <h4>Satisfaction Gaps</h4>
+                </div>
+                <p>Collect sentiment feedback, surface operational bottlenecks, and track member satisfaction.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 06: Nuru - Weather Advisor -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/05_Nuru_Weather_Advisor_LinkedIn.png" alt="Nuru - Weather Advisor" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Nuru</div>
+                <div class="ac-role">Weather Advisor</div>
+                <div class="ac-bio">Nuru translates meteorology into daily farming decisions. Providing localized
+                    forecasts, extreme-weather warnings, and seasonal guidance, Nuru helps rural producers safeguard
+                    crops and maximize planting success.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/nuru.png" alt="Nuru" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e0f7fa;"><span
+                            class="material-symbols-rounded" style="color:#00838f;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon"
+                            style="color:#00838f;">partly_cloudy_day</span> Provide daily weather forecasts</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#00838f;">thunderstorm</span>
+                        Issue extreme weather alerts</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#00838f;">calendar_month</span>
+                        Give seasonal planting advisories</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e0f7fa;"><span
+                            class="material-symbols-rounded" style="color:#00838f;">wb_sunny</span></span>
+                    <h4>Localized Weather Trends</h4>
+                </div>
+                <p>Hyper-local temperature, rainfall probability, and seasonal onset updates down to the ward level.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e0f7fa;"><span
+                            class="material-symbols-rounded" style="color:#00838f;">storm</span></span>
+                    <h4>High-Risk Weather Zones</h4>
+                </div>
+                <p>Early warning alerts on severe storms, flash floods, or prolonged dry spells.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e0f7fa;"><span
+                            class="material-symbols-rounded" style="color:#00838f;">energy_savings_leaf</span></span>
+                    <h4>Planting &amp; Advisory Adoption</h4>
+                </div>
+                <p>Data-backed planting advisories timed to local rains, preventing wasted inputs and lost crops.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 07: Grace - M&E -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/06_Grace_ME_LinkedIn.png" alt="Grace - M&E" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Grace</div>
+                <div class="ac-role">M&amp;E</div>
+                <div class="ac-bio">Grace gathers frontline feedback, monitors program milestones, and flags operational
+                    bottlenecks in real time. Her data collection empowers program directors to make evidence-based
+                    adjustments before deadlines slip.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/grace.png" alt="Grace" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff3e0;"><span
+                            class="material-symbols-rounded" style="color:#ef6c00;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#ef6c00;">fact_check</span>
+                        Collect M&amp;E participant data</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#ef6c00;">track_changes</span>
+                        Track programme milestones</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#ef6c00;">search</span> Identify
+                        service-delivery gaps</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff3e0;"><span
+                            class="material-symbols-rounded" style="color:#ef6c00;">emoji_events</span></span>
+                    <h4>Programme Completion</h4>
+                </div>
+                <p>Track cohort progress, training attendance, and milestone achievements with automated check-ins.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff3e0;"><span
+                            class="material-symbols-rounded" style="color:#ef6c00;">sentiment_satisfied</span></span>
+                    <h4>Participant Satisfaction</h4>
+                </div>
+                <p>Automated conversational surveys capturing authentic participant voice and sentiment.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff3e0;"><span
+                            class="material-symbols-rounded" style="color:#ef6c00;">hourglass_bottom</span></span>
+                    <h4>Service Bottlenecks</h4>
+                </div>
+                <p>Surface distribution delays, resource constraints, and delivery bottlenecks in real time.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 08: Gift - Beekeeping Coach -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/07_Gift_Beekeeping_LinkedIn.png" alt="Gift - Beekeeping" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Gift</div>
+                <div class="ac-role">Beekeeping Coach</div>
+                <div class="ac-bio">Gift coaches apiarists through hive management, seasonal transitions, and harvest
+                    readiness. From pest monitoring to honey extraction techniques, Gift fosters sustainable, profitable
+                    beekeeping livelihoods.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/gift.png" alt="Gift" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff8e1;"><span
+                            class="material-symbols-rounded" style="color:#f57f17;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#f57f17;">hive</span> Answer
+                        beekeeping questions</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#f57f17;">manage_search</span>
+                        Guide hive inspection routines</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#f57f17;">inventory_2</span>
+                        Support harvest preparation</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff8e1;"><span
+                            class="material-symbols-rounded" style="color:#f57f17;">health_and_safety</span></span>
+                    <h4>Colony Health Patterns</h4>
+                </div>
+                <p>Early detection of hive pests, brood diseases, queen health issues, and absconding risks.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff8e1;"><span
+                            class="material-symbols-rounded" style="color:#f57f17;">event_note</span></span>
+                    <h4>Seasonal Gaps</h4>
+                </div>
+                <p>Checklists for comb maintenance, seasonal feeding, and honey super preparation.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff8e1;"><span
+                            class="material-symbols-rounded" style="color:#f57f17;">handshake</span></span>
+                    <h4>Mentor Support Needs</h4>
+                </div>
+                <p>Connect beekeepers to experienced mentors and guide post-harvest value addition.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 09: Faith - Pest & Disease Diagnosis -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/08_Faith_Pest_and_Disease_LinkedIn.png" alt="Faith - Pest and Disease" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Faith</div>
+                <div class="ac-role">Pest &amp; Disease Diagnosis</div>
+                <div class="ac-bio">Faith identifies agricultural pests and plant pathologies through conversational
+                    symptom triage. Providing approved IPM protocols and treatment advice, Faith prevents devastating
+                    crop loss.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/faith.png" alt="Faith" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#2e7d32;">biotech</span> Identify
+                        pest &amp; disease symptoms</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#2e7d32;">troubleshoot</span>
+                        Provide diagnosis guidance</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#2e7d32;">vaccines</span>
+                        Recommend approved treatments</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">bug_report</span></span>
+                    <h4>Outbreak Early Warnings</h4>
+                </div>
+                <p>Rapid symptom triage of blight, fall armyworm, and viral vectors from frontline photo or voice
+                    reports.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">shield</span></span>
+                    <h4>Treatment Effectiveness</h4>
+                </div>
+                <p>Step-by-step Integrated Pest Management (IPM) protocols balancing efficacy, cost, and safety.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">share_location</span></span>
+                    <h4>Geographic Spread</h4>
+                </div>
+                <p>Track infestation vectors across farmer clusters and issue proactive quarantine advisories.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 10: Lwazi - Disability Emergency Preparedness -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/09_Lwazi_Disability_Preparedness_LinkedIn.png" alt="Lwazi - Disability Preparedness" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Lwazi</div>
+                <div class="ac-role">Disability Emergency Preparedness</div>
+                <div class="ac-bio">Lwazi champions inclusive disaster preparedness. Ensuring individuals with
+                    disabilities and specific accessibility requirements have personalized evacuation protocols, Lwazi
+                    makes sure no community member is left behind.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/lwazi.png" alt="Lwazi" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#ede7f6;"><span
+                            class="material-symbols-rounded" style="color:#6a1b9a;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#6a1b9a;">accessible</span>
+                        Emergency preparedness plans</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#6a1b9a;">meeting_room</span>
+                        Accessible evacuation guidance</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#6a1b9a;">groups</span> Inclusive
+                        response training</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#ede7f6;"><span
+                            class="material-symbols-rounded" style="color:#6a1b9a;">diversity_3</span></span>
+                    <h4>Inclusion Gaps</h4>
+                </div>
+                <p>Identify accessibility barriers and train community volunteers on dignified, inclusive evacuation.
+                </p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#ede7f6;"><span
+                            class="material-symbols-rounded" style="color:#6a1b9a;">pin_drop</span></span>
+                    <h4>High-Risk Zones</h4>
+                </div>
+                <p>Map households with mobility, visual, or hearing impairments for prioritized first-responder
+                    assistance.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#ede7f6;"><span
+                            class="material-symbols-rounded" style="color:#6a1b9a;">campaign</span></span>
+                    <h4>Alert Response Rates</h4>
+                </div>
+                <p>Deliver accessible multi-format emergency alerts and verify safe receipt with designated caregivers.
+                </p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 11: Tariq - Sales Specialist -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/10_Tariq_Sales_Specialist_LinkedIn.png" alt="Tariq - Sales Specialist" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Tariq</div>
+                <div class="ac-role">Sales Specialist</div>
+                <div class="ac-bio">Tariq engages prospective clients, answers product inquiries, and qualifies
+                    enterprise opportunities. Guiding buyers through solution offerings, Tariq accelerates commercial
+                    pipeline conversion.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/tariq.png" alt="Tariq" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff3e0;"><span
+                            class="material-symbols-rounded" style="color:#d84315;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#d84315;">ads_click</span> Engage
+                        inbound prospects</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#d84315;">inventory_2</span>
+                        Explain services &amp; products</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#d84315;">verified</span> Qualify
+                        customer needs &amp; fit</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff3e0;"><span
+                            class="material-symbols-rounded" style="color:#d84315;">crisis_alert</span></span>
+                    <h4>Qualified Opportunities</h4>
+                </div>
+                <p>Engage prospective buyers, assess readiness and budget, and route qualified enterprise leads to human
+                    sales.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff3e0;"><span
+                            class="material-symbols-rounded" style="color:#d84315;">help</span></span>
+                    <h4>Prospect Questions</h4>
+                </div>
+                <p>Deliver instant, accurate product specifications, pricing model walkthroughs, and technical
+                    compatibility answers.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#fff3e0;"><span
+                            class="material-symbols-rounded" style="color:#d84315;">bar_chart</span></span>
+                    <h4>Regional Demand Trends</h4>
+                </div>
+                <p>Empower distributed agent networks with on-demand sales enablement collateral and objection scripts.
+                </p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 12: Amara - Fundraising Expert -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/11_Amara_Fundraising_Expert_LinkedIn.png" alt="Amara - Fundraising Expert" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Amara</div>
+                <div class="ac-role">Fundraising Expert</div>
+                <div class="ac-bio">Amara scales donor engagement, answers contribution queries, and guides supporters
+                    through giving journeys. With transparent updates and personalized gratitude, Amara turns one-time
+                    donors into lifelong mission partners.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/amara.png" alt="Amara" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#2e7d32;">favorite</span>
+                        Personalized donor engagement</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#2e7d32;">payments</span> Local
+                        &amp; diaspora payment support</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#2e7d32;">mark_email_read</span>
+                        Automated receipting &amp; gratitude</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">volunteer_activism</span></span>
+                    <h4>Donor Engagement</h4>
+                </div>
+                <p>Connect with supporters through natural, personalized conversations that convey genuine gratitude and
+                    mission impact.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">savings</span></span>
+                    <h4>Campaign Conversion</h4>
+                </div>
+                <p>Seamless donation completion via Mobile Money, credit card, and international remittance channels.
+                </p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e8f5e9;"><span
+                            class="material-symbols-rounded" style="color:#2e7d32;">redeem</span></span>
+                    <h4>Giving Trends &amp; Gratitude</h4>
+                </div>
+                <p>Analyze contribution trends across regions and deliver tailored gratitude messages to recurring
+                    champions.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
 
     <!-- AGENT 13: Baraka - Aquaculture Expert Advisor -->
-    <section class="agent-full-slide">
-        <div class="scale-wrapper">
-            <img src="images/13_Baraka_Aquaculture_Expert_LinkedIn.png" alt="Baraka - Aquaculture Expert" class="agent-slide-img">
+    <section class="agent-full-slide cluster-slide">
+        <div class="landscape-bg"></div>
+        <div class="cluster-container scale-wrapper">
+            <div class="agent-cluster-title">
+                <div class="ac-name">Baraka</div>
+                <div class="ac-role">Aquaculture Expert Advisor</div>
+                <div class="ac-bio">Baraka guides fish farmers through water quality maintenance, feed optimization, and
+                    disease prevention. From fingerling stocking to harvest timing, Baraka drives high-yield,
+                    sustainable aquatic farming.</div>
+            </div>
+            <svg class="agent-cluster-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#eab683" />
+                    </marker>
+                </defs>
+                <path d="M 450 380 L 330 380" marker-end="url(#arrow3)" />
+                <path d="M 450 680 L 350 680" marker-end="url(#arrow3)" />
+                <path d="M 550 350 L 670 350" marker-end="url(#arrow3)" />
+                <path d="M 550 680 L 650 680" marker-end="url(#arrow3)" />
+            </svg>
+            <div class="agent-char-glow"></div>
+            <img src="images/agents/baraka.png" alt="Baraka" class="agent-cluster-char">
+            <div class="cluster-card card-top-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e0f7fa;"><span
+                            class="material-symbols-rounded" style="color:#0277bd;">task_alt</span></span>
+                    <h4>We will help you with</h4>
+                </div>
+                <ul class="cc-checklist">
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#0277bd;">water_drop</span> Water
+                        quality &amp; pond health</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#0277bd;">set_meal</span> Feed
+                        schedules &amp; nutrition</li>
+                    <li><span class="material-symbols-rounded cc-li-icon" style="color:#0277bd;">security</span> Disease
+                        prevention &amp; biosecurity</li>
+                </ul>
+            </div>
+            <div class="cluster-card card-bottom-left">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e0f7fa;"><span
+                            class="material-symbols-rounded" style="color:#0277bd;">waves</span></span>
+                    <h4>Water Quality &amp; Pond Health</h4>
+                </div>
+                <p>Monitor dissolved oxygen, pH, temperature, and algal bloom risks with simple corrective steps.</p>
+            </div>
+            <div class="cluster-card card-top-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e0f7fa;"><span
+                            class="material-symbols-rounded" style="color:#0277bd;">speed</span></span>
+                    <h4>Feed Optimization &amp; Growth</h4>
+                </div>
+                <p>Provide stage-specific feeding rates and pellet sizes to maximize feed conversion ratios and minimize
+                    pond fouling.</p>
+            </div>
+            <div class="cluster-card card-bottom-right">
+                <div class="cc-icon-row"><span class="cc-badge" style="background:#e0f7fa;"><span
+                            class="material-symbols-rounded" style="color:#0277bd;">storefront</span></span>
+                    <h4>Harvest &amp; Market Timing</h4>
+                </div>
+                <p>Coordinate grading schedules, cold-chain handling, and local market linkages for top-grade fish
+                    yields.</p>
+            </div>
+            <div class="agent-watermark"><img src="images/logo.png" alt="iNua Technologies"></div>
         </div>
     </section>
-
     <!-- SLIDE 11: Channels -->
     <section class="cards-section" style="position: relative;">
         <img src="images/logo.png" alt="iNua" class="slide-logo">
@@ -1656,17 +2682,31 @@
             <h2>Reach people through the channels they already use.</h2>
             <div class="channels-cards" style="margin-top: 50px;">
                 <div class="channel-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+                        </svg></div>
                     <h4>Phone Calls</h4>
                     <p>Inbound and outbound voice conversations in local languages. No smartphone required.</p>
                 </div>
                 <div class="channel-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z" />
+                        </svg></div>
                     <h4>SMS</h4>
                     <p>Low-data text engagement for alerts, reminders, and quick answers.</p>
                 </div>
                 <div class="channel-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="currentColor"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.04-1.24.69-1.82.95-2.07.25-.25.54-.31.71-.31h.53c.17 0 .39-.03.61.46.22.49.74 1.81.81 1.94.07.13.11.28.02.45-.09.17-.14.27-.27.42l-.39.47c-.12.14-.26.29-.11.57.14.27.64 1.11 1.38 1.81.95.89 1.74 1.17 1.98 1.3.25.13.39.11.54-.07.14-.18.62-.72.78-.97.17-.24.33-.2.56-.12.23.08 1.47.69 1.72.82z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.77.47 3.44 1.29 4.88L2 22l5.23-1.25C8.67 21.54 10.29 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.55 0-3.01-.42-4.25-1.16l-.3-.18-3.12.75.78-3.01-.2-.32C4.29 14.93 3.87 13.51 3.87 12c0-4.48 3.65-8.13 8.13-8.13S20.13 7.52 20.13 12 16.48 20 12 20z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.04-1.24.69-1.82.95-2.07.25-.25.54-.31.71-.31h.53c.17 0 .39-.03.61.46.22.49.74 1.81.81 1.94.07.13.11.28.02.45-.09.17-.14.27-.27.42l-.39.47c-.12.14-.26.29-.11.57.14.27.64 1.11 1.38 1.81.95.89 1.74 1.17 1.98 1.3.25.13.39.11.54-.07.14-.18.62-.72.78-.97.17-.24.33-.2.56-.12.23.08 1.47.69 1.72.82z" />
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12c0 1.77.47 3.44 1.29 4.88L2 22l5.23-1.25C8.67 21.54 10.29 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.55 0-3.01-.42-4.25-1.16l-.3-.18-3.12.75.78-3.01-.2-.32C4.29 14.93 3.87 13.51 3.87 12c0-4.48 3.65-8.13 8.13-8.13S20.13 7.52 20.13 12 16.48 20 12 20z" />
+                        </svg></div>
                     <h4>WhatsApp</h4>
                     <p>Rich conversational support with images, voice notes, and structured flows.</p>
                 </div>
@@ -1679,9 +2719,12 @@
         <img src="images/logo.png" alt="iNua" class="slide-logo">
         <div class="landscape-bg"></div>
         <div class="content-container" style="position: relative; z-index: 2;">
-            <h2 style="font-size: 44px; margin-bottom: 16px;">See every conversation, need, opportunity, and escalation.</h2>
-            <p style="font-size: 20px; color: var(--text-color); max-width: 750px; margin: 0 auto 40px;">A shared dashboard gives teams visibility across every expert and every population they serve.</p>
-            <img src="images/dashboard-laptop.png" alt="iNua Technologies Insights Dashboard" style="max-width: 900px; width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.12);">
+            <h2 style="font-size: 44px; margin-bottom: 16px;">See every conversation, need, opportunity, and escalation.
+            </h2>
+            <p style="font-size: 20px; color: var(--text-color); max-width: 750px; margin: 0 auto 40px;">A shared
+                dashboard gives teams visibility across every expert and every population they serve.</p>
+            <img src="images/dashboard-laptop.png" alt="iNua Technologies Insights Dashboard"
+                style="max-width: 900px; width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.12);">
         </div>
     </section>
 
@@ -1693,32 +2736,55 @@
             <h2>What can your AI team do?</h2>
             <div class="six-grid" style="margin-top: 40px;">
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z" />
+                        </svg></div>
                     <h4>On-demand Guidance</h4>
                     <p>Deliver approved answers in local languages, anytime.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z" />
+                        </svg></div>
                     <h4>Continuous Feedback</h4>
                     <p>Turn natural conversations into structured operational insights.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                        </svg></div>
                     <h4>Training Reinforcement</h4>
                     <p>Follow up after sessions, check understanding, track application.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z" />
+                        </svg></div>
                     <h4>Alerts & Escalation</h4>
                     <p>Detect risk signals and route urgent cases to human teams.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                        </svg></div>
                     <h4>Network Support</h4>
                     <p>Onboard members, provide role-specific guidance, surface issues.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M18.36 9l.6 3H5.04l.6-3h12.72M20 4H4v2h16V4zm0 3H4l-1 5v2h1v6h10v-6h4v6h2v-6h1v-2l-1-5zM6 18v-4h6v4H6z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.36 9l.6 3H5.04l.6-3h12.72M20 4H4v2h16V4zm0 3H4l-1 5v2h1v6h10v-6h4v6h2v-6h1v-2l-1-5zM6 18v-4h6v4H6z" />
+                        </svg></div>
                     <h4>Sales & Conversion</h4>
                     <p>Qualify prospects, provide product info, hand off sales-ready leads.</p>
                 </div>
@@ -1734,32 +2800,55 @@
             <h2>Adapted to the realities of your sector.</h2>
             <div class="six-grid" style="margin-top: 40px;">
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z" />
+                        </svg></div>
                     <h4>Agriculture & Food Systems</h4>
                     <p>Agronomic advisory, training, supplier support, input sales.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z" />
+                        </svg></div>
                     <h4>Financial Services</h4>
                     <p>Financial guidance, loan follow-up, customer support, lead conversion.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                        </svg></div>
                     <h4>Education</h4>
                     <p>Learning support, training reinforcement, reminders, feedback.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M17.73 12.02l3.98-3.98c.39-.39.39-1.02 0-1.41l-4.34-4.34c-.39-.39-1.02-.39-1.41 0l-3.98 3.98L8 2.29C7.8 2.1 7.55 2 7.29 2c-.25 0-.51.1-.7.29L2.25 6.63c-.39.39-.39 1.02 0 1.41l3.98 3.98L2.25 16c-.39.39-.39 1.02 0 1.41l4.34 4.34c.39.39 1.02.39 1.41 0l3.98-3.98 3.98 3.98c.2.2.45.29.71.29.26 0 .51-.1.71-.29l4.34-4.34c.39-.39.39-1.02 0-1.41l-3.99-3.98zM12 9c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-4.71 1.96L3.66 7.34l3.63-3.63 3.62 3.62-3.62 3.63zM10 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2.66 9.34l-3.63-3.62 3.63-3.63 3.62 3.63-3.62 3.62z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.73 12.02l3.98-3.98c.39-.39.39-1.02 0-1.41l-4.34-4.34c-.39-.39-1.02-.39-1.41 0l-3.98 3.98L8 2.29C7.8 2.1 7.55 2 7.29 2c-.25 0-.51.1-.7.29L2.25 6.63c-.39.39-.39 1.02 0 1.41l3.98 3.98L2.25 16c-.39.39-.39 1.02 0 1.41l4.34 4.34c.39.39 1.02.39 1.41 0l3.98-3.98 3.98 3.98c.2.2.45.29.71.29.26 0 .51-.1.71-.29l4.34-4.34c.39-.39.39-1.02 0-1.41l-3.99-3.98zM12 9c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-4.71 1.96L3.66 7.34l3.63-3.63 3.62 3.62-3.62 3.63zM10 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2.66 9.34l-3.63-3.62 3.63-3.63 3.62 3.63-3.62 3.62z" />
+                        </svg></div>
                     <h4>WASH & Humanitarian</h4>
                     <p>Emergency guidance, incident reporting, community support.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+                        </svg></div>
                     <h4>Advocacy & Civil Rights</h4>
                     <p>Rights information, case intake, community feedback, escalation.</p>
                 </div>
                 <div class="grid-card">
-                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
+                    <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                        </svg></div>
                     <h4>Distributed Networks</h4>
                     <p>Sales support, network onboarding, product guidance at scale.</p>
                 </div>
@@ -1777,12 +2866,14 @@
                 <div class="trust-card">
                     <div class="card-icon"><i class="ph ph-translate"></i></div>
                     <h4>Local-Language First</h4>
-                    <p>Every interaction happens in the language and dialect people know best. Zero literacy barriers.</p>
+                    <p>Every interaction happens in the language and dialect people know best. Zero literacy barriers.
+                    </p>
                 </div>
                 <div class="trust-card">
                     <div class="card-icon"><i class="ph ph-shield-check"></i></div>
                     <h4>Strict Knowledge Compliance</h4>
-                    <p>Experts share only organisation-approved information. No hallucination, no off-script answers.</p>
+                    <p>Experts share only organisation-approved information. No hallucination, no off-script answers.
+                    </p>
                 </div>
                 <div class="trust-card">
                     <div class="card-icon"><i class="ph ph-users"></i></div>
@@ -1815,9 +2906,12 @@
         <div class="content-container">
             <h1>Thank You</h1>
             <h3>iNua Technologies</h3>
-            <p style="margin-top: 20px; font-size: 18px; color: var(--text-color);">Listen. Learn. Support. At scale.</p>
+            <p style="margin-top: 20px; font-size: 18px; color: var(--text-color);">Listen. Learn. Support. At scale.
+            </p>
         </div>
-        <p style="position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; font-size: 13px; color: var(--text-color); opacity: 0.7; letter-spacing: 0.02em;">&copy; iNua Technologies. All rights reserved.</p>
+        <p
+            style="position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; font-size: 13px; color: var(--text-color); opacity: 0.7; letter-spacing: 0.02em;">
+            &copy; iNua Technologies. All rights reserved.</p>
     </section>
 
     <script>
@@ -1829,13 +2923,11 @@
                 const parent = wrapper.parentElement;
                 const parentW = parent.clientWidth;
                 const parentH = parent.clientHeight;
-                const isAgentSlide = parent.classList.contains('agent-full-slide');
                 const targetW = 1920;
-                const targetH = isAgentSlide ? 1080 : 945;
+                const targetH = 945;
                 const scaleX = parentW / targetW;
                 const scaleY = parentH / targetH;
-                // For agent full-bleed slides, fill the screen edge-to-edge
-                const scale = isAgentSlide ? Math.max(scaleX, scaleY) : Math.min(scaleX, scaleY);
+                const scale = Math.min(scaleX, scaleY);
                 wrapper.style.transform = `translate(-50%, -50%) scale(${scale})`;
             });
         }
@@ -1844,7 +2936,7 @@
         adjustScales();
 
         // Carousel navigation
-        (function() {
+        (function () {
             const viewport = document.getElementById('showcaseViewport');
             const prevBtn = document.getElementById('carouselPrev');
             const nextBtn = document.getElementById('carouselNext');
@@ -1873,7 +2965,7 @@
         })();
 
         // Navigation: spacebar and click to advance
-        (function() {
+        (function () {
             function getNextSection() {
                 const sections = Array.from(document.querySelectorAll('section'));
                 const scrollY = window.scrollY || window.pageYOffset;
@@ -1885,7 +2977,7 @@
                 return null;
             }
 
-            document.addEventListener('keydown', function(e) {
+            document.addEventListener('keydown', function (e) {
                 if (e.code === 'Space' || e.key === ' ') {
                     const tag = document.activeElement.tagName.toLowerCase();
                     if (['input', 'textarea', 'select', 'button'].includes(tag)) return;
@@ -1895,7 +2987,7 @@
                 }
             });
 
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (e.target.closest('a, button, input, select, textarea, .agents-carousel-wrapper')) return;
                 if (window.getSelection().toString().length > 0) return;
                 const next = getNextSection();
@@ -1904,4 +2996,5 @@
         })();
     </script>
 </body>
+
 </html>
